@@ -9,3 +9,5 @@ New registry maps include 16 Cu/Ni candidates and 7 Cu/Ni₂Si candidates across
 Methods and scope are shown per record. Formation energies, adhesion energies, interface energies and free-surface energies are distinct quantities. Ranking within a calculation group is not an experimental alloy recommendation. DFT accuracy and dilute-limit validation remain future work.
 
 Only curated public artifacts are included. The private research repository, HPC access details and raw operational logs are not published.
+
+Cu/Ni also provides an interactive rigid-sliding path: 21 stored Omni-MPA single-point calculations, continuous Ni translation and piecewise-linear relative energy (ΔE/A). Cu, cell and interlayer spacing stay fixed; this is distinct from the relaxed registry maps. Path samples are not counted as extra catalog records.
