@@ -1,17 +1,80 @@
 # Alloy & Interface Database
 
-MLIP-based alloy-element and interface screening prototype. Public read-only database; no remote calculation API.
+머신러닝 원자간 포텐셜(MLIP)로 계산한 금속 표면·계면·합금 첨가 원소 물성을 모아 검색·비교·시각화하는 공개 조회용 데이터베이스입니다. 구조 생성 → MLIP 계산 → 원본 검증 → DB 수록은 내부 자동화 도구로 수행하고, 이 저장소에는 검증된 결과만 공개합니다.
 
-68 Omni-MPA records: 33 bulk substitutions, 30 interface candidates and 5 free-surface/Wulff datasets (29 surface directions). Browse surfaces first, then interfaces grouped by material pair and calculation set; bulk substitutions remain supplementary.
+MLIP-based database of metal surfaces, interfaces and alloying-element energetics. Read-only public view; structure generation, calculation and validation run in an internal pipeline.
 
-New registry maps include 16 Cu/Ni candidates and 7 Cu/Ni₂Si candidates across two orientations; one close-contact initial structure is excluded. Map cells open the corresponding relaxed geometry. Initial shifts are freely atom-relaxed at fixed cell, so these are not constrained sliding-barrier maps. Translation/permutation similarity groups and four limited Cu/Ni thickness/lateral-size checks are included. Related-material links connect free-surface and interface views.
+- 사이트: https://hexagonrose.github.io/interface-platform-db/
+- 2026-11-18 기준 고정본: [`v2026.11.18`](https://github.com/hexagonrose/interface-platform-db/tree/v2026.11.18) (`catalog.json` SHA-256 `d8603adfc76383a25a35084e733451b60c2b73f7cad4327840cc68f273e836a5`)
+- 계산 모델: SevenNet-Omni, MPA modal
 
-Methods and scope are shown per record. Formation energies, adhesion energies, interface energies and free-surface energies are distinct quantities. Ranking within a calculation group is not an experimental alloy recommendation. DFT accuracy and dilute-limit validation remain future work.
+## 연구 계획 대응
 
-Only curated public artifacts are included. The private research repository, HPC access details and raw operational logs are not published.
+2025년(2단계 1차년도) 보고서의 차년도 계획 "합금 원소 및 이질상 구성 원소 분석용 자동화 플랫폼 구축"에 대응하는 결과물입니다.
 
-Cu/Ni also provides an interactive rigid-sliding path: 21 stored Omni-MPA single-point calculations, continuous Ni translation and piecewise-linear relative energy (ΔE/A). Cu, cell and interlayer spacing stay fixed; this is distinct from the relaxed registry maps. Path samples are not counted as extra catalog records.
+| 계획 내용 | 현재 구현 |
+|---|---|
+| 원소 제약 없이 MLIP로 물성 데이터베이스 구축 | Omni-MPA 기준 표면·계면·벌크 용질 DB 68건 |
+| Cu-Ni-Si 합금의 이질상/기지 계면 | Cu/Ni, Cu/Ni₂Si, Cu/G-phase 계면 30건, 초기 이동별 계면 지도, Cu/Ni 강체 미끄럼 경로, Cu×Ni 면 조합 격자 매칭 후보 |
+| Al-Zn 등 첨가 원소 선정 | Cu·Al·Zn 모재의 용질 형성에너지 33건(히트맵), Cu/G-phase 계면 Al 편석 시범 |
+| 물질 선정·구조 생성 등 데이터 생산 자동화 | 치환 구조 생성 → MLIP 완화 → 원본 검증 → DB 수록 자동화(신규 계산 3건으로 실증) |
+| 후보군의 양자계산 검증 | 후속 계획(현재 DFT 검증 미수행) |
 
-The Cu/Ni facet-pair view adds 18 unrelaxed ZSL matching candidates from six Cu and three Ni surface directions. It reports Ni in-plane principal strain, supercell size and geometry under explicit search limits. Candidate interface energies have not been calculated; these candidates are separate from the 68 result records.
+## 데이터 생산 흐름
 
-Cu/G-phase now includes an Al segregation pilot: six substitution sites at each of two Cu thicknesses (6/12 layers, 112/166 atoms). The 12 substituted structures and two pristine references were audited against original energies, forces, composition, cell and hashes. Each thickness uses its own interior substitution site as the zero of Eseg, in eV. These data are separate from the 68 records and from bulk formation energies. The view links each energy to its relaxed geometry, highlights Al, compares thickness sensitivity, and exports site-specific JSON/EXTXYZ and a 12-site CSV. Direct links retain thickness and site selection. Complete thickness/dilute-limit convergence and DFT accuracy remain unverified.
+```mermaid
+flowchart LR
+  A[물질·첨가 원소 선택] --> B[구조 생성<br/>치환·슬랩·계면]
+  B --> C[SevenNet-Omni MPA<br/>구조 완화·에너지]
+  C --> D[원본 검증<br/>에너지·힘·조성·셀·해시]
+  D -->|통과| E[DB 수록<br/>catalog.json]
+  D -->|불일치·미수렴| X[제외]
+  E --> F[공개 조회<br/>검색·비교·시각화·다운로드]
+```
+
+공개 사이트에는 계산 제출 기능이 없습니다. 내부 경로, HPC 접속 정보, 실행 로그는 공개하지 않습니다.
+
+## 수록 현황 (v2026.11.18)
+
+DB 등록 68건:
+
+| 분야 | 건수 | 내용 |
+|---|---:|---|
+| 표면·Wulff | 5 | Cu 6, Ni 3, Ni₂Si 8, Al 6, Zn 6 방향 (총 29개 결정면 표면에너지와 Wulff 형상) |
+| 계면 | 30 | Cu/Ni 20, Cu/Ni₂Si 9, Cu/G-phase 1 (접합일 또는 계면에너지) |
+| 벌크 첨가 원소 | 33 | Cu·Al·Zn 모재 각 10종(기존 계산) + Cu 모재 Al·Zn·Mg 신규 자동 계산 3건 |
+
+68건과 별도로 제공하는 자료:
+
+- Cu/Ni 강체 미끄럼 경로 21점(단일점 계산)
+- Cu 6방향 × Ni 3방향 격자 매칭 후보 18개(미완화, 에너지 미계산)
+- Cu/G-phase Al 편석 시범: Cu 6층·12층 × 6자리, 치환 12구조와 무첨가 2구조
+
+## 사이트 기능
+
+- 표면: 물질별 결정면 표면에너지 순위, Wulff 형상, 완화된 슬랩 구조
+- 계면: 물질쌍·계산 세트별 구조와 에너지, 초기 이동 위치별 지도, 강체 미끄럼 슬라이더, 면 조합 후보, Al 편석 자리 비교
+- 벌크 첨가 원소: 모재·계산 세트별 히트맵(기존/신규 계산 분리)
+- 모든 결과의 구조(EXTXYZ)·값(JSON/CSV) 다운로드, 직접 링크, 라이트/다크 모드
+
+## 해석 범위
+
+- 형성에너지, 접합일, 계면에너지, 자유표면에너지, 편석에너지는 서로 다른 물리량입니다. 같은 계산 세트 안에서만 비교합니다.
+- 값은 SevenNet-Omni(MPA) 계산값이며 DFT 정확도 검증은 후속 과제입니다. 계산 세트 안의 순위는 실험적 합금 추천이 아닙니다.
+- 자유표면 Wulff 형상은 기지 내 석출물 형상과 다릅니다.
+- 초기 이동별 계면 지도는 고정 셀에서 원자를 자유 완화한 결과로, 구속된 미끄럼 장벽 지도가 아닙니다. 강체 미끄럼 경로는 원자 완화 없는 단일점 계산입니다.
+- 격자 매칭 후보는 지정한 탐색 한도 안의 대표 후보이며 계면에너지는 계산하지 않았습니다.
+- 편석 시범은 대표 자리·두 두께의 결과입니다. 전체 자리, 두께·희석 한계 수렴, DFT 정확도는 검증하지 않았습니다.
+
+## 파일
+
+- `index.html`: 사이트(데이터 포함 단일 파일)
+- `catalog.json`: 전체 DB. `records`(68건), `sliding`, `matching`, `segregation`, `model_policy`, `scope`
+
+## 갱신 이력
+
+- 2026-11-18: 구조 표시 개선(셀 경계에서 원자 열이 갈라져 보이던 문제 해소, 편석 화면 표·구조 2단 배치)
+- 2026-11-18: Cu/G-phase Al 편석 시범 공개, 보고서 기준 고정본 `v2026.11.18` 태그
+- 2026-11-13: 사이트 공개. Omni-MPA 기준으로 DB 정리, Al·Zn 표면 확장, 계면 지도·강체 미끄럼·격자 매칭 후보, 벌크 첨가 원소 히트맵 추가
+
+DB는 검증된 계산을 추가하며 계속 갱신합니다. 보고서 인용 시에는 고정본 태그를 사용하십시오.
