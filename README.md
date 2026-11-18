@@ -14,10 +14,10 @@ MLIP-based database of metal surfaces, interfaces and alloying-element energetic
 
 | 계획 내용 | 현재 구현 |
 |---|---|
-| 원소 제약 없이 MLIP로 물성 데이터베이스 구축 | Omni-MPA 기준 표면·계면·벌크 용질 DB 68건 |
-| Cu-Ni-Si 합금의 이질상/기지 계면 | Cu/Ni, Cu/Ni₂Si, Cu/G-phase 계면 30건, 초기 이동별 계면 지도, Cu/Ni 강체 미끄럼 경로, Cu×Ni 면 조합 격자 매칭 후보 |
+| 원소 제약 없이 MLIP로 물성 데이터베이스 구축 | Omni-MPA 기준 표면·계면·벌크 용질 DB 80건(2026-11-18 고정본 68건) |
+| Cu-Ni-Si 합금의 이질상/기지 계면 | Cu/Ni, Cu/Ni₂Si, Cu/G-phase, Al/Zn 계면 42건, 초기 이동별 계면 지도, Cu/Ni 강체 미끄럼 경로, Cu×Ni 면 조합 격자 매칭 후보 |
 | Al-Zn 등 첨가 원소 선정 | Cu·Al·Zn 모재의 용질 형성에너지 33건(히트맵), Cu/G-phase 계면 Al 편석 시범 |
-| 물질 선정·구조 생성 등 데이터 생산 자동화 | 치환 구조 생성 → MLIP 완화 → 원본 검증 → DB 수록 자동화(신규 계산 3건으로 실증) |
+| 물질 선정·구조 생성 등 데이터 생산 자동화 | 치환 구조 생성 → MLIP 완화 → 원본 검증 → DB 수록 자동화(벌크 신규 3건), 계면 만들기 후보 → MLIP 완화 → DB 등록(12건) |
 | 후보군의 양자계산 검증 | 후속 계획(현재 DFT 검증 미수행) |
 
 ## 데이터 생산 흐름
@@ -34,14 +34,14 @@ flowchart LR
 
 공개 사이트에는 계산 제출 기능이 없습니다. 내부 경로, HPC 접속 정보, 실행 로그는 공개하지 않습니다.
 
-## 수록 현황 (v2026.11.18)
+## 수록 현황
 
-DB 등록 68건:
+DB 등록 80건 (보고서 기준 고정본 `v2026.11.18`은 68건: 계면 30건):
 
 | 분야 | 건수 | 내용 |
 |---|---:|---|
 | 표면·Wulff | 5 | Cu 6, Ni 3, Ni₂Si 8, Al 6, Zn 6 방향 (총 29개 결정면 표면에너지와 Wulff 형상) |
-| 계면 | 30 | Cu/Ni 20, Cu/Ni₂Si 9, Cu/G-phase 1 (접합일 또는 계면에너지) |
+| 계면 | 42 | Cu/Ni 24, Cu/Ni₂Si 13, Cu/G-phase 1, Al/Zn 4 (접합일 또는 계면에너지). 이 중 12건은 계면 만들기 후보 표본 |
 | 벌크 첨가 원소 | 33 | Cu·Al·Zn 모재 각 10종(기존 계산) + Cu 모재 Al·Zn·Mg 신규 자동 계산 3건 |
 
 68건과 별도로 제공하는 자료:
@@ -72,10 +72,11 @@ DB 등록 68건:
 
 - `index.html`: 사이트(데이터 포함 단일 파일)
 - `builder.html`: 계면 만들기(표면 슬랩·격자 매칭 후보 포함 단일 파일)
-- `catalog.json`: 전체 DB. `records`(68건), `sliding`, `matching`, `segregation`, `model_policy`, `scope`
+- `catalog.json`: 전체 DB. `records`(80건), `sliding`, `matching`, `segregation`, `model_policy`, `scope`
 
 ## 갱신 이력
 
+- 2026-11-18: 계면 만들기 후보 12개(Cu/Ni·Cu/Ni₂Si·Al/Zn 각 4)를 MLIP로 완화해 접합일 등록(DB 80건)
 - 2026-11-18: 계면 만들기 페이지 추가
 - 2026-11-18: 구조 표시 개선(셀 경계에서 원자 열이 갈라져 보이던 문제 해소, 편석 화면 표·구조 2단 배치)
 - 2026-11-18: Cu/G-phase Al 편석 시범 공개, 보고서 기준 고정본 `v2026.11.18` 태그
