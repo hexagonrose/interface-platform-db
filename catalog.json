@@ -141332,7 +141332,14 @@
       "builder-al111-zn001-c4": 0.788137990826924,
       "builder-al110-zn110-c1": 1.3004862906401233,
       "builder-al100-zn100-c1": 1.1613314626533193,
-      "builder-al210-zn001-c1": 0.922898221346262
+      "builder-al210-zn001-c1": 0.922898221346262,
+      "cuni-interface_0_0": 3.6005775354398053,
+      "cuni-interface_0_1": 2.6351188985571063,
+      "cuni-interface_1_0": 2.6351184695768124,
+      "cuni-interface_1_1": 2.0189876449153967,
+      "cuni2si-001-mpa": 0.38949716639694965,
+      "cuni2si-010-mpa": 0.5617394243599646,
+      "cugphase-mpa": 1.0308981089840825
     },
     "segregation": {
       "cu6": {
@@ -141354,7 +141361,8 @@
     },
     "sources_sha256": {
       "04_summary.json": "91863812d28c800bf2aa4e4e5926b3a4bc144235884a04500c485041966aa163",
-      "11_surface_results/result.json": "2324f4c9d5f4583a15f9c18ad7f314000b54081f89c4eab79f2a089a72614254"
+      "11_surface_results/result.json": "2324f4c9d5f4583a15f9c18ad7f314000b54081f89c4eab79f2a089a72614254",
+      "15_rest_results/result.json": "3e2472de11996ead44a0ba3ae831c76e6207003d4e0f056ab1aa906757957198"
     }
   }
 }
