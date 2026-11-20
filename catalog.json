@@ -9,15 +9,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(100) / Ni(100) · 이동 (0, 0)",
+      "title": "Cu(100) / Ni(100) · shift (0, 0)",
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0, 0)",
+      "combination_label": "shift (0, 0)",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 3.5879869861647844,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni",
-      "comparison_label": "Cu/Ni 6층 · 4×4 이동",
+      "comparison_label": "Cu/Ni 6층 · 4×4 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -345,8 +345,8 @@
         "area_A2": 26.238671659684126,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.00574304000285563,
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -93.58920288085938,
           -131.14382934570312
@@ -362,7 +362,7 @@
             1.0,
             0.25
           ],
-          "coordinates": "u/v = Ni 표면 반복셀 분율",
+          "coordinates": "u/v = Ni surface 반복셀 분율",
           "plane_axes": [
             0,
             1
@@ -419,7 +419,7 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
         "두 대표점의 두께/면내크기 민감도만 확인. 전체 수렴 또는 DFT 검증이 아님."
       ]
@@ -431,15 +431,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(100) / Ni(100) · 이동 (0, 0.25)",
+      "title": "Cu(100) / Ni(100) · shift (0, 0.25)",
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0, 0.25)",
+      "combination_label": "shift (0, 0.25)",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 3.5879031307468936,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni",
-      "comparison_label": "Cu/Ni 6층 · 4×4 이동",
+      "comparison_label": "Cu/Ni 6층 · 4×4 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -767,8 +767,8 @@
         "area_A2": 26.238671659684126,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.00789166830821595,
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -93.58920288085938,
           -131.14382934570312
@@ -784,7 +784,7 @@
             1.0,
             0.25
           ],
-          "coordinates": "u/v = Ni 표면 반복셀 분율",
+          "coordinates": "u/v = Ni surface 반복셀 분율",
           "plane_axes": [
             0,
             1
@@ -841,7 +841,7 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
         "두 대표점의 두께/면내크기 민감도만 확인. 전체 수렴 또는 DFT 검증이 아님."
       ]
@@ -853,15 +853,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(100) / Ni(100) · 이동 (0, 0.5)",
+      "title": "Cu(100) / Ni(100) · shift (0, 0.5)",
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0, 0.5)",
+      "combination_label": "shift (0, 0.5)",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 2.594495946803168,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni",
-      "comparison_label": "Cu/Ni 6층 · 4×4 이동",
+      "comparison_label": "Cu/Ni 6층 · 4×4 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -1189,8 +1189,8 @@
         "area_A2": 26.238671659684126,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.009428250007790418,
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -93.58920288085938,
           -131.14382934570312
@@ -1206,7 +1206,7 @@
             1.0,
             0.25
           ],
-          "coordinates": "u/v = Ni 표면 반복셀 분율",
+          "coordinates": "u/v = Ni surface 반복셀 분율",
           "plane_axes": [
             0,
             1
@@ -1263,7 +1263,7 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
         "두 대표점의 두께/면내크기 민감도만 확인. 전체 수렴 또는 DFT 검증이 아님."
       ]
@@ -1275,15 +1275,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(100) / Ni(100) · 이동 (0, 0.75)",
+      "title": "Cu(100) / Ni(100) · shift (0, 0.75)",
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0, 0.75)",
+      "combination_label": "shift (0, 0.75)",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 3.5879031307468936,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni",
-      "comparison_label": "Cu/Ni 6층 · 4×4 이동",
+      "comparison_label": "Cu/Ni 6층 · 4×4 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -1611,8 +1611,8 @@
         "area_A2": 26.238671659684126,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.007891571320256823,
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -93.58920288085938,
           -131.14382934570312
@@ -1628,7 +1628,7 @@
             1.0,
             0.25
           ],
-          "coordinates": "u/v = Ni 표면 반복셀 분율",
+          "coordinates": "u/v = Ni surface 반복셀 분율",
           "plane_axes": [
             0,
             1
@@ -1685,7 +1685,7 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
         "두 대표점의 두께/면내크기 민감도만 확인. 전체 수렴 또는 DFT 검증이 아님."
       ]
@@ -1697,15 +1697,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(100) / Ni(100) · 이동 (0.25, 0)",
+      "title": "Cu(100) / Ni(100) · shift (0.25, 0)",
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0.25, 0)",
+      "combination_label": "shift (0.25, 0)",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 3.5879031307468936,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni",
-      "comparison_label": "Cu/Ni 6층 · 4×4 이동",
+      "comparison_label": "Cu/Ni 6층 · 4×4 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -2033,8 +2033,8 @@
         "area_A2": 26.238671659684126,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.00788948960276899,
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -93.58920288085938,
           -131.14382934570312
@@ -2050,7 +2050,7 @@
             1.0,
             0.25
           ],
-          "coordinates": "u/v = Ni 표면 반복셀 분율",
+          "coordinates": "u/v = Ni surface 반복셀 분율",
           "plane_axes": [
             0,
             1
@@ -2107,7 +2107,7 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
         "두 대표점의 두께/면내크기 민감도만 확인. 전체 수렴 또는 DFT 검증이 아님."
       ]
@@ -2119,15 +2119,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(100) / Ni(100) · 이동 (0.25, 0.25)",
+      "title": "Cu(100) / Ni(100) · shift (0.25, 0.25)",
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0.25, 0.25)",
+      "combination_label": "shift (0.25, 0.25)",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 3.587949717090166,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni",
-      "comparison_label": "Cu/Ni 6층 · 4×4 이동",
+      "comparison_label": "Cu/Ni 6층 · 4×4 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -2455,8 +2455,8 @@
         "area_A2": 26.238671659684126,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.00702641325099798,
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -93.58920288085938,
           -131.14382934570312
@@ -2472,7 +2472,7 @@
             1.0,
             0.25
           ],
-          "coordinates": "u/v = Ni 표면 반복셀 분율",
+          "coordinates": "u/v = Ni surface 반복셀 분율",
           "plane_axes": [
             0,
             1
@@ -2529,7 +2529,7 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
         "두 대표점의 두께/면내크기 민감도만 확인. 전체 수렴 또는 DFT 검증이 아님."
       ]
@@ -2541,15 +2541,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(100) / Ni(100) · 이동 (0.25, 0.5)",
+      "title": "Cu(100) / Ni(100) · shift (0.25, 0.5)",
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0.25, 0.5)",
+      "combination_label": "shift (0.25, 0.5)",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 2.5944120913852777,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni",
-      "comparison_label": "Cu/Ni 6층 · 4×4 이동",
+      "comparison_label": "Cu/Ni 6층 · 4×4 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -2877,8 +2877,8 @@
         "area_A2": 26.238671659684126,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.008004286873894513,
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -93.58920288085938,
           -131.14382934570312
@@ -2894,7 +2894,7 @@
             1.0,
             0.25
           ],
-          "coordinates": "u/v = Ni 표면 반복셀 분율",
+          "coordinates": "u/v = Ni surface 반복셀 분율",
           "plane_axes": [
             0,
             1
@@ -2951,7 +2951,7 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
         "두 대표점의 두께/면내크기 민감도만 확인. 전체 수렴 또는 DFT 검증이 아님."
       ]
@@ -2963,15 +2963,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(100) / Ni(100) · 이동 (0.25, 0.75)",
+      "title": "Cu(100) / Ni(100) · shift (0.25, 0.75)",
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0.25, 0.75)",
+      "combination_label": "shift (0.25, 0.75)",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 3.587949717090166,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni",
-      "comparison_label": "Cu/Ni 6층 · 4×4 이동",
+      "comparison_label": "Cu/Ni 6층 · 4×4 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -3299,8 +3299,8 @@
         "area_A2": 26.238671659684126,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.007024347516666583,
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -93.58920288085938,
           -131.14382934570312
@@ -3316,7 +3316,7 @@
             1.0,
             0.25
           ],
-          "coordinates": "u/v = Ni 표면 반복셀 분율",
+          "coordinates": "u/v = Ni surface 반복셀 분율",
           "plane_axes": [
             0,
             1
@@ -3373,7 +3373,7 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
         "두 대표점의 두께/면내크기 민감도만 확인. 전체 수렴 또는 DFT 검증이 아님."
       ]
@@ -3385,15 +3385,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(100) / Ni(100) · 이동 (0.5, 0)",
+      "title": "Cu(100) / Ni(100) · shift (0.5, 0)",
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0.5, 0)",
+      "combination_label": "shift (0.5, 0)",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 2.594495946803168,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni",
-      "comparison_label": "Cu/Ni 6층 · 4×4 이동",
+      "comparison_label": "Cu/Ni 6층 · 4×4 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -3721,8 +3721,8 @@
         "area_A2": 26.238671659684126,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.00942776000021214,
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -93.58920288085938,
           -131.14382934570312
@@ -3738,7 +3738,7 @@
             1.0,
             0.25
           ],
-          "coordinates": "u/v = Ni 표면 반복셀 분율",
+          "coordinates": "u/v = Ni surface 반복셀 분율",
           "plane_axes": [
             0,
             1
@@ -3795,7 +3795,7 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
         "두 대표점의 두께/면내크기 민감도만 확인. 전체 수렴 또는 DFT 검증이 아님."
       ]
@@ -3807,15 +3807,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(100) / Ni(100) · 이동 (0.5, 0.25)",
+      "title": "Cu(100) / Ni(100) · shift (0.5, 0.25)",
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0.5, 0.25)",
+      "combination_label": "shift (0.5, 0.25)",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 2.5944120913852777,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni",
-      "comparison_label": "Cu/Ni 6층 · 4×4 이동",
+      "comparison_label": "Cu/Ni 6층 · 4×4 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -4143,8 +4143,8 @@
         "area_A2": 26.238671659684126,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.00800383279628579,
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -93.58920288085938,
           -131.14382934570312
@@ -4160,7 +4160,7 @@
             1.0,
             0.25
           ],
-          "coordinates": "u/v = Ni 표면 반복셀 분율",
+          "coordinates": "u/v = Ni surface 반복셀 분율",
           "plane_axes": [
             0,
             1
@@ -4217,7 +4217,7 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
         "두 대표점의 두께/면내크기 민감도만 확인. 전체 수렴 또는 DFT 검증이 아님."
       ]
@@ -4229,15 +4229,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(100) / Ni(100) · 이동 (0.5, 0.5)",
+      "title": "Cu(100) / Ni(100) · shift (0.5, 0.5)",
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0.5, 0.5)",
+      "combination_label": "shift (0.5, 0.5)",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 1.956831397357242,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni",
-      "comparison_label": "Cu/Ni 6층 · 4×4 이동",
+      "comparison_label": "Cu/Ni 6층 · 4×4 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -4565,8 +4565,8 @@
         "area_A2": 26.238671659684126,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.008346580013826021,
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -93.58920288085938,
           -131.14382934570312
@@ -4582,7 +4582,7 @@
             1.0,
             0.25
           ],
-          "coordinates": "u/v = Ni 표면 반복셀 분율",
+          "coordinates": "u/v = Ni surface 반복셀 분율",
           "plane_axes": [
             0,
             1
@@ -4639,7 +4639,7 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
         "두 대표점의 두께/면내크기 민감도만 확인. 전체 수렴 또는 DFT 검증이 아님."
       ]
@@ -4651,15 +4651,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(100) / Ni(100) · 이동 (0.5, 0.75)",
+      "title": "Cu(100) / Ni(100) · shift (0.5, 0.75)",
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0.5, 0.75)",
+      "combination_label": "shift (0.5, 0.75)",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 2.5944120913852777,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni",
-      "comparison_label": "Cu/Ni 6층 · 4×4 이동",
+      "comparison_label": "Cu/Ni 6층 · 4×4 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -4987,8 +4987,8 @@
         "area_A2": 26.238671659684126,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.00800333032457114,
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -93.58920288085938,
           -131.14382934570312
@@ -5004,7 +5004,7 @@
             1.0,
             0.25
           ],
-          "coordinates": "u/v = Ni 표면 반복셀 분율",
+          "coordinates": "u/v = Ni surface 반복셀 분율",
           "plane_axes": [
             0,
             1
@@ -5061,7 +5061,7 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
         "두 대표점의 두께/면내크기 민감도만 확인. 전체 수렴 또는 DFT 검증이 아님."
       ]
@@ -5073,15 +5073,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(100) / Ni(100) · 이동 (0.75, 0)",
+      "title": "Cu(100) / Ni(100) · shift (0.75, 0)",
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0.75, 0)",
+      "combination_label": "shift (0.75, 0)",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 3.5879031307468936,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni",
-      "comparison_label": "Cu/Ni 6층 · 4×4 이동",
+      "comparison_label": "Cu/Ni 6층 · 4×4 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -5409,8 +5409,8 @@
         "area_A2": 26.238671659684126,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.007891469979471506,
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -93.58920288085938,
           -131.14382934570312
@@ -5426,7 +5426,7 @@
             1.0,
             0.25
           ],
-          "coordinates": "u/v = Ni 표면 반복셀 분율",
+          "coordinates": "u/v = Ni surface 반복셀 분율",
           "plane_axes": [
             0,
             1
@@ -5483,7 +5483,7 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
         "두 대표점의 두께/면내크기 민감도만 확인. 전체 수렴 또는 DFT 검증이 아님."
       ]
@@ -5495,15 +5495,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(100) / Ni(100) · 이동 (0.75, 0.25)",
+      "title": "Cu(100) / Ni(100) · shift (0.75, 0.25)",
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0.75, 0.25)",
+      "combination_label": "shift (0.75, 0.25)",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 3.587949717090166,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni",
-      "comparison_label": "Cu/Ni 6층 · 4×4 이동",
+      "comparison_label": "Cu/Ni 6층 · 4×4 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -5831,8 +5831,8 @@
         "area_A2": 26.238671659684126,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.0070220197609590935,
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -93.58920288085938,
           -131.14382934570312
@@ -5848,7 +5848,7 @@
             1.0,
             0.25
           ],
-          "coordinates": "u/v = Ni 표면 반복셀 분율",
+          "coordinates": "u/v = Ni surface 반복셀 분율",
           "plane_axes": [
             0,
             1
@@ -5905,7 +5905,7 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
         "두 대표점의 두께/면내크기 민감도만 확인. 전체 수렴 또는 DFT 검증이 아님."
       ]
@@ -5917,15 +5917,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(100) / Ni(100) · 이동 (0.75, 0.5)",
+      "title": "Cu(100) / Ni(100) · shift (0.75, 0.5)",
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0.75, 0.5)",
+      "combination_label": "shift (0.75, 0.5)",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 2.5944120913852777,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni",
-      "comparison_label": "Cu/Ni 6층 · 4×4 이동",
+      "comparison_label": "Cu/Ni 6층 · 4×4 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -6253,8 +6253,8 @@
         "area_A2": 26.238671659684126,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.008002555899823505,
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -93.58920288085938,
           -131.14382934570312
@@ -6270,7 +6270,7 @@
             1.0,
             0.25
           ],
-          "coordinates": "u/v = Ni 표면 반복셀 분율",
+          "coordinates": "u/v = Ni surface 반복셀 분율",
           "plane_axes": [
             0,
             1
@@ -6327,7 +6327,7 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
         "두 대표점의 두께/면내크기 민감도만 확인. 전체 수렴 또는 DFT 검증이 아님."
       ]
@@ -6339,15 +6339,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(100) / Ni(100) · 이동 (0.75, 0.75)",
+      "title": "Cu(100) / Ni(100) · shift (0.75, 0.75)",
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0.75, 0.75)",
+      "combination_label": "shift (0.75, 0.75)",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 3.587949717090166,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni",
-      "comparison_label": "Cu/Ni 6층 · 4×4 이동",
+      "comparison_label": "Cu/Ni 6층 · 4×4 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -6675,8 +6675,8 @@
         "area_A2": 26.238671659684126,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.007023269466587481,
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -93.58920288085938,
           -131.14382934570312
@@ -6692,7 +6692,7 @@
             1.0,
             0.25
           ],
-          "coordinates": "u/v = Ni 표면 반복셀 분율",
+          "coordinates": "u/v = Ni surface 반복셀 분율",
           "plane_axes": [
             0,
             1
@@ -6749,7 +6749,7 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
         "두 대표점의 두께/면내크기 민감도만 확인. 전체 수렴 또는 DFT 검증이 아님."
       ]
@@ -6761,15 +6761,15 @@
         "Cu",
         "Ni2Si"
       ],
-      "title": "Cu(001) / Ni₂Si(001) · 이동 (0, 0)",
+      "title": "Cu(001) / Ni₂Si(001) · shift (0, 0)",
       "face_pair": "Cu(001) / Ni₂Si(001)",
-      "combination_label": "이동 (0, 0)",
+      "combination_label": "shift (0, 0)",
       "property": "interface_energy",
-      "property_label": "계면에너지 · 두 계면 평균",
+      "property_label": "interface energy · 두 interface 평균",
       "value": 0.34294937509321344,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni2si001",
-      "comparison_label": "Cu(001) / Ni₂Si(001) · 2×2 이동",
+      "comparison_label": "Cu(001) / Ni₂Si(001) · 2×2 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -8537,8 +8537,8 @@
         "area_A2": 158.183676,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.009710316677173819,
-        "energy_definition": "(E_계면 − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_interface − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -589.8954467773438,
           -887.2105712890625
@@ -8579,9 +8579,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
-        "두 주기 계면의 평균값. 서로 다른 방위의 정합 변형과 종결면이 다르며 두께 수렴·DFT 검증은 미수행."
+        "두 주기 interface의 평균값. 서로 다른 방위의 정합 변형과 종결면이 다르며 두께 수렴·DFT 검증은 미수행."
       ]
     },
     {
@@ -8591,15 +8591,15 @@
         "Cu",
         "Ni2Si"
       ],
-      "title": "Cu(001) / Ni₂Si(001) · 이동 (0, 0.5)",
+      "title": "Cu(001) / Ni₂Si(001) · shift (0, 0.5)",
       "face_pair": "Cu(001) / Ni₂Si(001)",
-      "combination_label": "이동 (0, 0.5)",
+      "combination_label": "shift (0, 0.5)",
       "property": "interface_energy",
-      "property_label": "계면에너지 · 두 계면 평균",
+      "property_label": "interface energy · 두 interface 평균",
       "value": 1.1594242661115182,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni2si001",
-      "comparison_label": "Cu(001) / Ni₂Si(001) · 2×2 이동",
+      "comparison_label": "Cu(001) / Ni₂Si(001) · 2×2 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -10367,8 +10367,8 @@
         "area_A2": 158.183676,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.009363333954430975,
-        "energy_definition": "(E_계면 − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_interface − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -589.8954467773438,
           -887.2105712890625
@@ -10409,9 +10409,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
-        "두 주기 계면의 평균값. 서로 다른 방위의 정합 변형과 종결면이 다르며 두께 수렴·DFT 검증은 미수행."
+        "두 주기 interface의 평균값. 서로 다른 방위의 정합 변형과 종결면이 다르며 두께 수렴·DFT 검증은 미수행."
       ]
     },
     {
@@ -10421,15 +10421,15 @@
         "Cu",
         "Ni2Si"
       ],
-      "title": "Cu(001) / Ni₂Si(001) · 이동 (0.5, 0)",
+      "title": "Cu(001) / Ni₂Si(001) · shift (0.5, 0)",
       "face_pair": "Cu(001) / Ni₂Si(001)",
-      "combination_label": "이동 (0.5, 0)",
+      "combination_label": "shift (0.5, 0)",
       "property": "interface_energy",
-      "property_label": "계면에너지 · 두 계면 평균",
+      "property_label": "interface energy · 두 interface 평균",
       "value": 0.34292464710517595,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni2si001",
-      "comparison_label": "Cu(001) / Ni₂Si(001) · 2×2 이동",
+      "comparison_label": "Cu(001) / Ni₂Si(001) · 2×2 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -12197,8 +12197,8 @@
         "area_A2": 158.183676,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.00912809605037655,
-        "energy_definition": "(E_계면 − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_interface − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -589.8954467773438,
           -887.2105712890625
@@ -12239,9 +12239,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
-        "두 주기 계면의 평균값. 서로 다른 방위의 정합 변형과 종결면이 다르며 두께 수렴·DFT 검증은 미수행."
+        "두 주기 interface의 평균값. 서로 다른 방위의 정합 변형과 종결면이 다르며 두께 수렴·DFT 검증은 미수행."
       ]
     },
     {
@@ -12251,15 +12251,15 @@
         "Cu",
         "Ni2Si"
       ],
-      "title": "Cu(001) / Ni₂Si(001) · 이동 (0.5, 0.5)",
+      "title": "Cu(001) / Ni₂Si(001) · shift (0.5, 0.5)",
       "face_pair": "Cu(001) / Ni₂Si(001)",
-      "combination_label": "이동 (0.5, 0.5)",
+      "combination_label": "shift (0.5, 0.5)",
       "property": "interface_energy",
-      "property_label": "계면에너지 · 두 계면 평균",
+      "property_label": "interface energy · 두 interface 평균",
       "value": 1.1593748101354433,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni2si001",
-      "comparison_label": "Cu(001) / Ni₂Si(001) · 2×2 이동",
+      "comparison_label": "Cu(001) / Ni₂Si(001) · 2×2 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -14027,8 +14027,8 @@
         "area_A2": 158.183676,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.008938361621046668,
-        "energy_definition": "(E_계면 − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_interface − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -589.8954467773438,
           -887.2105712890625
@@ -14069,9 +14069,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
-        "두 주기 계면의 평균값. 서로 다른 방위의 정합 변형과 종결면이 다르며 두께 수렴·DFT 검증은 미수행."
+        "두 주기 interface의 평균값. 서로 다른 방위의 정합 변형과 종결면이 다르며 두께 수렴·DFT 검증은 미수행."
       ]
     },
     {
@@ -14081,15 +14081,15 @@
         "Cu",
         "Ni2Si"
       ],
-      "title": "Cu(−110) / Ni₂Si(010) · 이동 (0, 0)",
+      "title": "Cu(−110) / Ni₂Si(010) · shift (0, 0)",
       "face_pair": "Cu(−110) / Ni₂Si(010)",
-      "combination_label": "이동 (0, 0)",
+      "combination_label": "shift (0, 0)",
       "property": "interface_energy",
-      "property_label": "계면에너지 · 두 계면 평균",
+      "property_label": "interface energy · 두 interface 평균",
       "value": 0.5462924009239148,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni2si010",
-      "comparison_label": "Cu(−110) / Ni₂Si(010) · 2×2 이동",
+      "comparison_label": "Cu(−110) / Ni₂Si(010) · 2×2 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -15857,8 +15857,8 @@
         "area_A2": 166.332392,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.009362514187102735,
-        "energy_definition": "(E_계면 − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_interface − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -589.8873901367188,
           -889.5989990234375
@@ -15907,9 +15907,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
-        "두 주기 계면의 평균값. 서로 다른 방위의 정합 변형과 종결면이 다르며 두께 수렴·DFT 검증은 미수행."
+        "두 주기 interface의 평균값. 서로 다른 방위의 정합 변형과 종결면이 다르며 두께 수렴·DFT 검증은 미수행."
       ]
     },
     {
@@ -15919,15 +15919,15 @@
         "Cu",
         "Ni2Si"
       ],
-      "title": "Cu(−110) / Ni₂Si(010) · 이동 (0, 0.5)",
+      "title": "Cu(−110) / Ni₂Si(010) · shift (0, 0.5)",
       "face_pair": "Cu(−110) / Ni₂Si(010)",
-      "combination_label": "이동 (0, 0.5)",
+      "combination_label": "shift (0, 0.5)",
       "property": "interface_energy",
-      "property_label": "계면에너지 · 두 계면 평균",
+      "property_label": "interface energy · 두 interface 평균",
       "value": 2.4264641066839103,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni2si010",
-      "comparison_label": "Cu(−110) / Ni₂Si(010) · 2×2 이동",
+      "comparison_label": "Cu(−110) / Ni₂Si(010) · 2×2 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -17695,8 +17695,8 @@
         "area_A2": 166.332392,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.007831291657223603,
-        "energy_definition": "(E_계면 − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_interface − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -589.8873901367188,
           -889.5989990234375
@@ -17745,9 +17745,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
-        "두 주기 계면의 평균값. 서로 다른 방위의 정합 변형과 종결면이 다르며 두께 수렴·DFT 검증은 미수행."
+        "두 주기 interface의 평균값. 서로 다른 방위의 정합 변형과 종결면이 다르며 두께 수렴·DFT 검증은 미수행."
       ]
     },
     {
@@ -17757,15 +17757,15 @@
         "Cu",
         "Ni2Si"
       ],
-      "title": "Cu(−110) / Ni₂Si(010) · 이동 (0.5, 0)",
+      "title": "Cu(−110) / Ni₂Si(010) · shift (0.5, 0)",
       "face_pair": "Cu(−110) / Ni₂Si(010)",
-      "combination_label": "이동 (0.5, 0)",
+      "combination_label": "shift (0.5, 0)",
       "property": "interface_energy",
-      "property_label": "계면에너지 · 두 계면 평균",
+      "property_label": "interface energy · 두 interface 평균",
       "value": 0.5462865217863627,
       "unit": "J/m²",
       "comparison_group": "registry-20261113-cuni2si010",
-      "comparison_label": "Cu(−110) / Ni₂Si(010) · 2×2 이동",
+      "comparison_label": "Cu(−110) / Ni₂Si(010) · 2×2 shift",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-13",
@@ -19533,8 +19533,8 @@
         "area_A2": 166.332392,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.00907559941062297,
-        "energy_definition": "(E_계면 − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
-        "comparison_scope": "고정셀·모든 원자 자유완화. 초기 이동 위치별 완화 결과이며 미끄럼 장벽이 아님.",
+        "energy_definition": "(E_interface − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
+        "comparison_scope": "고정셀·모든 원자 자유완화. initial shift 위치별 완화 결과이며 sliding 장벽이 아님.",
         "reference_energies_eV": [
           -589.8873901367188,
           -889.5989990234375
@@ -19583,9 +19583,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "초기 이동 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 계면을 뜻하지 않음.",
+        "initial shift 격자의 원자 자유완화 결과. 고정 이동 위치의 장벽·전역 최저 interface을 뜻하지 않음.",
         "유사구조는 병진/동종원자순열 RMSD≤0.03Å,최대변위≤0.1Å,에너지차≤0.001J/m². 점군회전 중복은 미제거.",
-        "두 주기 계면의 평균값. 서로 다른 방위의 정합 변형과 종결면이 다르며 두께 수렴·DFT 검증은 미수행."
+        "두 주기 interface의 평균값. 서로 다른 방위의 정합 변형과 종결면이 다르며 두께 수렴·DFT 검증은 미수행."
       ]
     },
     {
@@ -19596,10 +19596,10 @@
         "Ni"
       ],
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0, 0)",
+      "combination_label": "shift (0, 0)",
       "title": "Cu(100) / Ni(100) · 이동 0_0",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 3.587581684978313,
       "unit": "J/m²",
       "comparison_group": "CuNi-100-100-fixed-strain-6layers",
@@ -19992,12 +19992,12 @@
         "final_fmax_eV_A": 0.028407905250787735,
         "total_vacuum_A": 30,
         "relaxation": "원자 위치 완화 / 셀 고정",
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A"
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A"
       },
       "notes": [
-        "동일 조성·면방향·정합 변형 조건의 접합일끼리 비교.",
+        "동일 조성·면방향·정합 변형 조건의 work of adhesion끼리 비교.",
         "원자 힘 수렴 및 원본 에너지 재산출 대조 완료. 두께·진공·DFT 정확도 검증 전.",
-        "상대 슬랩 표면 반복주기 안에서 이동 샘플링. 점대칭 중복은 제거하지 않음."
+        "상대 slab surface 반복주기 안에서 이동 샘플링. 점대칭 중복은 제거하지 않음."
       ]
     },
     {
@@ -20008,10 +20008,10 @@
         "Ni"
       ],
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0, 0.125)",
+      "combination_label": "shift (0, 0.125)",
       "title": "Cu(100) / Ni(100) · 이동 0_1",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 2.594202452840551,
       "unit": "J/m²",
       "comparison_group": "CuNi-100-100-fixed-strain-6layers",
@@ -20404,12 +20404,12 @@
         "final_fmax_eV_A": 0.029083408415317535,
         "total_vacuum_A": 30,
         "relaxation": "원자 위치 완화 / 셀 고정",
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A"
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A"
       },
       "notes": [
-        "동일 조성·면방향·정합 변형 조건의 접합일끼리 비교.",
+        "동일 조성·면방향·정합 변형 조건의 work of adhesion끼리 비교.",
         "원자 힘 수렴 및 원본 에너지 재산출 대조 완료. 두께·진공·DFT 정확도 검증 전.",
-        "상대 슬랩 표면 반복주기 안에서 이동 샘플링. 점대칭 중복은 제거하지 않음."
+        "상대 slab surface 반복주기 안에서 이동 샘플링. 점대칭 중복은 제거하지 않음."
       ]
     },
     {
@@ -20420,10 +20420,10 @@
         "Ni"
       ],
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0.5, 0)",
+      "combination_label": "shift (0.5, 0)",
       "title": "Cu(100) / Ni(100) · 이동 1_0",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 2.5942117701092053,
       "unit": "J/m²",
       "comparison_group": "CuNi-100-100-fixed-strain-6layers",
@@ -20816,12 +20816,12 @@
         "final_fmax_eV_A": 0.029081642627716064,
         "total_vacuum_A": 30,
         "relaxation": "원자 위치 완화 / 셀 고정",
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A"
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A"
       },
       "notes": [
-        "동일 조성·면방향·정합 변형 조건의 접합일끼리 비교.",
+        "동일 조성·면방향·정합 변형 조건의 work of adhesion끼리 비교.",
         "원자 힘 수렴 및 원본 에너지 재산출 대조 완료. 두께·진공·DFT 정확도 검증 전.",
-        "상대 슬랩 표면 반복주기 안에서 이동 샘플링. 점대칭 중복은 제거하지 않음."
+        "상대 slab surface 반복주기 안에서 이동 샘플링. 점대칭 중복은 제거하지 않음."
       ]
     },
     {
@@ -20832,10 +20832,10 @@
         "Ni"
       ],
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "이동 (0.5, 0.125)",
+      "combination_label": "shift (0.5, 0.125)",
       "title": "Cu(100) / Ni(100) · 이동 1_1",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 1.9553080239322296,
       "unit": "J/m²",
       "comparison_group": "CuNi-100-100-fixed-strain-6layers",
@@ -21228,12 +21228,12 @@
         "final_fmax_eV_A": 0.01958688348531723,
         "total_vacuum_A": 30,
         "relaxation": "원자 위치 완화 / 셀 고정",
-        "energy_definition": "(E_분리Cu슬랩 + E_분리Ni슬랩 − E_접합구조) / A"
+        "energy_definition": "(E_분리Cuslab + E_분리Nislab − E_접합구조) / A"
       },
       "notes": [
-        "동일 조성·면방향·정합 변형 조건의 접합일끼리 비교.",
+        "동일 조성·면방향·정합 변형 조건의 work of adhesion끼리 비교.",
         "원자 힘 수렴 및 원본 에너지 재산출 대조 완료. 두께·진공·DFT 정확도 검증 전.",
-        "상대 슬랩 표면 반복주기 안에서 이동 샘플링. 점대칭 중복은 제거하지 않음."
+        "상대 slab surface 반복주기 안에서 이동 샘플링. 점대칭 중복은 제거하지 않음."
       ]
     },
     {
@@ -21247,7 +21247,7 @@
       "combination_label": "Cu(001) / Ni₂Si(001)",
       "face_pair": "Cu(001) / Ni₂Si(001)",
       "property": "interface_energy",
-      "property_label": "계면에너지 · 두 계면 평균",
+      "property_label": "interface energy · 두 interface 평균",
       "value": 0.3429524660917181,
       "unit": "J/m²",
       "comparison_group": "CuNi2Si-legacy-mpa-axis-relaxed-bulk-reference",
@@ -23021,7 +23021,7 @@
         "atoms": 288,
         "area_A2": 158.183676,
         "interface_normal_cell_axis": "b",
-        "energy_definition": "(E_계면 − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
+        "energy_definition": "(E_interface − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
         "reference_energies_eV": {
           "interface": -1470.333984375,
           "cu_reference": -589.8955078125,
@@ -23032,13 +23032,13 @@
           "cu_reference": 0.0091280571166596,
           "phase_reference": 0.008603002339764881
         },
-        "comparison_scope": "면별 정합 변형 조건이 다른 기존 계산. 전역 최저 계면을 뜻하지 않음.",
+        "comparison_scope": "면별 정합 변형 조건이 다른 기존 계산. 전역 최저 interface을 뜻하지 않음.",
         "dft_validation": "not_verified"
       },
       "notes": [
-        "계면/벌크 참조의 조성·면내 길이(축 순서 변환)·에너지·저장 원자 힘 대조.",
-        "면방향 표기는 기존 연구 노트 기준. 두 계면 평균이며 면별 정합 변형이 다름.",
-        "기존 체크포인트·셀 응력 수렴·두 계면 동등성·두께·DFT 정확도는 추가 확인 대상."
+        "interface/벌크 참조의 조성·면내 길이(축 순서 변환)·에너지·저장 원자 힘 대조.",
+        "면방향 표기는 기존 연구 노트 기준. 두 interface 평균이며 면별 정합 변형이 다름.",
+        "기존 체크포인트·셀 응력 수렴·두 interface 동등성·두께·DFT 정확도는 추가 확인 대상."
       ]
     },
     {
@@ -23052,7 +23052,7 @@
       "combination_label": "Cu(−110) / Ni₂Si(010)",
       "face_pair": "Cu(−110) / Ni₂Si(010)",
       "property": "interface_energy",
-      "property_label": "계면에너지 · 두 계면 평균",
+      "property_label": "interface energy · 두 interface 평균",
       "value": 0.5463012196302434,
       "unit": "J/m²",
       "comparison_group": "CuNi2Si-legacy-mpa-axis-relaxed-bulk-reference",
@@ -24826,7 +24826,7 @@
         "atoms": 288,
         "area_A2": 166.332392,
         "interface_normal_cell_axis": "b",
-        "energy_definition": "(E_계면 − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
+        "energy_definition": "(E_interface − E_Cu벌크참조 − E_Ni2Si벌크참조) / (2A)",
         "reference_energies_eV": {
           "interface": -1468.1434326171875,
           "cu_reference": -589.887451171875,
@@ -24837,13 +24837,13 @@
           "cu_reference": 0.006060702636501811,
           "phase_reference": 0.009020246570077781
         },
-        "comparison_scope": "면별 정합 변형 조건이 다른 기존 계산. 전역 최저 계면을 뜻하지 않음.",
+        "comparison_scope": "면별 정합 변형 조건이 다른 기존 계산. 전역 최저 interface을 뜻하지 않음.",
         "dft_validation": "not_verified"
       },
       "notes": [
-        "계면/벌크 참조의 조성·면내 길이(축 순서 변환)·에너지·저장 원자 힘 대조.",
-        "면방향 표기는 기존 연구 노트 기준. 두 계면 평균이며 면별 정합 변형이 다름.",
-        "기존 체크포인트·셀 응력 수렴·두 계면 동등성·두께·DFT 정확도는 추가 확인 대상."
+        "interface/벌크 참조의 조성·면내 길이(축 순서 변환)·에너지·저장 원자 힘 대조.",
+        "면방향 표기는 기존 연구 노트 기준. 두 interface 평균이며 면별 정합 변형이 다름.",
+        "기존 체크포인트·셀 응력 수렴·두 interface 동등성·두께·DFT 정확도는 추가 확인 대상."
       ]
     },
     {
@@ -24853,9 +24853,9 @@
         "Cu",
         "G-phase"
       ],
-      "title": "Cu / G-phase · 주기 계면",
+      "title": "Cu / G-phase · 주기 interface",
       "property": "interface_energy",
-      "property_label": "계면에너지 · 두 계면 평균",
+      "property_label": "interface energy · 두 interface 평균",
       "value": 0.936524253251382,
       "unit": "J/m²",
       "comparison_group": "CuG-mpa-two-interface-bulk-reference",
@@ -25573,7 +25573,7 @@
         "atoms": 112,
         "area_A2": 59.32872450000001,
         "model": "SevenNet-Omni / MPA",
-        "energy_definition": "(E_계면 − E_Cu벌크참조 − E_G벌크참조) / (2A)",
+        "energy_definition": "(E_interface − E_Cu벌크참조 − E_G벌크참조) / (2A)",
         "relaxation": "기존 원자 위치 및 c축 완화",
         "reference_energies_eV": {
           "interface": -609.6008911132812,
@@ -25588,9 +25588,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "실제 MPA 원본 계면·참조의 조성·면내 격자·에너지·저장 원자 힘 대조.",
-        "Cu/Ni 접합일과 다른 물성·참조 정의이므로 수치 순위로 비교하지 않음.",
-        "정확한 기존 체크포인트·셀 응력 수렴·두 계면 동등성·두께 및 DFT 정확도는 추가 확인 대상."
+        "실제 MPA 원본 interface·참조의 조성·면내 격자·에너지·저장 원자 힘 대조.",
+        "Cu/Ni work of adhesion과 다른 물성·참조 정의이므로 수치 순위로 비교하지 않음.",
+        "정확한 기존 체크포인트·셀 응력 수렴·두 interface 동등성·두께 및 DFT 정확도는 추가 확인 대상."
       ]
     },
     {
@@ -25599,9 +25599,9 @@
       "materials": [
         "Ni"
       ],
-      "title": "Ni · 자유표면 Wulff",
+      "title": "Ni · free surface Wulff",
       "property": "surface_energy",
-      "property_label": "표면에너지",
+      "property_label": "surface energy",
       "value": null,
       "unit": "J/m²",
       "comparison_group": "Ni-surface-exploratory",
@@ -27172,7 +27172,7 @@
         "model": "SevenNet-Omni / MPA",
         "force_target_eV_A": 0.03,
         "energy_definition": "(E_slab − N·E_bulk/atom) / (2A)",
-        "shape": "자유표면 에너지 기반 자유입자 Wulff · 길이는 임의 척도",
+        "shape": "free-surface energy 기반 자유입자 Wulff · 길이는 임의 척도",
         "bulk_lattice_lengths_A": [
           3.518264893108539,
           3.518264893108539,
@@ -27183,7 +27183,7 @@
       },
       "notes": [
         "8층·각 면 진공15 Å의 3개 면계열. 두께·진공 수렴 검증 전.",
-        "기지 내 석출물의 계면·탄성에너지를 반영한 형상이 아님.",
+        "matrix 내 석출물의 interface·탄성에너지를 반영한 형상이 아님.",
         "DFT 정확도 또는 모든 면방향·종결면에 대한 완전 수렴을 뜻하지 않음."
       ]
     },
@@ -27193,9 +27193,9 @@
       "materials": [
         "Cu"
       ],
-      "title": "Cu · 자유표면 Wulff",
+      "title": "Cu · free surface Wulff",
       "property": "surface_energy",
-      "property_label": "표면에너지",
+      "property_label": "surface energy",
       "value": null,
       "unit": "J/m²",
       "comparison_group": "Cu-surface-convergence_checked",
@@ -31847,7 +31847,7 @@
         "model": "SevenNet-Omni / MPA",
         "force_target_eV_A": 0.005,
         "energy_definition": "(E_slab − N·E_bulk/atom) / (2A)",
-        "shape": "자유표면 에너지 기반 자유입자 Wulff · 길이는 임의 척도",
+        "shape": "free-surface energy 기반 자유입자 Wulff · 길이는 임의 척도",
         "bulk_lattice_lengths_A": [
           3.622246014841379,
           3.622246014841379,
@@ -31856,7 +31856,7 @@
       },
       "notes": [
         "6개 면계열의 제한된 두께·진공 검사 통과.",
-        "기지 내 석출물의 계면·탄성에너지를 반영한 형상이 아님.",
+        "matrix 내 석출물의 interface·탄성에너지를 반영한 형상이 아님.",
         "DFT 정확도 또는 모든 면방향·종결면에 대한 완전 수렴을 뜻하지 않음."
       ]
     },
@@ -31866,9 +31866,9 @@
       "materials": [
         "Ni2Si"
       ],
-      "title": "Ni2Si · 자유표면 Wulff",
+      "title": "Ni2Si · free surface Wulff",
       "property": "surface_energy",
-      "property_label": "표면에너지",
+      "property_label": "surface energy",
       "value": null,
       "unit": "J/m²",
       "comparison_group": "Ni2Si-surface-convergence_checked",
@@ -37886,7 +37886,7 @@
         "model": "SevenNet-Omni / MPA",
         "force_target_eV_A": 0.005,
         "energy_definition": "(E_slab − N·E_bulk/atom) / (2A)",
-        "shape": "자유표면 에너지 기반 자유입자 Wulff · 길이는 임의 척도",
+        "shape": "free-surface energy 기반 자유입자 Wulff · 길이는 임의 척도",
         "bulk_lattice_lengths_A": [
           3.709867454819444,
           4.998404990301288,
@@ -37894,8 +37894,8 @@
         ]
       },
       "notes": [
-        "기존 결정축의 8방향·화학양론 대칭 종결면만 포함. 비화학양론 표면과 화학퍼텐셜 의존성은 제외.",
-        "기지 내 석출물의 계면·탄성에너지를 반영한 형상이 아님.",
+        "기존 결정축의 8방향·화학양론 대칭 종결면만 포함. 비화학양론 surface과 화학퍼텐셜 의존성은 제외.",
+        "matrix 내 석출물의 interface·탄성에너지를 반영한 형상이 아님.",
         "DFT 정확도 또는 모든 면방향·종결면에 대한 완전 수렴을 뜻하지 않음."
       ]
     },
@@ -37905,9 +37905,9 @@
       "materials": [
         "Al"
       ],
-      "title": "Al · 자유표면 Wulff",
+      "title": "Al · free surface Wulff",
       "property": "surface_energy",
-      "property_label": "표면에너지",
+      "property_label": "surface energy",
       "value": null,
       "unit": "J/m²",
       "comparison_group": "Al-surface-convergence_checked",
@@ -39937,7 +39937,7 @@
         "model": "SevenNet-Omni / MPA",
         "force_target_eV_A": 0.005,
         "energy_definition": "(E_slab − N·E_bulk/atom) / (2A)",
-        "shape": "자유표면 에너지 기반 자유입자 Wulff · 길이는 임의 척도",
+        "shape": "free-surface energy 기반 자유입자 Wulff · 길이는 임의 척도",
         "bulk_lattice_A": [
           [
             4.039642711424221,
@@ -39957,9 +39957,9 @@
         ]
       },
       "notes": [
-        "6방향·생성된 대칭 종단면의 두께/진공 검사 통과. 결정면은 저장된 벌크 셀의 3지수 표기.",
+        "6방향·생성된 대칭 종단면의 두께/진공 검사 통과. facet은 저장된 벌크 셀의 3지수 표기.",
         "Al은 FCC 입방 대칭을 사용.",
-        "기지 내 석출물의 계면·탄성에너지를 반영한 형상이 아님.",
+        "matrix 내 석출물의 interface·탄성에너지를 반영한 형상이 아님.",
         "DFT 정확도 또는 모든 면방향·종결면에 대한 완전 수렴을 뜻하지 않음."
       ]
     },
@@ -39969,9 +39969,9 @@
       "materials": [
         "Zn"
       ],
-      "title": "Zn · 자유표면 Wulff",
+      "title": "Zn · free surface Wulff",
       "property": "surface_energy",
-      "property_label": "표면에너지",
+      "property_label": "surface energy",
       "value": null,
       "unit": "J/m²",
       "comparison_group": "Zn-surface-convergence_checked",
@@ -41803,7 +41803,7 @@
         "model": "SevenNet-Omni / MPA",
         "force_target_eV_A": 0.005,
         "energy_definition": "(E_slab − N·E_bulk/atom) / (2A)",
-        "shape": "자유표면 에너지 기반 자유입자 Wulff · 길이는 임의 척도",
+        "shape": "free-surface energy 기반 자유입자 Wulff · 길이는 임의 척도",
         "bulk_lattice_A": [
           [
             2.647517098718462,
@@ -41823,9 +41823,9 @@
         ]
       },
       "notes": [
-        "6방향·생성된 대칭 종단면의 두께/진공 검사 통과. 결정면은 저장된 벌크 셀의 3지수 표기.",
+        "6방향·생성된 대칭 종단면의 두께/진공 검사 통과. facet은 저장된 벌크 셀의 3지수 표기.",
         "Zn은 육방정계 역격자 대칭을 사용.",
-        "기지 내 석출물의 계면·탄성에너지를 반영한 형상이 아님.",
+        "matrix 내 석출물의 interface·탄성에너지를 반영한 형상이 아님.",
         "DFT 정확도 또는 모든 면방향·종결면에 대한 완전 수렴을 뜻하지 않음."
       ]
     },
@@ -41840,7 +41840,7 @@
       ],
       "title": "Al 내 Co · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.6315924326578966,
       "unit": "eV",
       "date": null,
@@ -42538,7 +42538,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -408.9228820800781,
@@ -42563,9 +42563,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -42580,7 +42580,7 @@
       ],
       "title": "Al 내 Cr · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.3426767985026231,
       "unit": "eV",
       "date": null,
@@ -43278,7 +43278,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -411.1510009765625,
@@ -43303,9 +43303,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -43320,7 +43320,7 @@
       ],
       "title": "Al 내 Cu · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.12977520624798444,
       "unit": "eV",
       "date": null,
@@ -44018,7 +44018,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -405.40802001953125,
@@ -44043,9 +44043,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -44060,7 +44060,7 @@
       ],
       "title": "Al 내 Mg · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.14753313859301898,
       "unit": "eV",
       "date": null,
@@ -44758,7 +44758,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -402.6366271972656,
@@ -44783,9 +44783,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -44800,7 +44800,7 @@
       ],
       "title": "Al 내 Mn · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.43352157768163657,
       "unit": "eV",
       "date": null,
@@ -45498,7 +45498,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -410.7730407714844,
@@ -45523,9 +45523,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -45540,7 +45540,7 @@
       ],
       "title": "Al 내 Ni · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.7772881189982286,
       "unit": "eV",
       "date": null,
@@ -46238,7 +46238,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -407.7387390136719,
@@ -46263,9 +46263,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -46280,7 +46280,7 @@
       ],
       "title": "Al 내 Sc · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -1.0537153879801622,
       "unit": "eV",
       "date": null,
@@ -46978,7 +46978,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -408.567138671875,
@@ -47003,9 +47003,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -47020,7 +47020,7 @@
       ],
       "title": "Al 내 Si · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.4281037648518691,
       "unit": "eV",
       "date": null,
@@ -47718,7 +47718,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -406.1701354980469,
@@ -47743,9 +47743,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -47760,7 +47760,7 @@
       ],
       "title": "Al 내 Zn · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.11957403024035784,
       "unit": "eV",
       "date": null,
@@ -48458,7 +48458,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -402.32867431640625,
@@ -48483,9 +48483,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -48500,7 +48500,7 @@
       ],
       "title": "Al 내 Zr · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -1.2024752298991075,
       "unit": "eV",
       "date": null,
@@ -49198,7 +49198,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -410.92340087890625,
@@ -49223,9 +49223,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -49240,7 +49240,7 @@
       ],
       "title": "Cu 내 Al · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.7382675630074687,
       "unit": "eV",
       "date": null,
@@ -49938,7 +49938,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -442.8180847167969,
@@ -49963,9 +49963,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -49980,7 +49980,7 @@
       ],
       "title": "Cu 내 Co · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.6191233175772481,
       "unit": "eV",
       "date": null,
@@ -50678,7 +50678,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -444.8209228515625,
@@ -50703,9 +50703,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -50720,7 +50720,7 @@
       ],
       "title": "Cu 내 Cr · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.9453009146231466,
       "unit": "eV",
       "date": null,
@@ -51418,7 +51418,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -447.01177978515625,
@@ -51443,9 +51443,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -51460,7 +51460,7 @@
       ],
       "title": "Cu 내 Mg · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.14697816195308633,
       "unit": "eV",
       "date": null,
@@ -52158,7 +52158,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -440.07989501953125,
@@ -52183,9 +52183,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -52200,7 +52200,7 @@
       ],
       "title": "Cu 내 Mn · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.3865911452097581,
       "unit": "eV",
       "date": null,
@@ -52898,7 +52898,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -447.1016845703125,
@@ -52923,9 +52923,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -52940,7 +52940,7 @@
       ],
       "title": "Cu 내 Ni · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.017111919544333887,
       "unit": "eV",
       "date": null,
@@ -53638,7 +53638,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -444.1273193359375,
@@ -53663,9 +53663,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -53680,7 +53680,7 @@
       ],
       "title": "Cu 내 Sc · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.3454495889168925,
       "unit": "eV",
       "date": null,
@@ -54378,7 +54378,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -445.00762939453125,
@@ -54403,9 +54403,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -54420,7 +54420,7 @@
       ],
       "title": "Cu 내 Si · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.34766974272548623,
       "unit": "eV",
       "date": null,
@@ -55118,7 +55118,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -444.09466552734375,
@@ -55143,9 +55143,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -55160,7 +55160,7 @@
       ],
       "title": "Cu 내 Zn · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.25492384257137246,
       "unit": "eV",
       "date": null,
@@ -55858,7 +55858,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -439.8519287109375,
@@ -55883,9 +55883,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -55900,7 +55900,7 @@
       ],
       "title": "Cu 내 Zr · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.3004072683829122,
       "unit": "eV",
       "date": null,
@@ -56598,7 +56598,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -446.56927490234375,
@@ -56623,9 +56623,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -56640,7 +56640,7 @@
       ],
       "title": "Zn 내 Al · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.1352982521057129,
       "unit": "eV",
       "date": null,
@@ -57074,7 +57074,7 @@
         "atoms": 64,
         "solute_count": 1,
         "solute_atomic_fraction": 0.015625,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -83.40635681152344,
@@ -57099,9 +57099,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -57116,7 +57116,7 @@
       ],
       "title": "Zn 내 Co · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.04673957824707031,
       "unit": "eV",
       "date": null,
@@ -57550,7 +57550,7 @@
         "atoms": 64,
         "solute_count": 1,
         "solute_atomic_fraction": 0.015625,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -86.94862365722656,
@@ -57575,9 +57575,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -57592,7 +57592,7 @@
       ],
       "title": "Zn 내 Cr · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.5955848693847656,
       "unit": "eV",
       "date": null,
@@ -58026,7 +58026,7 @@
         "atoms": 64,
         "solute_count": 1,
         "solute_atomic_fraction": 0.015625,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -88.82333374023438,
@@ -58051,9 +58051,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -58068,7 +58068,7 @@
       ],
       "title": "Zn 내 Cu · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.18846940994262695,
       "unit": "eV",
       "date": null,
@@ -58502,7 +58502,7 @@
         "atoms": 64,
         "solute_count": 1,
         "solute_atomic_fraction": 0.015625,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -84.07730865478516,
@@ -58527,9 +58527,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -58544,7 +58544,7 @@
       ],
       "title": "Zn 내 Mg · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.040792107582092285,
       "unit": "eV",
       "date": null,
@@ -58978,7 +58978,7 @@
         "atoms": 64,
         "solute_count": 1,
         "solute_atomic_fraction": 0.015625,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -81.435546875,
@@ -59003,9 +59003,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -59020,7 +59020,7 @@
       ],
       "title": "Zn 내 Mn · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.23650583727606467,
       "unit": "eV",
       "date": null,
@@ -59454,7 +59454,7 @@
         "atoms": 64,
         "solute_count": 1,
         "solute_atomic_fraction": 0.015625,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -88.71360778808594,
@@ -59479,9 +59479,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -59496,7 +59496,7 @@
       ],
       "title": "Zn 내 Ni · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.5548009872436523,
       "unit": "eV",
       "date": null,
@@ -59930,7 +59930,7 @@
         "atoms": 64,
         "solute_count": 1,
         "solute_atomic_fraction": 0.015625,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -86.12684631347656,
@@ -59955,9 +59955,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -59972,7 +59972,7 @@
       ],
       "title": "Zn 내 Sc · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.49464988708496094,
       "unit": "eV",
       "date": null,
@@ -60406,7 +60406,7 @@
         "atoms": 64,
         "solute_count": 1,
         "solute_atomic_fraction": 0.015625,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -86.61866760253906,
@@ -60431,9 +60431,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -60448,7 +60448,7 @@
       ],
       "title": "Zn 내 Si · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.7726306915283203,
       "unit": "eV",
       "date": null,
@@ -60882,7 +60882,7 @@
         "atoms": 64,
         "solute_count": 1,
         "solute_atomic_fraction": 0.015625,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -84.43620300292969,
@@ -60907,9 +60907,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -60924,7 +60924,7 @@
       ],
       "title": "Zn 내 Zr · MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.15549468994140625,
       "unit": "eV",
       "date": null,
@@ -61358,7 +61358,7 @@
         "atoms": 64,
         "solute_count": 1,
         "solute_atomic_fraction": 0.015625,
-        "relaxation": "기존 full 완화 구조; 셀/최적화 종료 조건은 독립 검증 전",
+        "relaxation": "기존 full relaxed structure; 셀/최적화 종료 조건은 독립 검증 전",
         "energy_definition": "E(A[N−1]X) − (E(A[N]) − E(A[N])/N) − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -88.48701477050781,
@@ -61383,9 +61383,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "벌크 단일 치환의 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution의 formation energy이며 interface segregation energy가 아님.",
         "원본 3구조의 조성·에너지·저장 원자 힘을 확인. 셀 응력 수렴·초격자 크기 수렴·DFT 정확도는 미검증.",
-        "동일 모재·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
+        "동일 host·모델·참조 정의에서 비교. 음수만으로 합금 첨가 적합성이나 경쟁상 안정성을 확정하지 않음.",
         "기존 모델 별칭만 확인했으며 정확한 체크포인트는 미확인."
       ]
     },
@@ -61400,7 +61400,7 @@
       ],
       "title": "Cu 내 Al · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.7356413558677559,
       "unit": "eV",
       "date": "2026-11-13",
@@ -62106,7 +62106,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -442.8152770996094,
@@ -62136,9 +62136,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -62152,7 +62152,7 @@
       ],
       "title": "Cu 내 Zn · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.25303124939955524,
       "unit": "eV",
       "date": "2026-11-13",
@@ -62858,7 +62858,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -439.849853515625,
@@ -62888,9 +62888,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -62904,7 +62904,7 @@
       ],
       "title": "Cu 내 Mg · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.13510262524641803,
       "unit": "eV",
       "date": "2026-11-13",
@@ -63610,7 +63610,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -440.0678405761719,
@@ -63640,9 +63640,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -63656,7 +63656,7 @@
       ],
       "title": "Cu 내 Al · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.7356271524041524,
       "unit": "eV",
       "date": "2026-11-20",
@@ -64362,7 +64362,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -442.8153140248733,
@@ -64392,9 +64392,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -64408,7 +64408,7 @@
       ],
       "title": "Cu 내 Zn · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.2529626055641572,
       "unit": "eV",
       "date": "2026-11-20",
@@ -65114,7 +65114,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -439.84983637627033,
@@ -65144,9 +65144,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -65160,7 +65160,7 @@
       ],
       "title": "Cu 내 Mg · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.1350932807172569,
       "unit": "eV",
       "date": "2026-11-20",
@@ -65866,7 +65866,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -440.0678824042326,
@@ -65896,9 +65896,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -65912,7 +65912,7 @@
       ],
       "title": "Cu 내 Ni · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.017175012504374365,
       "unit": "eV",
       "date": "2026-11-20",
@@ -66618,7 +66618,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -444.12725324462207,
@@ -66648,9 +66648,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -66664,7 +66664,7 @@
       ],
       "title": "Cu 내 Si · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.3475286531729882,
       "unit": "eV",
       "date": "2026-11-20",
@@ -67370,7 +67370,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -444.09439075915,
@@ -67400,9 +67400,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -67416,7 +67416,7 @@
       ],
       "title": "Cu 내 Mn · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.39003195573066485,
       "unit": "eV",
       "date": "2026-11-20",
@@ -68122,7 +68122,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -447.0981131241882,
@@ -68152,9 +68152,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -68168,7 +68168,7 @@
       ],
       "title": "Cu 내 Co · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.6190399195427574,
       "unit": "eV",
       "date": "2026-11-20",
@@ -68874,7 +68874,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -444.82087453446377,
@@ -68904,9 +68904,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -68920,7 +68920,7 @@
       ],
       "title": "Cu 내 Cr · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.9519388786958132,
       "unit": "eV",
       "date": "2026-11-20",
@@ -69626,7 +69626,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -447.00501137942194,
@@ -69656,9 +69656,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -69672,7 +69672,7 @@
       ],
       "title": "Cu 내 Fe · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.6451447654004028,
       "unit": "eV",
       "date": "2026-11-20",
@@ -70378,7 +70378,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -446.1320998263501,
@@ -70408,9 +70408,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -70424,7 +70424,7 @@
       ],
       "title": "Cu 내 Ti · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.015059580135073247,
       "unit": "eV",
       "date": "2026-11-20",
@@ -71130,7 +71130,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -446.1874427814706,
@@ -71160,9 +71160,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -71176,7 +71176,7 @@
       ],
       "title": "Cu 내 Zr · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.3609156514516343,
       "unit": "eV",
       "date": "2026-11-20",
@@ -71882,7 +71882,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -446.5086378795572,
@@ -71912,9 +71912,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -71928,7 +71928,7 @@
       ],
       "title": "Cu 내 Sc · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.31050864633836284,
       "unit": "eV",
       "date": "2026-11-20",
@@ -72634,7 +72634,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -444.9725579913396,
@@ -72664,9 +72664,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -72680,7 +72680,7 @@
       ],
       "title": "Al 내 Cu · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.12611670701315347,
       "unit": "eV",
       "date": "2026-11-20",
@@ -73386,7 +73386,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -405.4043192095196,
@@ -73416,9 +73416,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -73432,7 +73432,7 @@
       ],
       "title": "Al 내 Zn · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.11892820758883715,
       "unit": "eV",
       "date": "2026-11-20",
@@ -74138,7 +74138,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -402.32927640763086,
@@ -74168,9 +74168,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -74184,7 +74184,7 @@
       ],
       "title": "Al 내 Mg · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.15147812196204313,
       "unit": "eV",
       "date": "2026-11-20",
@@ -74890,7 +74890,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -402.6326424315138,
@@ -74920,9 +74920,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -74936,7 +74936,7 @@
       ],
       "title": "Al 내 Ni · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.7630621597794942,
       "unit": "eV",
       "date": "2026-11-20",
@@ -75642,7 +75642,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -407.7244714705895,
@@ -75672,9 +75672,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -75688,7 +75688,7 @@
       ],
       "title": "Al 내 Si · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": 0.42905971983586966,
       "unit": "eV",
       "date": "2026-11-20",
@@ -76394,7 +76394,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -406.16913355265046,
@@ -76424,9 +76424,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -76440,7 +76440,7 @@
       ],
       "title": "Al 내 Mn · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.42197778805834396,
       "unit": "eV",
       "date": "2026-11-20",
@@ -77146,7 +77146,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -410.76145383765527,
@@ -77176,9 +77176,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -77192,7 +77192,7 @@
       ],
       "title": "Al 내 Co · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.6137148739468046,
       "unit": "eV",
       "date": "2026-11-20",
@@ -77898,7 +77898,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -408.90496028955624,
@@ -77928,9 +77928,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -77944,7 +77944,7 @@
       ],
       "title": "Al 내 Cr · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.3315477041982575,
       "unit": "eV",
       "date": "2026-11-20",
@@ -78650,7 +78650,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -411.13983009481285,
@@ -78680,9 +78680,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -78696,7 +78696,7 @@
       ],
       "title": "Al 내 Fe · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -0.43325037954650725,
       "unit": "eV",
       "date": "2026-11-20",
@@ -79402,7 +79402,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -410.0618249961848,
@@ -79432,9 +79432,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -79448,7 +79448,7 @@
       ],
       "title": "Al 내 Ti · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -1.0939478839195544,
       "unit": "eV",
       "date": "2026-11-20",
@@ -80154,7 +80154,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -410.1477821438433,
@@ -80184,9 +80184,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -80200,7 +80200,7 @@
       ],
       "title": "Al 내 Zr · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -1.1970797523914172,
       "unit": "eV",
       "date": "2026-11-20",
@@ -80906,7 +80906,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -410.9179642450032,
@@ -80936,9 +80936,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -80952,7 +80952,7 @@
       ],
       "title": "Al 내 Sc · 자동 계산 MPA",
       "property": "solute_formation_energy",
-      "property_label": "벌크 용질 형성에너지",
+      "property_label": "bulk solute formation energy",
       "value": -1.048938721479388,
       "unit": "eV",
       "date": "2026-11-20",
@@ -81658,7 +81658,7 @@
         "atoms": 108,
         "solute_count": 1,
         "solute_atomic_fraction": 0.009259259259259259,
-        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 치환·원자 완화",
+        "relaxation": "무첨가 FCC 초격자 정수압 완화 후 셀 고정 단일 substitution·원자 완화",
         "energy_definition": "E(H[N−1]X) − (N−1)E(H[N])/N − E(X_ref)/N_ref",
         "reference_energies_eV": {
           "substitution": -408.56231902808355,
@@ -81688,9 +81688,9 @@
       },
       "notes": [
         "완료된 자동 계산의 원본 구조·조성·에너지·힘·해시를 DB 반영 시 독립 재대조.",
-        "벌크 단일 치환 형성에너지이며 계면 편석에너지가 아님.",
+        "벌크 단일 substitution formation energy이며 interface segregation energy가 아님.",
         "108원자·단일 농도 탐색 계산. 초격자 크기·희석 극한·DFT 정확도는 미검증.",
-        "동일 실행·모재·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
+        "동일 실행·host·모델·참조 정의끼리 비교. 셀 정책이 다른 기존 결과와 순위를 혼합하지 않음."
       ]
     },
     {
@@ -81700,15 +81700,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(100) / Ni(100) · 빌더 후보 1",
+      "title": "Cu(100) / Ni(100) · builder candidate 1",
       "face_pair": "Cu(100) / Ni(100)",
-      "combination_label": "빌더 후보 1",
+      "combination_label": "builder candidate 1",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 3.585089144234906,
       "unit": "J/m²",
       "comparison_group": "builder-20261118-cuni",
-      "comparison_label": "계면 만들기 표본 · Cu/Ni 4개",
+      "comparison_label": "Interface builder 표본 · Cu/Ni 4개",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-18",
@@ -82324,13 +82324,13 @@
         "area_A2": 26.24133238406851,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.009536350015184008,
-        "energy_definition": "(E_분리기지슬랩 + E_분리석출상슬랩 − E_접합구조) / A",
+        "energy_definition": "(E_분리matrixslab + E_분리precipitateslab − E_접합구조) / A",
         "reference_energies_eV": [
           -257.4453430175781,
           -177.28759765625
         ],
         "interface_energy_eV": -440.60479736328125,
-        "comparison_scope": "고정셀·모든 원자 자유완화. 계면 만들기 초기 구조(간격 2.2 Å, 면내 이동 0)에서 한 번 완화. 면내 이동 탐색·두께 수렴 없음.",
+        "comparison_scope": "고정셀·모든 원자 자유완화. Interface builder initial structure(간격 2.2 Å, in-plane shift 0)에서 한 번 완화. in-plane shift 탐색·두께 수렴 없음.",
         "film_strain_percent": [
           2.9554659723465937,
           2.9554659723465937
@@ -82349,8 +82349,8 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "계면 만들기 페이지의 후보를 그대로 계산한 표본. 초기 이동 1개만 계산했으므로 이 면 조합의 최저 접합일을 뜻하지 않음.",
-        "자유표면으로 완화된 DB 슬랩을 붙인 구조이며 석출상은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행."
+        "Interface builder 페이지의 후보를 그대로 계산한 표본. initial shift 1개만 계산했으므로 이 facet pair의 최저 work of adhesion을 뜻하지 않음.",
+        "free surface으로 완화된 DB slab을 붙인 구조이며 precipitate은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행."
       ]
     },
     {
@@ -82360,15 +82360,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(110) / Ni(110) · 빌더 후보 1",
+      "title": "Cu(110) / Ni(110) · builder candidate 1",
       "face_pair": "Cu(110) / Ni(110)",
-      "combination_label": "빌더 후보 1",
+      "combination_label": "builder candidate 1",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 3.7258548359590566,
       "unit": "J/m²",
       "comparison_group": "builder-20261118-cuni",
-      "comparison_label": "계면 만들기 표본 · Cu/Ni 4개",
+      "comparison_label": "Interface builder 표본 · Cu/Ni 4개",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-18",
@@ -82984,13 +82984,13 @@
         "area_A2": 37.11084815228999,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.009941910013362623,
-        "energy_definition": "(E_분리기지슬랩 + E_분리석출상슬랩 − E_접합구조) / A",
+        "energy_definition": "(E_분리matrixslab + E_분리precipitateslab − E_접합구조) / A",
         "reference_energies_eV": [
           -255.07716369628906,
           -173.73715209960938
         ],
         "interface_energy_eV": -437.4444274902344,
-        "comparison_scope": "고정셀·모든 원자 자유완화. 계면 만들기 초기 구조(간격 2.2 Å, 면내 이동 0)에서 한 번 완화. 면내 이동 탐색·두께 수렴 없음.",
+        "comparison_scope": "고정셀·모든 원자 자유완화. Interface builder initial structure(간격 2.2 Å, in-plane shift 0)에서 한 번 완화. in-plane shift 탐색·두께 수렴 없음.",
         "film_strain_percent": [
           2.955465972346616,
           2.9554659723465937
@@ -83009,8 +83009,8 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "계면 만들기 페이지의 후보를 그대로 계산한 표본. 초기 이동 1개만 계산했으므로 이 면 조합의 최저 접합일을 뜻하지 않음.",
-        "자유표면으로 완화된 DB 슬랩을 붙인 구조이며 석출상은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행."
+        "Interface builder 페이지의 후보를 그대로 계산한 표본. initial shift 1개만 계산했으므로 이 facet pair의 최저 work of adhesion을 뜻하지 않음.",
+        "free surface으로 완화된 DB slab을 붙인 구조이며 precipitate은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행."
       ]
     },
     {
@@ -83020,15 +83020,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(111) / Ni(111) · 빌더 후보 1",
+      "title": "Cu(111) / Ni(111) · builder candidate 1",
       "face_pair": "Cu(111) / Ni(111)",
-      "combination_label": "빌더 후보 1",
+      "combination_label": "builder candidate 1",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 3.1075806192300437,
       "unit": "J/m²",
       "comparison_group": "builder-20261118-cuni",
-      "comparison_label": "계면 만들기 표본 · Cu/Ni 4개",
+      "comparison_label": "Interface builder 표본 · Cu/Ni 4개",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-18",
@@ -84220,13 +84220,13 @@
         "area_A2": 45.45132094750918,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.00909620006376289,
-        "energy_definition": "(E_분리기지슬랩 + E_분리석출상슬랩 − E_접합구조) / A",
+        "energy_definition": "(E_분리matrixslab + E_분리precipitateslab − E_접합구조) / A",
         "reference_energies_eV": [
           -517.0684814453125,
           -357.64300537109375
         ],
         "interface_energy_eV": -883.5272216796875,
-        "comparison_scope": "고정셀·모든 원자 자유완화. 계면 만들기 초기 구조(간격 2.2 Å, 면내 이동 0)에서 한 번 완화. 면내 이동 탐색·두께 수렴 없음.",
+        "comparison_scope": "고정셀·모든 원자 자유완화. Interface builder initial structure(간격 2.2 Å, in-plane shift 0)에서 한 번 완화. in-plane shift 탐색·두께 수렴 없음.",
         "film_strain_percent": [
           2.9554659723465937,
           2.9554659723465937
@@ -84245,8 +84245,8 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "계면 만들기 페이지의 후보를 그대로 계산한 표본. 초기 이동 1개만 계산했으므로 이 면 조합의 최저 접합일을 뜻하지 않음.",
-        "자유표면으로 완화된 DB 슬랩을 붙인 구조이며 석출상은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행."
+        "Interface builder 페이지의 후보를 그대로 계산한 표본. initial shift 1개만 계산했으므로 이 facet pair의 최저 work of adhesion을 뜻하지 않음.",
+        "free surface으로 완화된 DB slab을 붙인 구조이며 precipitate은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행."
       ]
     },
     {
@@ -84256,15 +84256,15 @@
         "Cu",
         "Ni"
       ],
-      "title": "Cu(110) / Ni(100) · 빌더 후보 1",
+      "title": "Cu(110) / Ni(100) · builder candidate 1",
       "face_pair": "Cu(110) / Ni(100)",
-      "combination_label": "빌더 후보 1",
+      "combination_label": "builder candidate 1",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 2.816497585907717,
       "unit": "J/m²",
       "comparison_group": "builder-20261118-cuni",
-      "comparison_label": "계면 만들기 표본 · Cu/Ni 4개",
+      "comparison_label": "Interface builder 표본 · Cu/Ni 4개",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-18",
@@ -85648,13 +85648,13 @@
         "area_A2": 74.22169630457992,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.00596581000967178,
-        "energy_definition": "(E_분리기지슬랩 + E_분리석출상슬랩 − E_접합구조) / A",
+        "energy_definition": "(E_분리matrixslab + E_분리precipitateslab − E_접합구조) / A",
         "reference_energies_eV": [
           -510.1543273925781,
           -532.906005859375
         ],
         "interface_energy_eV": -1056.10791015625,
-        "comparison_scope": "고정셀·모든 원자 자유완화. 계면 만들기 초기 구조(간격 2.2 Å, 면내 이동 0)에서 한 번 완화. 면내 이동 탐색·두께 수렴 없음.",
+        "comparison_scope": "고정셀·모든 원자 자유완화. Interface builder initial structure(간격 2.2 Å, in-plane shift 0)에서 한 번 완화. in-plane shift 탐색·두께 수렴 없음.",
         "film_strain_percent": [
           2.9554659723465937,
           -2.9326558009771686
@@ -85673,8 +85673,8 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "계면 만들기 페이지의 후보를 그대로 계산한 표본. 초기 이동 1개만 계산했으므로 이 면 조합의 최저 접합일을 뜻하지 않음.",
-        "자유표면으로 완화된 DB 슬랩을 붙인 구조이며 석출상은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행."
+        "Interface builder 페이지의 후보를 그대로 계산한 표본. initial shift 1개만 계산했으므로 이 facet pair의 최저 work of adhesion을 뜻하지 않음.",
+        "free surface으로 완화된 DB slab을 붙인 구조이며 precipitate은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행."
       ]
     },
     {
@@ -85684,15 +85684,15 @@
         "Cu",
         "Ni2Si"
       ],
-      "title": "Cu(110) / Ni₂Si(001) · 빌더 후보 1",
+      "title": "Cu(110) / Ni₂Si(001) · builder candidate 1",
       "face_pair": "Cu(110) / Ni₂Si(001)",
-      "combination_label": "빌더 후보 1",
+      "combination_label": "builder candidate 1",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 2.433492438718603,
       "unit": "J/m²",
       "comparison_group": "builder-20261118-cuni2si",
-      "comparison_label": "계면 만들기 표본 · Cu/Ni₂Si 4개",
+      "comparison_label": "Interface builder 표본 · Cu/Ni₂Si 4개",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-18",
@@ -86692,13 +86692,13 @@
         "area_A2": 37.11084815228999,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.009953539273127926,
-        "energy_definition": "(E_분리기지슬랩 + E_분리석출상슬랩 − E_접합구조) / A",
+        "energy_definition": "(E_분리matrixslab + E_분리precipitateslab − E_접합구조) / A",
         "reference_energies_eV": [
           -255.07716369628906,
           -586.9365844726562
         ],
         "interface_energy_eV": -847.650390625,
-        "comparison_scope": "고정셀·모든 원자 자유완화. 계면 만들기 초기 구조(간격 2.2 Å, 면내 이동 0)에서 한 번 완화. 면내 이동 탐색·두께 수렴 없음.",
+        "comparison_scope": "고정셀·모든 원자 자유완화. Interface builder initial structure(간격 2.2 Å, in-plane shift 0)에서 한 번 완화. in-plane shift 탐색·두께 수렴 없음.",
         "film_strain_percent": [
           2.485281812504714,
           -2.361848261296695
@@ -86717,9 +86717,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "계면 만들기 페이지의 후보를 그대로 계산한 표본. 초기 이동 1개만 계산했으므로 이 면 조합의 최저 접합일을 뜻하지 않음.",
-        "자유표면으로 완화된 DB 슬랩을 붙인 구조이며 석출상은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행.",
-        "Ni₂Si 면 표기는 표면 DB 축 기준. 기존 Cu/Ni₂Si 계면 계산(2026-11-13 이전)과 축 설정이 달라 같은 표기라도 같은 면이라고 확인하지 않음."
+        "Interface builder 페이지의 후보를 그대로 계산한 표본. initial shift 1개만 계산했으므로 이 facet pair의 최저 work of adhesion을 뜻하지 않음.",
+        "free surface으로 완화된 DB slab을 붙인 구조이며 precipitate은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행.",
+        "Ni₂Si 면 표기는 surface DB 축 기준. 기존 Cu/Ni₂Si interface 계산(2026-11-13 이전)과 축 설정이 달라 같은 표기라도 같은 면이라고 확인하지 않음."
       ]
     },
     {
@@ -86729,15 +86729,15 @@
         "Cu",
         "Ni2Si"
       ],
-      "title": "Cu(110) / Ni₂Si(100) · 빌더 후보 1",
+      "title": "Cu(110) / Ni₂Si(100) · builder candidate 1",
       "face_pair": "Cu(110) / Ni₂Si(100)",
-      "combination_label": "빌더 후보 1",
+      "combination_label": "builder candidate 1",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 2.544764195532694,
       "unit": "J/m²",
       "comparison_group": "builder-20261118-cuni2si",
-      "comparison_label": "계면 만들기 표본 · Cu/Ni₂Si 4개",
+      "comparison_label": "Interface builder 표본 · Cu/Ni₂Si 4개",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-18",
@@ -88697,13 +88697,13 @@
         "area_A2": 74.22169630458,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.008311500074962402,
-        "energy_definition": "(E_분리기지슬랩 + E_분리석출상슬랩 − E_접합구조) / A",
+        "energy_definition": "(E_분리matrixslab + E_분리precipitateslab − E_접합구조) / A",
         "reference_energies_eV": [
           -510.15435791015625,
           -1173.042236328125
         ],
         "interface_energy_eV": -1694.9853515625,
-        "comparison_scope": "고정셀·모든 원자 자유완화. 계면 만들기 초기 구조(간격 2.2 Å, 면내 이동 0)에서 한 번 완화. 면내 이동 탐색·두께 수렴 없음.",
+        "comparison_scope": "고정셀·모든 원자 자유완화. Interface builder initial structure(간격 2.2 Å, in-plane shift 0)에서 한 번 완화. in-plane shift 탐색·두께 수렴 없음.",
         "film_strain_percent": [
           2.485281812504736,
           2.0349657531540943
@@ -88722,9 +88722,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "계면 만들기 페이지의 후보를 그대로 계산한 표본. 초기 이동 1개만 계산했으므로 이 면 조합의 최저 접합일을 뜻하지 않음.",
-        "자유표면으로 완화된 DB 슬랩을 붙인 구조이며 석출상은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행.",
-        "Ni₂Si 면 표기는 표면 DB 축 기준. 기존 Cu/Ni₂Si 계면 계산(2026-11-13 이전)과 축 설정이 달라 같은 표기라도 같은 면이라고 확인하지 않음."
+        "Interface builder 페이지의 후보를 그대로 계산한 표본. initial shift 1개만 계산했으므로 이 facet pair의 최저 work of adhesion을 뜻하지 않음.",
+        "free surface으로 완화된 DB slab을 붙인 구조이며 precipitate은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행.",
+        "Ni₂Si 면 표기는 surface DB 축 기준. 기존 Cu/Ni₂Si interface 계산(2026-11-13 이전)과 축 설정이 달라 같은 표기라도 같은 면이라고 확인하지 않음."
       ]
     },
     {
@@ -88734,15 +88734,15 @@
         "Cu",
         "Ni2Si"
       ],
-      "title": "Cu(100) / Ni₂Si(001) · 빌더 후보 1",
+      "title": "Cu(100) / Ni₂Si(001) · builder candidate 1",
       "face_pair": "Cu(100) / Ni₂Si(001)",
-      "combination_label": "빌더 후보 1",
+      "combination_label": "builder candidate 1",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 2.2391970905600798,
       "unit": "J/m²",
       "comparison_group": "builder-20261118-cuni2si",
-      "comparison_label": "계면 만들기 표본 · Cu/Ni₂Si 4개",
+      "comparison_label": "Interface builder 표본 · Cu/Ni₂Si 4개",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-18",
@@ -91086,13 +91086,13 @@
         "area_A2": 78.72399715220548,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.006326831209191533,
-        "energy_definition": "(E_분리기지슬랩 + E_분리석출상슬랩 − E_접합구조) / A",
+        "energy_definition": "(E_분리matrixslab + E_분리precipitateslab − E_접합구조) / A",
         "reference_energies_eV": [
           -772.3360595703125,
           -1171.1749267578125
         ],
         "interface_energy_eV": -1954.513427734375,
-        "comparison_scope": "고정셀·모든 원자 자유완화. 계면 만들기 초기 구조(간격 2.2 Å, 면내 이동 0)에서 한 번 완화. 면내 이동 탐색·두께 수렴 없음.",
+        "comparison_scope": "고정셀·모든 원자 자유완화. Interface builder initial structure(간격 2.2 Å, in-plane shift 0)에서 한 번 완화. in-plane shift 탐색·두께 수렴 없음.",
         "film_strain_percent": [
           3.560898795437306,
           2.485281812504714
@@ -91111,9 +91111,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "계면 만들기 페이지의 후보를 그대로 계산한 표본. 초기 이동 1개만 계산했으므로 이 면 조합의 최저 접합일을 뜻하지 않음.",
-        "자유표면으로 완화된 DB 슬랩을 붙인 구조이며 석출상은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행.",
-        "Ni₂Si 면 표기는 표면 DB 축 기준. 기존 Cu/Ni₂Si 계면 계산(2026-11-13 이전)과 축 설정이 달라 같은 표기라도 같은 면이라고 확인하지 않음."
+        "Interface builder 페이지의 후보를 그대로 계산한 표본. initial shift 1개만 계산했으므로 이 facet pair의 최저 work of adhesion을 뜻하지 않음.",
+        "free surface으로 완화된 DB slab을 붙인 구조이며 precipitate은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행.",
+        "Ni₂Si 면 표기는 surface DB 축 기준. 기존 Cu/Ni₂Si interface 계산(2026-11-13 이전)과 축 설정이 달라 같은 표기라도 같은 면이라고 확인하지 않음."
       ]
     },
     {
@@ -91123,15 +91123,15 @@
         "Cu",
         "Ni2Si"
       ],
-      "title": "Cu(111) / Ni₂Si(011) · 빌더 후보 1",
+      "title": "Cu(111) / Ni₂Si(011) · builder candidate 1",
       "face_pair": "Cu(111) / Ni₂Si(011)",
-      "combination_label": "빌더 후보 1",
+      "combination_label": "builder candidate 1",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 2.429000637159596,
       "unit": "J/m²",
       "comparison_group": "builder-20261118-cuni2si",
-      "comparison_label": "계면 만들기 표본 · Cu/Ni₂Si 4개",
+      "comparison_label": "Interface builder 표본 · Cu/Ni₂Si 4개",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-18",
@@ -95491,13 +95491,13 @@
         "area_A2": 136.35396284252758,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.008583849844108411,
-        "energy_definition": "(E_분리기지슬랩 + E_분리석출상슬랩 − E_접합구조) / A",
+        "energy_definition": "(E_분리matrixslab + E_분리precipitateslab − E_접합구조) / A",
         "reference_energies_eV": [
           -1551.205322265625,
           -2051.3486328125
         ],
         "interface_energy_eV": -3623.22607421875,
-        "comparison_scope": "고정셀·모든 원자 자유완화. 계면 만들기 초기 구조(간격 2.2 Å, 면내 이동 0)에서 한 번 완화. 면내 이동 탐색·두께 수렴 없음.",
+        "comparison_scope": "고정셀·모든 원자 자유완화. Interface builder initial structure(간격 2.2 Å, in-plane shift 0)에서 한 번 완화. in-plane shift 탐색·두께 수렴 없음.",
         "film_strain_percent": [
           3.560898795437306,
           2.1844109067728157
@@ -95516,9 +95516,9 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "계면 만들기 페이지의 후보를 그대로 계산한 표본. 초기 이동 1개만 계산했으므로 이 면 조합의 최저 접합일을 뜻하지 않음.",
-        "자유표면으로 완화된 DB 슬랩을 붙인 구조이며 석출상은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행.",
-        "Ni₂Si 면 표기는 표면 DB 축 기준. 기존 Cu/Ni₂Si 계면 계산(2026-11-13 이전)과 축 설정이 달라 같은 표기라도 같은 면이라고 확인하지 않음."
+        "Interface builder 페이지의 후보를 그대로 계산한 표본. initial shift 1개만 계산했으므로 이 facet pair의 최저 work of adhesion을 뜻하지 않음.",
+        "free surface으로 완화된 DB slab을 붙인 구조이며 precipitate은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행.",
+        "Ni₂Si 면 표기는 surface DB 축 기준. 기존 Cu/Ni₂Si interface 계산(2026-11-13 이전)과 축 설정이 달라 같은 표기라도 같은 면이라고 확인하지 않음."
       ]
     },
     {
@@ -95528,15 +95528,15 @@
         "Al",
         "Zn"
       ],
-      "title": "Al(111) / Zn(001) · 빌더 후보 4",
+      "title": "Al(111) / Zn(001) · builder candidate 4",
       "face_pair": "Al(111) / Zn(001)",
-      "combination_label": "빌더 후보 4",
+      "combination_label": "builder candidate 4",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 0.8282020755708203,
       "unit": "J/m²",
       "comparison_group": "builder-20261118-alzn",
-      "comparison_label": "계면 만들기 표본 · Al/Zn 4개",
+      "comparison_label": "Interface builder 표본 · Al/Zn 4개",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-18",
@@ -98192,13 +98192,13 @@
         "area_A2": 113.0593617553374,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.008750832731609032,
-        "energy_definition": "(E_분리기지슬랩 + E_분리석출상슬랩 − E_접합구조) / A",
+        "energy_definition": "(E_분리matrixslab + E_분리precipitateslab − E_접합구조) / A",
         "reference_energies_eV": [
           -768.5960693359375,
           -284.47833251953125
         ],
         "interface_energy_eV": -1058.918701171875,
-        "comparison_scope": "고정셀·모든 원자 자유완화. 계면 만들기 초기 구조(간격 2.2 Å, 면내 이동 0)에서 한 번 완화. 면내 이동 탐색·두께 수렴 없음.",
+        "comparison_scope": "고정셀·모든 원자 자유완화. Interface builder initial structure(간격 2.2 Å, in-plane shift 0)에서 한 번 완화. in-plane shift 탐색·두께 수렴 없음.",
         "film_strain_percent": [
           -0.9915241982803802,
           -0.9915241982803802
@@ -98217,8 +98217,8 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "계면 만들기 페이지의 후보를 그대로 계산한 표본. 초기 이동 1개만 계산했으므로 이 면 조합의 최저 접합일을 뜻하지 않음.",
-        "자유표면으로 완화된 DB 슬랩을 붙인 구조이며 석출상은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행."
+        "Interface builder 페이지의 후보를 그대로 계산한 표본. initial shift 1개만 계산했으므로 이 facet pair의 최저 work of adhesion을 뜻하지 않음.",
+        "free surface으로 완화된 DB slab을 붙인 구조이며 precipitate은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행."
       ]
     },
     {
@@ -98228,15 +98228,15 @@
         "Al",
         "Zn"
       ],
-      "title": "Al(110) / Zn(110) · 빌더 후보 1",
+      "title": "Al(110) / Zn(110) · builder candidate 1",
       "face_pair": "Al(110) / Zn(110)",
-      "combination_label": "빌더 후보 1",
+      "combination_label": "builder candidate 1",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 1.4171342911935354,
       "unit": "J/m²",
       "comparison_group": "builder-20261118-alzn",
-      "comparison_label": "계면 만들기 표본 · Al/Zn 4개",
+      "comparison_label": "Interface builder 표본 · Al/Zn 4개",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-18",
@@ -99788,13 +99788,13 @@
         "area_A2": 69.23443673632791,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.009737583853508015,
-        "energy_definition": "(E_분리기지슬랩 + E_분리석출상슬랩 − E_접합구조) / A",
+        "energy_definition": "(E_분리matrixslab + E_분리precipitateslab − E_접합구조) / A",
         "reference_energies_eV": [
           -441.2537841796875,
           -159.47413635253906
         ],
         "interface_energy_eV": -606.8517456054688,
-        "comparison_scope": "고정셀·모든 원자 자유완화. 계면 만들기 초기 구조(간격 2.2 Å, 면내 이동 0)에서 한 번 완화. 면내 이동 탐색·두께 수렴 없음.",
+        "comparison_scope": "고정셀·모든 원자 자유완화. Interface builder initial structure(간격 2.2 Å, in-plane shift 0)에서 한 번 완화. in-plane shift 탐색·두께 수렴 없음.",
         "film_strain_percent": [
           1.7215391074557829,
           -1.5440600882897004
@@ -99813,8 +99813,8 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "계면 만들기 페이지의 후보를 그대로 계산한 표본. 초기 이동 1개만 계산했으므로 이 면 조합의 최저 접합일을 뜻하지 않음.",
-        "자유표면으로 완화된 DB 슬랩을 붙인 구조이며 석출상은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행."
+        "Interface builder 페이지의 후보를 그대로 계산한 표본. initial shift 1개만 계산했으므로 이 facet pair의 최저 work of adhesion을 뜻하지 않음.",
+        "free surface으로 완화된 DB slab을 붙인 구조이며 precipitate은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행."
       ]
     },
     {
@@ -99824,15 +99824,15 @@
         "Al",
         "Zn"
       ],
-      "title": "Al(100) / Zn(100) · 빌더 후보 1",
+      "title": "Al(100) / Zn(100) · builder candidate 1",
       "face_pair": "Al(100) / Zn(100)",
-      "combination_label": "빌더 후보 1",
+      "combination_label": "builder candidate 1",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 1.195082137050726,
       "unit": "J/m²",
       "comparison_group": "builder-20261118-alzn",
-      "comparison_label": "계면 만들기 표본 · Al/Zn 4개",
+      "comparison_label": "Interface builder 표본 · Al/Zn 4개",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-18",
@@ -101324,13 +101324,13 @@
         "area_A2": 65.2748529438513,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.009961716674961199,
-        "energy_definition": "(E_분리기지슬랩 + E_분리석출상슬랩 − E_접합구조) / A",
+        "energy_definition": "(E_분리matrixslab + E_분리precipitateslab − E_접합구조) / A",
         "reference_energies_eV": [
           -411.87164306640625,
           -159.13131713867188
         ],
         "interface_energy_eV": -575.8718872070312,
-        "comparison_scope": "고정셀·모든 원자 자유완화. 계면 만들기 초기 구조(간격 2.2 Å, 면내 이동 0)에서 한 번 완화. 면내 이동 탐색·두께 수렴 없음.",
+        "comparison_scope": "고정셀·모든 원자 자유완화. Interface builder initial structure(간격 2.2 Å, in-plane shift 0)에서 한 번 완화. in-plane shift 탐색·두께 수렴 없음.",
         "film_strain_percent": [
           1.6848574968672425,
           -3.4984747967644614
@@ -101349,8 +101349,8 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "계면 만들기 페이지의 후보를 그대로 계산한 표본. 초기 이동 1개만 계산했으므로 이 면 조합의 최저 접합일을 뜻하지 않음.",
-        "자유표면으로 완화된 DB 슬랩을 붙인 구조이며 석출상은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행."
+        "Interface builder 페이지의 후보를 그대로 계산한 표본. initial shift 1개만 계산했으므로 이 facet pair의 최저 work of adhesion을 뜻하지 않음.",
+        "free surface으로 완화된 DB slab을 붙인 구조이며 precipitate은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행."
       ]
     },
     {
@@ -101360,15 +101360,15 @@
         "Al",
         "Zn"
       ],
-      "title": "Al(210) / Zn(001) · 빌더 후보 1",
+      "title": "Al(210) / Zn(001) · builder candidate 1",
       "face_pair": "Al(210) / Zn(001)",
-      "combination_label": "빌더 후보 1",
+      "combination_label": "builder candidate 1",
       "property": "work_of_adhesion",
-      "property_label": "접합일",
+      "property_label": "work of adhesion",
       "value": 0.9319975674735209,
       "unit": "J/m²",
       "comparison_group": "builder-20261118-alzn",
-      "comparison_label": "계면 만들기 표본 · Al/Zn 4개",
+      "comparison_label": "Interface builder 표본 · Al/Zn 4개",
       "quality": "exploratory",
       "quality_label": "원본 대조 · 탐색 계산",
       "date": "2026-11-18",
@@ -103040,13 +103040,13 @@
         "area_A2": 72.9795042018769,
         "force_target_eV_A": 0.01,
         "final_fmax_eV_A": 0.009029799703570394,
-        "energy_definition": "(E_분리기지슬랩 + E_분리석출상슬랩 − E_접합구조) / A",
+        "energy_definition": "(E_분리matrixslab + E_분리precipitateslab − E_접합구조) / A",
         "reference_energies_eV": [
           -470.1932373046875,
           -179.44235229492188
         ],
         "interface_energy_eV": -653.880859375,
-        "comparison_scope": "고정셀·모든 원자 자유완화. 계면 만들기 초기 구조(간격 2.2 Å, 면내 이동 0)에서 한 번 완화. 면내 이동 탐색·두께 수렴 없음.",
+        "comparison_scope": "고정셀·모든 원자 자유완화. Interface builder initial structure(간격 2.2 Å, in-plane shift 0)에서 한 번 완화. in-plane shift 탐색·두께 수렴 없음.",
         "film_strain_percent": [
           1.7215391074558273,
           -1.5085432715592262
@@ -103065,13 +103065,13 @@
         "dft_validation": "not_verified"
       },
       "notes": [
-        "계면 만들기 페이지의 후보를 그대로 계산한 표본. 초기 이동 1개만 계산했으므로 이 면 조합의 최저 접합일을 뜻하지 않음.",
-        "자유표면으로 완화된 DB 슬랩을 붙인 구조이며 석출상은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행."
+        "Interface builder 페이지의 후보를 그대로 계산한 표본. initial shift 1개만 계산했으므로 이 facet pair의 최저 work of adhesion을 뜻하지 않음.",
+        "free surface으로 완화된 DB slab을 붙인 구조이며 precipitate은 면내 변형 상태. 두께·진공 수렴과 DFT 검증은 미수행."
       ]
     }
   ],
   "model_policy": "SevenNet-Omni / MPA only; legacy checkpoint identity remains unverified where stated.",
-  "scope": "계면·벌크 용질·자유표면을 분리한 Omni-MPA 조회용 DB. 신규 계산 제출 기능 없음.",
+  "scope": "interface·벌크 solute·free surface을 분리한 Omni-MPA 조회용 DB. 신규 계산 제출 기능 없음.",
   "segregation": {
     "materials": [
       "Cu",
@@ -103081,9 +103081,9 @@
     "unit": "eV",
     "reference_site": "interior_1",
     "comparison": "within_each_thickness",
-    "definition": "Eseg(site) = E(Al at site) − E(Al at interior_1). 각 두께에서 동일 조성·셀의 내부 치환 자리 1을 기준으로 비교.",
-    "scope": "대표 6자리와 Cu 6층/12층 시범. 내부 기준은 벌크성 확정 전이며, 전체 자리·희석한계·G상 두께·DFT 정확도는 미검증. 아래/위는 이 구조의 자리 표지.",
-    "relaxation": "무첨가 구조의 원자 위치·c축 완화 후, 각 두께의 셀을 고정하고 Al 치환 구조의 원자 위치 완화.",
+    "definition": "Eseg(site) = E(Al at site) − E(Al at interior_1). 각 두께에서 동일 조성·셀의 내부 substitution 자리 1을 기준으로 비교.",
+    "scope": "대표 6자리와 Cu 6층/12층 시범. 내부 기준은 벌크성 확정 전이며, 전체 자리·희석한계·G-phase 두께·DFT 정확도는 미검증. 아래/위는 이 구조의 자리 표지.",
+    "relaxation": "무첨가 구조의 원자 위치·c축 완화 후, 각 두께의 셀을 고정하고 Al substitution 구조의 원자 위치 완화.",
     "model": "SevenNet-Omni",
     "modal": "mpa",
     "checkpoint_sha256": "ca81bd3aac9fc2696c93dd386615f5a0fe41b92ab9ed7f69fa9526baaa9bab64",
