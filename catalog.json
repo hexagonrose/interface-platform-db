@@ -116992,87 +116992,129 @@
     "points": [
       {
         "fraction": 0.0,
-        "delta_J_m2": 0.0
+        "delta_J_m2": 0.0,
+        "interface_energy_J_m2": 0.7772151682885586,
+        "work_of_adhesion_J_m2": 2.932011924384837
       },
       {
         "fraction": 0.05,
-        "delta_J_m2": 0.008152610072695177
+        "delta_J_m2": 0.008152610072695177,
+        "interface_energy_J_m2": 0.785367778361254,
+        "work_of_adhesion_J_m2": 2.9238593143121414
       },
       {
         "fraction": 0.1,
-        "delta_J_m2": 0.03202345236554666
+        "delta_J_m2": 0.03202345236554666,
+        "interface_energy_J_m2": 0.8092386206541056,
+        "work_of_adhesion_J_m2": 2.89998847201929
       },
       {
         "fraction": 0.15,
-        "delta_J_m2": 0.06949750689398095
+        "delta_J_m2": 0.06949750689398095,
+        "interface_energy_J_m2": 0.8467126751825398,
+        "work_of_adhesion_J_m2": 2.8625144174908557
       },
       {
         "fraction": 0.2,
-        "delta_J_m2": 0.11769573764375484
+        "delta_J_m2": 0.11769573764375484,
+        "interface_energy_J_m2": 0.8949109059323139,
+        "work_of_adhesion_J_m2": 2.8143161867410815
       },
       {
         "fraction": 0.25,
-        "delta_J_m2": 0.17213653839204962
+        "delta_J_m2": 0.17213653839204962,
+        "interface_energy_J_m2": 0.9493517066806083,
+        "work_of_adhesion_J_m2": 2.759875385992787
       },
       {
         "fraction": 0.3,
-        "delta_J_m2": 0.22749043146848624
+        "delta_J_m2": 0.22749043146848624,
+        "interface_energy_J_m2": 1.0047055997570453,
+        "work_of_adhesion_J_m2": 2.70452149291635
       },
       {
         "fraction": 0.35,
-        "delta_J_m2": 0.2782788629042136
+        "delta_J_m2": 0.2782788629042136,
+        "interface_energy_J_m2": 1.0554940311927723,
+        "work_of_adhesion_J_m2": 2.653733061480623
       },
       {
         "fraction": 0.4,
-        "delta_J_m2": 0.3191723550288526
+        "delta_J_m2": 0.3191723550288526,
+        "interface_energy_J_m2": 1.0963875233174116,
+        "work_of_adhesion_J_m2": 2.612839569355984
       },
       {
         "fraction": 0.45,
-        "delta_J_m2": 0.34632287588809113
+        "delta_J_m2": 0.34632287588809113,
+        "interface_energy_J_m2": 1.1235380441766498,
+        "work_of_adhesion_J_m2": 2.5856890484967456
       },
       {
         "fraction": 0.5,
-        "delta_J_m2": 0.3559382971395442
+        "delta_J_m2": 0.3559382971395442,
+        "interface_energy_J_m2": 1.1331534654281028,
+        "work_of_adhesion_J_m2": 2.5760736272452927
       },
       {
         "fraction": 0.55,
-        "delta_J_m2": 0.34632287588809113
+        "delta_J_m2": 0.34632287588809113,
+        "interface_energy_J_m2": 1.1235380441766498,
+        "work_of_adhesion_J_m2": 2.5856890484967456
       },
       {
         "fraction": 0.6,
-        "delta_J_m2": 0.3191816722975071
+        "delta_J_m2": 0.3191816722975071,
+        "interface_energy_J_m2": 1.096396840586066,
+        "work_of_adhesion_J_m2": 2.6128302520873294
       },
       {
         "fraction": 0.65,
-        "delta_J_m2": 0.2782788629042136
+        "delta_J_m2": 0.2782788629042136,
+        "interface_energy_J_m2": 1.0554940311927723,
+        "work_of_adhesion_J_m2": 2.653733061480623
       },
       {
         "fraction": 0.7,
-        "delta_J_m2": 0.22749043146848624
+        "delta_J_m2": 0.22749043146848624,
+        "interface_energy_J_m2": 1.0047055997570453,
+        "work_of_adhesion_J_m2": 2.70452149291635
       },
       {
         "fraction": 0.75,
-        "delta_J_m2": 0.17213653839204962
+        "delta_J_m2": 0.17213653839204962,
+        "interface_energy_J_m2": 0.9493517066806083,
+        "work_of_adhesion_J_m2": 2.759875385992787
       },
       {
         "fraction": 0.8,
-        "delta_J_m2": 0.11769573764375484
+        "delta_J_m2": 0.11769573764375484,
+        "interface_energy_J_m2": 0.8949109059323139,
+        "work_of_adhesion_J_m2": 2.8143161867410815
       },
       {
         "fraction": 0.85,
-        "delta_J_m2": 0.06949750689398095
+        "delta_J_m2": 0.06949750689398095,
+        "interface_energy_J_m2": 0.8467126751825398,
+        "work_of_adhesion_J_m2": 2.8625144174908557
       },
       {
         "fraction": 0.9,
-        "delta_J_m2": 0.03202345236554666
+        "delta_J_m2": 0.03202345236554666,
+        "interface_energy_J_m2": 0.8092386206541056,
+        "work_of_adhesion_J_m2": 2.89998847201929
       },
       {
         "fraction": 0.95,
-        "delta_J_m2": 0.008152610072695177
+        "delta_J_m2": 0.008152610072695177,
+        "interface_energy_J_m2": 0.785367778361254,
+        "work_of_adhesion_J_m2": 2.9238593143121414
       },
       {
         "fraction": 1.0,
-        "delta_J_m2": 0.0
+        "delta_J_m2": 0.0,
+        "interface_energy_J_m2": 0.7772151682885586,
+        "work_of_adhesion_J_m2": 2.932011924384837
       }
     ],
     "checkpoint_sha256": "ca81bd3aac9fc2696c93dd386615f5a0fe41b92ab9ed7f69fa9526baaa9bab64",
@@ -117080,7 +117122,19 @@
     "definition": "(E(t) - E(0)) / A; one interface; rigid Ni translation along cell b/4, fixed Cu/cell/gap; no relaxation",
     "baseline": "Cu(100)/Ni(100), 6 layers each, initial matched structure, 2.2 Å initial interlayer gap",
     "interpolation": "piecewise linear; not new MLIP evaluations",
-    "dft_validation": "not_verified"
+    "dft_validation": "not_verified",
+    "absolute": {
+      "definition": {
+        "W": "(E_Cu,slab + E_Ni,slab − E(t)) / A",
+        "gamma_int": "σ_Cu + σ_Ni − W(t); σ from separated unrelaxed slabs and two-layer periodic bulk of the same geometry (Ni coherent at the Cu in-plane lattice)"
+      },
+      "surface_energy_J_m2": {
+        "Cu": 1.4523612902006788,
+        "Ni": 2.2568658024727166
+      },
+      "E0_diff_eV": -8.586002422816819e-06,
+      "source_sha256": "ee4c954448b108868ca11d697da12e6fae6ce9e7a2dc04f7217b9f89eaec68de"
+    }
   },
   "matching": {
     "source_sha256": "06a9212e47b479f80643ecc6307fbcceab50b862bd26089a5465c37ef424a623",
