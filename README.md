@@ -56,6 +56,7 @@ DB 등록 104건 (보고서 기준 고정본 `v2026.11.18`은 68건: 계면 30�
 - 표면: 물질별 결정면 표면에너지 순위, Wulff 형상, 완화된 슬랩 구조
 - 계면: 물질쌍·계산 세트별 구조와 에너지, 초기 이동 위치별 지도, 강체 미끄럼 슬라이더, 면 조합 후보, Al 편석 자리 비교
 - 벌크 첨가 원소: 모재·계산 세트별 히트맵(기존/신규 계산 분리)
+- Segregation(Interface → Cu/G-phase, Cu/Ni₂Si): Al·Si·Sc·Zn·Mg·Ni·Ti의 interface 자리별 segregation energy(Cu 내부 자리 기준)와 Cu host bulk formation energy를 한 표에서 비교, 칸을 누르면 완화 구조. 대표 6자리·한 두께 탐색 계산
 - Omni·Nano 비교: surface energy 막대·표, interface 비교 막대, initial shift 지도, Al segregation 표에 같은 구조의 SevenNet-Nano(pretrained 5.5) single-point 값을 Omni 값과 함께 표시. 기준은 Omni이며 DFT 정확도가 아님
 - 계면 만들기(`builder.html`): 표면 DB의 완화 슬랩 두 개를 골라 격자 매칭한 계면 초기 구조를 브라우저에서 생성. Cu/Ni·Cu/Ni₂Si·Al/Zn 102개 면 조합, 후보 321개. 층간 간격·면내 이동 조절과 EXTXYZ 다운로드. 에너지는 계산하지 않으며, 같은 면 조합의 DB 계산이 있으면 함께 표시
 - 모든 결과의 구조(EXTXYZ)·값(JSON/CSV) 다운로드, 직접 링크, 라이트/다크 모드
@@ -78,6 +79,7 @@ DB 등록 104건 (보고서 기준 고정본 `v2026.11.18`은 68건: 계면 30�
 
 ## 갱신 이력
 
+- 2026-11-20: Cu/G-phase·Cu/Ni₂Si solute segregation screening 84계산 추가
 - 2026-11-20: 헤더 Solute 탭, solute 자동 계산 한 표, 구조 보기 원자 영역 맞춤, surface supercell 표시, G-phase surface 구조(구조만) 추가
 - 2026-11-20: 결과 그래프에 Omni·Nano 값을 함께 표시(별도 모델 비교 페이지는 삭제). 전문 용어 영어 표기. 태그 `v2026.11.20.3`
 - 2026-11-20: 자동 계산으로 Cu·Al 모재에 Al·Zn·Mg·Ni·Si·Mn·Co·Cr·Fe·Ti·Zr·Sc(모재 원소 제외) 용질 형성에너지 24건 추가(DB 104건). 11/13 Cu 모재 Al·Zn·Mg 값 재현(차 <0.0001 eV). 태그 `v2026.11.20`
