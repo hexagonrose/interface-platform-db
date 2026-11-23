@@ -47,14 +47,15 @@ DB 등록 106건 (보고서 기준 고정본 `v2026.11.18`은 68건: 계면 30�
 
 68건과 별도로 제공하는 자료:
 
-- Cu/Ni 강체 미끄럼 경로 21점(단일점 계산)
+- Interface 요약의 2차원 강체 미끄럼 지도 13개. Cu/G-phase 1개, Cu/Ni·Cu/Ni₂Si·Al/Zn 결정면 조합 각 4개. 지도마다 두 면내 방향으로 21 × 21개 위치에서 SevenNet-Omni(MPA) 단일점 에너지를 계산했습니다.
+- Cu/G-phase는 주기 셀의 두 계면에 대한 평균 계면에너지 γ를 표시합니다. 나머지 12개는 슬랩 간 수직 거리를 고정하고, 격자 최저점과의 에너지 차이를 접합 면적으로 나눈 Δγ(J/m²)를 표시합니다. 결정면 선택 표에는 완화된 기준 구조의 접합일을 표시합니다.
 - Cu 6방향 × Ni 3방향 격자 매칭 후보 18개(미완화, 에너지 미계산)
 - Cu/G-phase Al 편석 시범: Cu 6층·12층 × 6자리, 치환 12구조와 무첨가 2구조
 
 ## 사이트 기능
 
 - 표면: 물질별 결정면 표면에너지 순위, Wulff 형상, 완화된 슬랩 구조
-- 계면: 물질쌍·계산 세트별 구조와 에너지, 초기 이동 위치별 지도, 강체 미끄럼 슬라이더, 면 조합 후보, Al 편석 자리 비교
+- 계면: 물질쌍·계산 세트별 구조와 에너지, 초기 이동 위치별 지도, 2차원 미끄럼 지도와 원자 구조, 기존 1차원 경로 재생, 면 조합 후보, Al 편석 자리 비교
 - 벌크 첨가 원소: 모재·계산 세트별 히트맵(기존/신규 계산 분리)
 - Segregation(Interface → Cu/G-phase, Cu/Ni₂Si): Al·Si·Sc·Zn·Mg·Ni·Ti의 interface 자리별 segregation energy(Cu 내부 자리 기준)와 Cu host bulk formation energy를 한 표에서 비교, 칸을 누르면 완화 구조. 대표 6자리·한 두께 탐색 계산
 - Omni·Nano 비교: surface energy 막대·표, interface 비교 막대, initial shift 지도, Al segregation 표에 같은 구조의 SevenNet-Nano(pretrained 5.5) single-point 값을 Omni 값과 함께 표시. 기준은 Omni이며 DFT 정확도가 아님
