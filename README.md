@@ -16,7 +16,7 @@ MLIP-based database of metal surfaces, interfaces and alloying-element energetic
 |---|---|
 | 원소 제약 없이 MLIP로 물성 데이터베이스 구축 | Omni-MPA 기준 표면·계면·벌크 용질 DB 106건(2026-11-18 고정본 68건) |
 | Cu-Ni-Si 합금의 이질상/기지 계면 | Cu/Ni, Cu/Ni₂Si, Cu/G-phase, Al/Zn 계면 42건, 초기 이동별 계면 지도, Cu/Ni 강체 미끄럼 경로, Cu×Ni 면 조합 격자 매칭 후보 |
-| Al-Zn 등 첨가 원소 선정 | Cu·Al·Zn 모재의 용질 형성에너지 57건(히트맵; Cu·Al 모재 12원소 자동 계산 포함), Cu/G-phase 계면 Al 편석 시범 |
+| Al-Zn 등 첨가 원소 선정 | Cu·Al·Zn 모재의 용질 형성에너지 57건(Cu·Al 모재 12원소 자동 계산 포함), Cu/G-phase 계면 Al 편석 시범 |
 | 물질 선정·구조 생성 등 데이터 생산 자동화 | 치환 구조 생성 → MLIP 완화 → 원본 검증 → DB 수록 자동화(벌크 신규 3건), 계면 만들기 후보 → MLIP 완화 → DB 등록(12건) |
 | 후보군의 양자계산 검증 | 후속 계획(현재 DFT 검증 미수행) |
 
@@ -56,7 +56,7 @@ DB 등록 106건 (보고서 기준 고정본 `v2026.11.18`은 68건: 계면 30�
 
 - 표면: 물질별 결정면 표면에너지 순위, Wulff 형상, 완화된 슬랩 구조
 - 계면: 물질쌍·계산 세트별 구조와 에너지, 초기 이동 위치별 지도, 2차원 미끄럼 지도와 원자 구조, 기존 1차원 경로 재생, 면 조합 후보, Al 편석 자리 비교
-- 벌크 첨가 원소: 모재·계산 세트별 히트맵(기존/신규 계산 분리)
+- 벌크 첨가 원소: 모재와 계산 세트를 선택하면 용질별 형성에너지가 낮은 순으로 표시됩니다. 원소 카드를 선택해 해당 구조를 확인할 수 있습니다.
 - Segregation(Interface → Cu/G-phase, Cu/Ni₂Si): Al·Si·Sc·Zn·Mg·Ni·Ti의 interface 자리별 segregation energy(Cu 내부 자리 기준)와 Cu host bulk formation energy를 한 표에서 비교, 칸을 누르면 완화 구조. 대표 6자리·한 두께 탐색 계산
 - Omni·Nano 비교: surface energy 막대·표, interface 비교 막대, initial shift 지도, Al segregation 표에 같은 구조의 SevenNet-Nano(pretrained 5.5) single-point 값을 Omni 값과 함께 표시. 기준은 Omni이며 DFT 정확도가 아님
 - 계면 만들기(`builder.html`): 표면 DB의 완화 슬랩 두 개를 골라 격자 매칭한 계면 초기 구조를 브라우저에서 생성. Cu/Ni·Cu/Ni₂Si·Al/Zn 102개 면 조합, 후보 321개. 층간 간격·면내 이동 조절과 EXTXYZ 다운로드. 에너지는 계산하지 않으며, 같은 면 조합의 DB 계산이 있으면 함께 표시
