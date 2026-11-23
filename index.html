@@ -28,9 +28,16 @@ footer{align-items:center;gap:12px;flex-wrap:wrap}footer button{font-size:11px;c
 #surface-ranking .energy-row{grid-template-columns:48px minmax(0,1fr) 90px}
 .surface-split .view-tools{flex-wrap:wrap}
 @media(max-width:800px){#structure-panel.surface-split{grid-template-columns:minmax(0,1fr)}}
-</style></head><body><header><div class="header-inner"><div class="brand"><span class="logo">ip</span>Interface DB</div><nav class="domain-tabs" role="tablist" aria-label="데이터 분야"><button role="tab" id="tab-surface" aria-controls="domain-panel" data-kind="surface">Surface</button><button role="tab" id="tab-solute" aria-controls="domain-panel" data-kind="solute">solute</button><button role="tab" id="tab-interface" aria-controls="domain-panel" data-kind="interface">interface</button></nav><button id="theme-toggle" aria-label="다크 모드" aria-pressed="false">다크 모드</button></div></header><main><div id="domain-panel" role="tabpanel" aria-labelledby="tab-surface"><div class="intro"><h1 id="domain-title">Interface</h1><p id="domain-description"></p></div><section class="discovery"><details id="interface-filters" hidden><summary>상세 필터 <span id="interface-filter-count"></span></summary><div id="interface-filter-body"></div></details><details id="elements" class="element-panel"><summary>원소 선택<span id="element-selection" role="status">전체 원소</span></summary><div class="element-body"><div class="periodic-scroll"><div id="periodic" class="periodic" role="group" aria-label="원소 선택 주기율표"></div></div><div class="element-caption"><button id="clear-elements">선택 해제</button><span class="muted">여러 원소 선택: 모두 포함하는 자료 · 테두리: 데이터 있음 · 검정: 선택됨</span></div></div></details><div class="toolbar" id="primary-filters"><div><label for="host">host</label><select id="host"><option value="">전체 host</option></select></div><div><label for="property">물성</label><select id="property"><option value="">전체 물성</option><option value="solute_formation_energy">solute formation energy</option><option value="work_of_adhesion">work of adhesion</option><option value="interface_energy">interface energy</option><option value="surface_energy">surface energy · Wulff</option></select></div><button id="reset">초기화</button></div>
+#surface-elements{margin-bottom:16px}
+#domain-panel.surface-pending :is(.panel,#exports,#provenance){display:none}
+@media(max-width:600px){
+ #surface-elements .periodic{display:grid;min-width:660px;gap:4px}
+ #surface-elements .element{display:flex;width:auto;height:auto}
+ #surface-elements .series{display:block}
+}
+</style></head><body><header><div class="header-inner"><div class="brand"><span class="logo">ip</span>Interface DB</div><nav class="domain-tabs" role="tablist" aria-label="데이터 분야"><button role="tab" id="tab-surface" aria-controls="domain-panel" data-kind="surface">Surface</button><button role="tab" id="tab-solute" aria-controls="domain-panel" data-kind="solute">solute</button><button role="tab" id="tab-interface" aria-controls="domain-panel" data-kind="interface">interface</button></nav><button id="theme-toggle" aria-label="다크 모드" aria-pressed="false">다크 모드</button></div></header><main><div id="domain-panel" role="tabpanel" aria-labelledby="tab-surface"><div class="intro"><h1 id="domain-title">Interface</h1><p id="domain-description"></p></div><div id="surface-elements" hidden></div><section class="discovery"><details id="interface-filters" hidden><summary>상세 필터 <span id="interface-filter-count"></span></summary><div id="interface-filter-body"></div></details><details id="elements" class="element-panel"><summary>원소 선택<span id="element-selection" role="status">전체 원소</span></summary><div class="element-body"><div class="periodic-scroll"><div id="periodic" class="periodic" role="group" aria-label="원소 선택 주기율표"></div></div><div class="element-caption"><button id="clear-elements">선택 해제</button><span class="muted">여러 원소 선택: 모두 포함하는 자료 · 테두리: 데이터 있음 · 검정: 선택됨</span></div></div></details><div class="toolbar" id="primary-filters"><div><label for="host">host</label><select id="host"><option value="">전체 host</option></select></div><div><label for="property">물성</label><select id="property"><option value="">전체 물성</option><option value="solute_formation_energy">solute formation energy</option><option value="work_of_adhesion">work of adhesion</option><option value="interface_energy">interface energy</option><option value="surface_energy">surface energy · Wulff</option></select></div><button id="reset">초기화</button></div>
 <details id="filters"><summary>상세 필터 <span id="filter-count"></span></summary><div class="toolbar"><div><label for="solute">solute</label><select id="solute"><option value="">전체 원소</option></select></div><div><label for="quality">검증 범위</label><select id="quality"><option value="">전체 범위</option><option value="source_checked">원본 에너지 대조</option><option value="exploratory">탐색 계산</option><option value="convergence_checked">두께·진공 검사</option><option value="legacy">기존 결과</option></select></div></div></details>
-</section><div id="interface-selection"><div id="pair-choices" role="group" aria-label="interface 물질 쌍" hidden></div><a class="nav-link" href="builder.html">새 계면 만들기</a><div id="interface-set-control" hidden><label for="interface-set">계산 세트</label><select id="interface-set"></select><span id="interface-set-label" class="muted" hidden></span></div></div><p id="segregation-discovery" class="muted" hidden>solute 계산 · <button id="open-segregation">Segregation</button></p><p id="interface-summary" class="muted" hidden></p><div class="result-picker"><div id="record-choices" role="group" aria-label="물질 및 계산 선택"></div><span id="count" class="muted" role="status"></span></div>
+</section><div id="interface-selection"><div id="pair-choices" role="group" aria-label="interface 물질 쌍" hidden></div><a class="nav-link" href="builder.html">새 계면 만들기</a><div id="interface-set-control" hidden><label for="interface-set">계산 세트</label><select id="interface-set"></select><span id="interface-set-label" class="muted" hidden></span></div></div><p id="segregation-discovery" class="muted" hidden>solute 계산 · <button id="open-segregation">Segregation</button></p><p id="interface-summary" class="muted" hidden></p><p id="surface-prompt" role="status" hidden></p><div class="result-picker"><div id="record-choices" role="group" aria-label="물질 및 계산 선택"></div><span id="count" class="muted" role="status"></span></div>
 <section class="panel"><div class="bar"><div><h2 id="title">자료 선택</h2><p id="interface-position" class="muted" hidden></p></div><div class="result-head"><div class="value" id="value"></div><div class="muted" id="validation"></div></div></div>
 <div id="surface-summary" class="surface-summary" hidden></div><div class="frame-toolbar"><nav class="view-tabs" role="tablist" aria-label="결과 보기"><button id="view-overview" role="tab" data-view="overview" aria-controls="overview-panel" hidden>요약</button><button id="view-structure" role="tab" data-view="structure" aria-controls="structure-panel">구조</button><button id="view-slab" role="tab" data-view="slab" aria-controls="slab-panel" hidden>Slab</button><button id="view-data" role="tab" data-view="data" aria-controls="data-panel">비교 데이터</button><button id="view-matching" role="tab" data-view="matching" aria-controls="matching-panel" hidden>facet pair</button><button id="view-sliding" role="tab" data-view="sliding" aria-controls="sliding-panel" hidden>sliding</button><button id="view-segregation" role="tab" data-view="segregation" aria-controls="segregation-panel" hidden>Al segregation</button><button id="view-screen" role="tab" data-view="screen" aria-controls="screen-panel" hidden>Segregation</button></nav><div class="actions"><button id="structure" disabled>구조 다운로드</button></div></div>
 <div id="structure-panel" role="tabpanel" aria-labelledby="view-structure"><section id="surface-ranking" hidden></section><div id="visual-preview"><div id="slab-controls" hidden><label for="facet-picker">계산한 facet</label><select id="facet-picker"></select><span class="supercell" role="group" aria-label="supercell 반복 (화면 표시만)"><span>supercell</span><select id="rep-a" aria-label="a 방향 반복"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select><span>×</span><select id="rep-b" aria-label="b 방향 반복"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select><small>화면 표시만 · 다운로드는 계산 셀</small></span><p id="slab-description"></p></div><div class="view-tools"><div id="legend" class="legend"></div><div class="actions"><button data-angle="x" title="+X에서 원점 방향 · 직교 좌표축">X</button><button data-angle="y" title="+Y에서 원점 방향 · 직교 좌표축">Y</button><button data-angle="z" title="+Z에서 원점 방향 · 직교 좌표축">Z</button></div></div><div class="stage"><canvas id="canvas" aria-label="선택한 surface·interface 원자 구조 또는 Wulff 형상"></canvas><div class="empty" id="empty">자료를 선택해 주세요.</div></div><div class="hint">드래그 회전 · 스크롤 확대 · X/Y/Z: 직교 좌표축</div></div>
@@ -61,13 +68,18 @@ for(let row=0;row<periodicRows.length;row++)for(let col=0;col<18;col++){
  const symbol=periodicRows[row][col];if(!symbol)continue;
  if(symbol.startsWith('*')){const span=document.createElement('span');span.className='series';span.style.gridArea=`${row+1}/${col+1}`;span.textContent=symbol==='*'?'57–71':'89–103';$('periodic').append(span);continue}
  const count=elementCounts[symbol],button=document.createElement('button');button.type='button';button.className='element';button.dataset.element=symbol;button.style.gridArea=`${row>=7?row+2:row+1}/${col+1}`;button.disabled=!count;button.setAttribute('aria-pressed','false');button.setAttribute('aria-label',`${symbol} · ${count?count+'건':'데이터 없음'}`);button.title=`${symbol} · ${count?count+'건':'데이터 없음'}`;button.innerHTML=`<small>${atomicOrder.indexOf(symbol)+1}</small><strong>${symbol}</strong>`;
- button.onclick=()=>{selectedElements.has(symbol)?selectedElements.delete(symbol):selectedElements.add(symbol);filter()};$('periodic').append(button)
+ button.onclick=()=>{if(category==='surface'){
+  selectedElements.clear();selectedElements.add(symbol);filter();setView('structure');return
+ }selectedElements.has(symbol)?selectedElements.delete(symbol):selectedElements.add(symbol);filter()};$('periodic').append(button)
 }
 const pairOf=r=>r.materials.join(' / '),pairLabel=r=>pairOf(r).replace('Ni2Si','Ni₂Si').replace('G-phase','G-phase'),combinationLabel=r=>r.combination_label||'등록 구조';
 const domainInfo={interface:['Interface','두 물질의 접합 구조와 work of adhesion·interface energy를 확인합니다.'],solute:['Solute','host 속 단일 substitution 원소의 bulk formation energy입니다. interface 자리별 segregation energy는 Interface 탭의 Segregation에서 봅니다.'],surface:['Surface · Wulff','free-surface energy와 자유입자 형상을 확인합니다. matrix 내 석출물 형상과는 다릅니다.']};
 function setCategory(kind,id=null){
  const previousKind=category;category=kind;
  document.querySelector('.discovery').hidden=kind==='surface';
+ $('surface-elements').hidden=kind!=='surface';
+ const periodicScroll=$('periodic').parentElement;
+ (kind==='surface'?$('surface-elements'):document.querySelector('.element-body')).prepend(periodicScroll);
  $('interface-filters').hidden=kind!=='interface';$('interface-filters').open=false;
  const filterParent=kind==='interface'?$('interface-filter-body'):document.querySelector('.discovery');
  for(const key of ['elements','primary-filters','filters'])filterParent.append($(key));
@@ -85,23 +97,37 @@ function setCategory(kind,id=null){
  const props=[...new Map(rows.map(r=>[r.property,r.property_label])).entries()];$('property').replaceChildren(new Option('전체 물성',''));for(const [value,label] of props)$('property').add(new Option(label,value));$('property').parentElement.hidden=props.length<2;
  elementCounts=Object.fromEntries(atomicOrder.map(symbol=>[symbol,rows.filter(r=>elementsOf(r).has(symbol)).length]));
  $('periodic').querySelectorAll('button').forEach(button=>{const count=elementCounts[button.dataset.element];button.disabled=!count;button.title=`${button.dataset.element} · ${count?count+'건':'이 분야의 데이터 없음'}`;if(kind==='interface'&&DB.segregation&&button.dataset.element===DB.segregation.solute&&!count)button.title=button.dataset.element+' · Interface의 Segregation에서 조회';button.setAttribute('aria-label',button.title)});
+ if(kind==='surface'){
+  const target=rows.find(r=>r.id===id)||rows[0];
+  const linkedElement=hashState().params.get('element');
+  const symbol=(id===hashState().id||hashState().id==='surface')&&elementCounts[linkedElement]&&(!id||elementsOf(target).has(linkedElement))?linkedElement:[...elementsOf(target)][0];
+  selectedElements.add(symbol);
+  const cell=$('periodic').querySelector('[data-element="'+symbol+'"]');
+  periodicScroll.scrollLeft+=cell.getBoundingClientRect().left-periodicScroll.getBoundingClientRect().left-periodicScroll.clientWidth/2+cell.offsetWidth/2;
+ }
  if(id)history.replaceState(null,'','#'+id);else history.replaceState(null,'',location.pathname+location.search);
- filter();
+ filter(id);
 }
 for(const button of document.querySelectorAll('[data-kind]')){
  button.onclick=()=>{setCategory(button.dataset.kind);if(button.dataset.kind==='interface')setView('overview');if(button.dataset.kind==='solute')window.scrollTo(0,0)};
  button.onkeydown=e=>{if(button.getAttribute('role')!=='tab')return;const tabs=[...document.querySelectorAll('.domain-tabs [data-kind]')],i=tabs.indexOf(button);let next;if(e.key==='ArrowRight')next=(i+1)%tabs.length;else if(e.key==='ArrowLeft')next=(i+tabs.length-1)%tabs.length;else if(e.key==='Home')next=0;else if(e.key==='End')next=tabs.length-1;else return;e.preventDefault();tabs[next].click();tabs[next].focus()};
 }
 $('clear-elements').onclick=()=>{selectedElements.clear();filter()};
-$('record-choices').onclick=e=>{const b=e.target.closest('[data-choice]');if(b){select(b.dataset.choice);if(category==='solute'){setView('structure');document.querySelector('.panel').scrollIntoView({block:'start'})}}};
-function filter(){$('reset').hidden=!selectedElements.size&&!filterIds.some(id=>$(id).value);const active=['solute','quality'].filter(id=>$(id).value).length;$('filter-count').textContent=active?'('+active+')':'';filtered=DB.records.filter(r=>r.kind===category&&[...selectedElements].every(symbol=>elementsOf(r).has(symbol))&&(!$('property').value||r.property===$('property').value)&&(!$('quality').value||r.quality===$('quality').value)&&(!$('host').value||hostOf(r)===$('host').value)&&(!$('solute').value||soluteOf(r)===$('solute').value));
+$('record-choices').onclick=e=>{const b=e.target.closest('[data-choice]');if(b){select(b.dataset.choice);if(category==='surface')setView('structure');if(category==='solute'){setView('structure');document.querySelector('.panel').scrollIntoView({block:'start'})}}};
+function filter(preferredId){$('reset').hidden=!selectedElements.size&&!filterIds.some(id=>$(id).value);const active=['solute','quality'].filter(id=>$(id).value).length;$('filter-count').textContent=active?'('+active+')':'';filtered=DB.records.filter(r=>r.kind===category&&[...selectedElements].every(symbol=>elementsOf(r).has(symbol))&&(!$('property').value||r.property===$('property').value)&&(!$('quality').value||r.quality===$('quality').value)&&(!$('host').value||hostOf(r)===$('host').value)&&(!$('solute').value||soluteOf(r)===$('solute').value));
  $('count').textContent=`${filtered.length} / ${DB.records.filter(r=>r.kind===category).length}건`;
  $('periodic').querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(selectedElements.has(button.dataset.element))));
  $('element-selection').textContent=selectedElements.size?[...selectedElements].join(' + '):'전체 원소';
- $('record-choices').innerHTML=filtered.map(r=>`<button data-choice="${esc(r.id)}" aria-pressed="false">${esc(r.kind==='surface'?({Ni2Si:'Ni₂Si',Mn6Ni16Si7:'G-phase'}[r.materials[0]]||r.materials[0]):r.title)}${r.kind==='surface'?`<small>결정면 ${r.surfaces.length}개${r.structure_only?' · 구조만':''}</small>`:''}</button>`).join('')||'<p class="muted">이 원소 조합의 자료가 없습니다.</p>';
+ const choices=category==='surface'?filtered.filter(r=>elementsOf(r).size>1):filtered;
+ $('count').hidden=category==='surface';
+ $('record-choices').innerHTML=choices.map(r=>`<button data-choice="${esc(r.id)}" aria-pressed="false">${esc(r.kind==='surface'?({Ni2Si:'Ni₂Si',Mn6Ni16Si7:'G-phase'}[r.materials[0]]||r.materials[0]):r.title)}${r.kind==='surface'?`<small>결정면 ${r.surfaces.length}개${r.structure_only?' · 구조만':''}</small>`:''}</button>`).join('')||(category==='surface'?'':'<p class="muted">이 원소 조합의 자료가 없습니다.</p>');
  $('record-choices').classList.toggle('heatmaps',category==='solute');if(category==='solute')renderHeatmaps();
  $('interface-filter-count').textContent=category==='interface'&&(selectedElements.size||filterIds.some(id=>$(id).value))?'· 조건 적용 중':'';
  $('csv').disabled=!filtered.length;
+ if(category==='surface'){
+  const material=filtered.find(r=>r.id===preferredId)||filtered.find(r=>elementsOf(r).size===1);
+  select(material?.id);return
+ }
  const hash=hashState().id;select(filtered.find(r=>r.id===hash)?.id||(category==='solute'?filtered.find(r=>r.conditions.workflow_run_id)?.id:null)||(category==='interface'&&filtered.length?primaryId(pairOf(filtered[0])):null)||filtered[0]?.id)}
 
 function renderHeatmaps(){
@@ -126,7 +152,16 @@ function renderProvenance(){
  const items=sliding?[...SLp().definitions,'체크포인트 SHA256: '+SLp().checkpoint_sha256]:[entry.conditions.energy_definition,entry.conditions.relaxation,entry.conditions.comparison_scope,entry.kind==='interface'&&!entry.face_pair?'면방향 미확인':null,entry.provenance.checkpoint_sha256?'체크포인트 SHA256: '+entry.provenance.checkpoint_sha256:'체크포인트 식별 미확인',...(entry.notes||[])];
  $('provenance-body').innerHTML=items.filter(Boolean).map(t=>`<p>${esc(t)}</p>`).join('');
 }
-function select(id){pesPreferred=true;slideFraction=.5;slidePathId=null;entry=filtered.find(r=>r.id===id)||null;renderInterfaceChoices();renderRelated();$('record-json').disabled=!entry;$('structure').disabled=!entry?.geometry;$('structure').hidden=!!entry&&!entry.geometry;$('empty').hidden=!!(entry?.shape||entry?.geometry||entry?.surfaces);$('empty').textContent=entry?'원자 구조 미수록':'자료를 선택해 주세요.';document.querySelectorAll('[data-angle]').forEach(b=>b.disabled=!(entry?.shape||entry?.geometry||entry?.surfaces));document.querySelectorAll('[data-choice]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.choice===id)));selectedFacet=entry?.surfaces?(entry.structure_only?entry.surfaces[0]:[...entry.surfaces].sort((a,b)=>a.gamma_J_m2-b.gamma_J_m2)[0]):null;angle=[-Math.PI/2,0];zoom=1;markAngle('x');
+function select(id){pesPreferred=true;slideFraction=.5;slidePathId=null;entry=filtered.find(r=>r.id===id)||null;
+ const pending=category==='surface'&&!entry;
+ $('domain-panel').classList.toggle('surface-pending',pending);
+ $('surface-prompt').hidden=!pending;
+ if(pending){
+  const symbol=[...selectedElements][0];
+  $('surface-prompt').textContent=symbol+' 홑원소 표면 자료가 없습니다. 아래 화합물을 선택하세요.';
+  history.replaceState(null,'','#surface?element='+symbol)
+ }
+ renderInterfaceChoices();renderRelated();$('record-json').disabled=!entry;$('structure').disabled=!entry?.geometry;$('structure').hidden=!!entry&&!entry.geometry;$('empty').hidden=!!(entry?.shape||entry?.geometry||entry?.surfaces);$('empty').textContent=entry?'원자 구조 미수록':'자료를 선택해 주세요.';document.querySelectorAll('[data-angle]').forEach(b=>b.disabled=!(entry?.shape||entry?.geometry||entry?.surfaces));document.querySelectorAll('[data-choice]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.choice===id)));selectedFacet=entry?.surfaces?(entry.structure_only?entry.surfaces[0]:[...entry.surfaces].sort((a,b)=>a.gamma_J_m2-b.gamma_J_m2)[0]):null;angle=[-Math.PI/2,0];zoom=1;markAngle('x');
  $('interface-position').hidden=!entry?.conditions.registry_scan;
  if(entry?.conditions.registry_scan)$('interface-position').textContent=combinationLabel(entry).replace('shift','initial in-plane shift')+' · 에너지 비교에서 선택';
  $('view-segregation').hidden=!hasSegregation()||hasScreen();$('view-screen').hidden=!hasScreen();
@@ -136,7 +171,7 @@ function select(id){pesPreferred=true;slideFraction=.5;slidePathId=null;entry=fi
  if(!entry){$('title').textContent='해당 자료 없음';for(const id of ['model','value','validation','metrics','legend'])$(id).textContent='';setView(currentView);return}
  if(entry.structure_only&&currentView!=='slab')currentView='slab';
  if(entry.surfaces){$('facet-picker').replaceChildren(...entry.surfaces.map(row=>new Option('('+row.facet+')',row.facet)));$('surface-summary').innerHTML=entry.structure_only?`생성한 대칭 slab ${entry.surfaces.length}개 (미완화) · surface energy와 Wulff는 화학퍼텐셜 기준 정의 후 추가 예정`:`계산된 ${entry.surfaces.length}개 면·선택 종단면 중 최저 <strong>(${selectedFacet.facet})</strong> · free-surface energy 기반 Wulff 형상`;}
- try{history.replaceState(null,'','#'+entry.id)}catch{}$('title').textContent=entry.conditions.registry_scan?entry.face_pair:entry.title;$('model').textContent=`${entry.provenance.model} / ${entry.provenance.modal.toUpperCase()} · ${entry.date||'계산일 미확인'}`;
+ try{history.replaceState(null,'','#'+entry.id+(category==='surface'&&elementsOf(entry).size>1?'?element='+[...selectedElements][0]:''))}catch{}$('title').textContent=entry.conditions.registry_scan?entry.face_pair:entry.title;$('model').textContent=`${entry.provenance.model} / ${entry.provenance.modal.toUpperCase()} · ${entry.date||'계산일 미확인'}`;
  $('value').innerHTML=entry.structure_only?`— <small>surface energy 정의 검토 중</small>`:entry.kind==='surface'?`${num(selectedFacet.gamma_J_m2)} <small>J/m² · 최저 surface energy</small>`:`${num(entry.value)} <small>${esc(entry.unit)} · ${esc(entry.property_label)}</small>`;$('validation').textContent=entry.quality_label+(entry.conditions?.dft_validation==='not_verified'?' · DFT 미검증':'');
  $('legend').innerHTML=entry.kind==='surface'?entry.surfaces.map(s=>`<span><i style="background:${faceColors[s.facet]||'#799585'}"></i>(${s.facet})</span>`).join(''):[...new Set(entry.geometry?.symbols||[])].map(symbol=>`<span><i class="${entry.kind==='solute'&&symbol===soluteOf(entry)?'solute-key':''}" style="background:${atomColors[symbol]||'#888'}"></i>${esc(symbol)}${entry.kind==='solute'&&symbol===soluteOf(entry)?' · solute':''}</span>`).join('');
  $('metrics').dataset.resultKind=entry.kind;
@@ -347,7 +382,7 @@ function setView(name){
  if(name==='sliding'&&currentView!=='sliding'){angle=[-Math.PI/2,0];zoom=SLp().geometry.symbols.length<100?1.7:1;markAngle('x')}
  if(currentView==='sliding'&&name!=='sliding')zoom=1;
  document.querySelector('.panel>.bar').hidden=['sliding','matching','segregation','screen','overview'].includes(name);
- document.querySelector('.result-picker').hidden=category==='interface';
+ document.querySelector('.result-picker').hidden=category==='interface'||(category==='surface'&&!$('record-choices').children.length);
  for(const id of ['interface-set-control','interface-summary'])$(id).hidden=['sliding','matching','segregation','screen','overview'].includes(name)||category!=='interface'||!entry;
  $('segregation-discovery').hidden=category!=='interface'||!(hasScreen()||hasSegregation())||name==='overview';
  if(name==='data'&&category==='surface')name='structure';
