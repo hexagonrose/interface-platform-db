@@ -35,6 +35,12 @@ footer{align-items:center;gap:12px;flex-wrap:wrap}footer button{font-size:11px;c
  #surface-elements .element{display:flex;width:auto;height:auto}
  #surface-elements .series{display:block}
 }
+.facet-matrix{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.facet-matrix caption{text-align:left;font-weight:600;margin-bottom:6px}
+.facet-matrix th,.facet-matrix td{text-align:center;padding:3px}
+.facet-matrix th{font-size:12px;font-weight:500}.facet-matrix td{color:var(--muted)}
+.facet-matrix button{width:100%;padding:6px 4px}
+.facet-matrix button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
 </style></head><body><header><div class="header-inner"><div class="brand"><span class="logo">ip</span>Interface DB</div><nav class="domain-tabs" role="tablist" aria-label="데이터 분야"><button role="tab" id="tab-surface" aria-controls="domain-panel" data-kind="surface">Surface</button><button role="tab" id="tab-solute" aria-controls="domain-panel" data-kind="solute">solute</button><button role="tab" id="tab-interface" aria-controls="domain-panel" data-kind="interface">interface</button></nav><button id="theme-toggle" aria-label="다크 모드" aria-pressed="false">다크 모드</button></div></header><main><div id="domain-panel" role="tabpanel" aria-labelledby="tab-surface"><div class="intro"><h1 id="domain-title">Interface</h1><p id="domain-description"></p></div><div id="surface-elements" hidden></div><section class="discovery"><details id="interface-filters" hidden><summary>상세 필터 <span id="interface-filter-count"></span></summary><div id="interface-filter-body"></div></details><details id="elements" class="element-panel"><summary>원소 선택<span id="element-selection" role="status">전체 원소</span></summary><div class="element-body"><div class="periodic-scroll"><div id="periodic" class="periodic" role="group" aria-label="원소 선택 주기율표"></div></div><div class="element-caption"><button id="clear-elements">선택 해제</button><span class="muted">여러 원소 선택: 모두 포함하는 자료 · 테두리: 데이터 있음 · 검정: 선택됨</span></div></div></details><div class="toolbar" id="primary-filters"><div><label for="host">host</label><select id="host"><option value="">전체 host</option></select></div><div><label for="property">물성</label><select id="property"><option value="">전체 물성</option><option value="solute_formation_energy">solute formation energy</option><option value="work_of_adhesion">work of adhesion</option><option value="interface_energy">interface energy</option><option value="surface_energy">surface energy · Wulff</option></select></div><button id="reset">초기화</button></div>
 <details id="filters"><summary>상세 필터 <span id="filter-count"></span></summary><div class="toolbar"><div><label for="solute">solute</label><select id="solute"><option value="">전체 원소</option></select></div><div><label for="quality">검증 범위</label><select id="quality"><option value="">전체 범위</option><option value="source_checked">원본 에너지 대조</option><option value="exploratory">탐색 계산</option><option value="convergence_checked">두께·진공 검사</option><option value="legacy">기존 결과</option></select></div></div></details>
 </section><div id="interface-selection"><div id="pair-choices" role="group" aria-label="interface 물질 쌍" hidden></div><a class="nav-link" href="builder.html">새 계면 만들기</a><div id="interface-set-control" hidden><label for="interface-set">계산 세트</label><select id="interface-set"></select><span id="interface-set-label" class="muted" hidden></span></div></div><p id="segregation-discovery" class="muted" hidden>solute 계산 · <button id="open-segregation">Segregation</button></p><p id="interface-summary" class="muted" hidden></p><p id="surface-prompt" role="status" hidden></p><div class="result-picker"><div id="record-choices" role="group" aria-label="물질 및 계산 선택"></div><span id="count" class="muted" role="status"></span></div>
@@ -214,19 +220,34 @@ function renderInterfaceChoices(){
  $('record-choices').replaceChildren();
 }
 $('interface-set').onchange=()=>{select(pairSets(pairOf(entry)).find(x=>x.group===$('interface-set').value).best.id);setView(currentView==='data'?'data':'structure')};
-$('pair-choices').onclick=e=>{const b=e.target.closest('[data-pair]');if(!b)return;select(primaryId(b.dataset.pair));setView('overview')};
+$('pair-choices').onclick=e=>{const b=e.target.closest('[data-pair]');if(!b)return;const sample=filtered.find(r=>pairOf(r)===b.dataset.pair&&isSilicideSample(r));select(sample?.id||primaryId(b.dataset.pair));setView('overview')};
 const setLabel=r=>r.comparison_label||(r.property==='work_of_adhesion'?'기존 6층 · 2×2 shift · 탐색':'기존 축완화 · 벌크 참조');
 function pairSets(pair){const rows=filtered.filter(r=>pairOf(r)===pair);return [...new Set(rows.map(r=>r.comparison_group))].map(group=>{const rs=rows.filter(r=>r.comparison_group===group),adh=rs[0].property==='work_of_adhesion',nano=rs.filter(r=>nanoInt(r.id)!=null);return {group,rows:rs,adh,best:[...rs].sort((a,b)=>adh?b.value-a.value:a.value-b.value)[0],lo:Math.min(...rs.map(r=>r.value)),hi:Math.max(...rs.map(r=>r.value)),nanoMae:nano.length?nano.reduce((t,r)=>t+Math.abs(nanoInt(r.id)-r.value),0)/nano.length:null,rank:rs[0].conditions.registry_scan?0:rs[0].id.startsWith('builder-')?2:1}}).sort((a,b)=>a.rank-b.rank)}
 const primaryId=pair=>pairSets(pair)[0]?.best.id;
+const isSilicideSample=r=>r.materials.join('/')==='Cu/Ni2Si'&&r.property==='work_of_adhesion'&&!!r.conditions.builder;
+function facetMatrix(){
+ const rows=filtered.filter(isSilicideSample);
+ if(!rows.length)return '';
+ const cuFacet=r=>r.face_pair.split(' / ')[0];
+ const cu=[...new Set(rows.map(cuFacet))].sort(),silicide=[...new Set(rows.map(r=>r.conditions.builder.film_facet))].sort();
+ return `<table class="facet-matrix"><caption>결정면별 접합일 (J/m²)</caption><thead><tr><th scope="col">Cu / Ni₂Si</th>${silicide.map(f=>`<th scope="col">(${esc(f)})</th>`).join('')}</tr></thead><tbody>${cu.map(c=>`<tr><th scope="row">${esc(c)}</th>${silicide.map(f=>{
+  const r=rows.find(x=>cuFacet(x)===c&&x.conditions.builder.film_facet===f);
+  return r?`<td><button data-facet-record="${esc(r.id)}" aria-pressed="${entry.id===r.id}" aria-label="${esc(r.face_pair)} · 접합일 ${num(r.value,3)} J/m²">${num(r.value,3)}</button></td>`:'<td aria-label="계산값 없음">—</td>'
+ }).join('')}</tr>`).join('')}</tbody></table>`;
+}
 function renderOverview(){
  $('structure-panel').append($('visual-preview'));  // keep the shared viewer out of the innerHTML reset
- const b=pairSets(pairOf(entry))[0].best,nano=nanoInt(b.id),pts=hasSliding()?SLp().points:null;let seg='';
+ const b=entry,nano=nanoInt(b.id),pts=hasSliding()?SLp().points:null;let seg='';
  if(hasScreen()){const sys=screenSystem(),sites=sys.sites.filter(x=>x.role==='interface').map(x=>x.label),rows=Object.entries(sys.solutes).map(([x,v])=>({x,e:Math.min(...sites.map(k=>v[k].segregation_energy_eV))})).sort((a,b)=>a.e-b.e),lo=Math.min(0,...rows.map(r=>r.e))||1;
   seg=`<button class="ov-seg" data-go="screen"><span class="ov-label">Segregation · E<sub>seg</sub> (eV)</span>${rows.map(r=>`<span class="ov-bar"><b>${esc(r.x)}</b><i><i style="width:${Math.max(0,r.e/lo*100)}%"></i></i><em>${num(r.e,2)}</em></span>`).join('')}</button>`}
- $('overview-panel').innerHTML=`<div id="overview-visual"></div><div class="ov-side"><h2>${esc(b.face_pair||pairLabel(b))}</h2><button class="ov-hero" data-go="data"><span class="ov-label">${b.property==='work_of_adhesion'?'work of adhesion':'interface energy'}</span><strong>${num(b.value,2)}</strong><span class="ov-unit">J/m²${nano!=null?` · <span class="nano">Nano ${num(nano,2)}</span>`:''}</span></button>
+ $('overview-panel').innerHTML=`<div id="overview-visual"></div><div class="ov-side">${pairOf(b)==='Cu / Ni2Si'?facetMatrix():''}<h2>${esc(b.face_pair||pairLabel(b))}</h2><button class="ov-hero" data-go="data"><span class="ov-label">${b.property==='work_of_adhesion'?'work of adhesion':'interface energy'}</span><strong>${num(b.value,2)}</strong><span class="ov-unit">J/m²${nano!=null?` · <span class="nano">Nano ${num(nano,2)}</span>`:''}</span></button>
+${isSilicideSample(b)?`<div><span class="ov-label">Ni₂Si 면내 주변형률</span><strong style="display:block">${b.conditions.film_strain_percent.map(x=>(x>0?'+':'')+num(x,2)+'%').join(' / ')}</strong></div>`:''}
 ${hasPes()?'<button class="ov-stat" data-go="sliding"><span class="ov-label">Sliding · Cu/G-phase</span><strong>2차원 에너지 지도 →</strong></button>':pts?`<button class="ov-stat" data-go="sliding"><span class="ov-label">Sliding · interface energy (강체)</span><strong>${num(Math.min(...pts.map(p=>p.interface_energy_J_m2)),2)}–${num(Math.max(...pts.map(p=>p.interface_energy_J_m2)),2)}</strong> <span class="ov-unit">J/m²</span></button>`:''}${seg}${hasMatching()?'<button class="ov-link" data-go="matching">facet pair 후보 →</button>':''}</div>`;
 }
-$('overview-panel').onclick=e=>{const b=e.target.closest('[data-go]');if(!b)return;if(b.dataset.goRecord)select(b.dataset.goRecord);if(b.dataset.go==='sliding')pesPreferred=true;setView(b.dataset.go);$('view-'+b.dataset.go)?.focus()};
+$('overview-panel').onclick=e=>{const face=e.target.closest('[data-facet-record]');if(face){
+ select(face.dataset.facetRecord);
+ $('overview-panel').querySelector('[data-facet-record][aria-pressed=true]').focus({preventScroll:true});return
+ }const b=e.target.closest('[data-go]');if(!b)return;if(b.dataset.goRecord)select(b.dataset.goRecord);if(b.dataset.go==='sliding')pesPreferred=true;setView(b.dataset.go);$('view-'+b.dataset.go)?.focus()};
 
 function barChart(rows,label){
  const vals=rows.flatMap(r=>[r.value,nanoInt(r.id)??r.value]),low=Math.min(0,...vals),high=Math.max(0,...vals),span=high-low||1,hasNano=rows.some(r=>nanoInt(r.id)!=null);
@@ -434,7 +455,7 @@ function setView(name){
 }
 $('slab-interfaces').onclick=e=>{
  const button=e.target.closest('[data-record]');if(!button)return;
- setCategory('interface',button.dataset.record);setView('structure');$('view-structure').focus()
+ setCategory('interface',button.dataset.record);const next=isSilicideSample(entry)?'overview':'structure';setView(next);$('view-'+next).focus()
 };
 $('facet-picker').onchange=()=>{selectedFacet=entry.surfaces.find(r=>r.facet===$('facet-picker').value)||entry.paired_face;angle=[-Math.PI/2,0];zoom=1;markAngle('x');setView('slab')};
 for(const button of document.querySelectorAll('[data-view]')){
