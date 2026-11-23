@@ -60,6 +60,7 @@ const pairOf=r=>r.materials.join(' / '),pairLabel=r=>pairOf(r).replace('Ni2Si','
 const domainInfo={interface:['Interface','두 물질의 접합 구조와 work of adhesion·interface energy를 확인합니다.'],solute:['Solute','host 속 단일 substitution 원소의 bulk formation energy입니다. interface 자리별 segregation energy는 Interface 탭의 Segregation에서 봅니다.'],surface:['Surface · Wulff','free-surface energy와 자유입자 형상을 확인합니다. matrix 내 석출물 형상과는 다릅니다.']};
 function setCategory(kind,id=null){
  const previousKind=category;category=kind;
+ document.querySelector('.discovery').hidden=kind==='surface';
  $('interface-filters').hidden=kind!=='interface';$('interface-filters').open=false;
  const filterParent=kind==='interface'?$('interface-filter-body'):document.querySelector('.discovery');
  for(const key of ['elements','primary-filters','filters'])filterParent.append($(key));
@@ -90,7 +91,7 @@ function filter(){$('reset').hidden=!selectedElements.size&&!filterIds.some(id=>
  $('count').textContent=`${filtered.length} / ${DB.records.filter(r=>r.kind===category).length}건`;
  $('periodic').querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(selectedElements.has(button.dataset.element))));
  $('element-selection').textContent=selectedElements.size?[...selectedElements].join(' + '):'전체 원소';
- $('record-choices').innerHTML=filtered.map(r=>`<button data-choice="${esc(r.id)}" aria-pressed="false">${esc(r.kind==='surface'?r.materials[0]:r.title)}${r.kind==='surface'?`<small>${r.surfaces.length}개 facet</small>`:''}</button>`).join('')||'<p class="muted">이 원소 조합의 자료가 없습니다.</p>';
+ $('record-choices').innerHTML=filtered.map(r=>`<button data-choice="${esc(r.id)}" aria-pressed="false">${esc(r.kind==='surface'?({Ni2Si:'Ni₂Si',Mn6Ni16Si7:'G-phase'}[r.materials[0]]||r.materials[0]):r.title)}${r.kind==='surface'?`<small>결정면 ${r.surfaces.length}개${r.structure_only?' · 구조만':''}</small>`:''}</button>`).join('')||'<p class="muted">이 원소 조합의 자료가 없습니다.</p>';
  $('record-choices').classList.toggle('heatmaps',category==='solute');if(category==='solute')renderHeatmaps();
  $('interface-filter-count').textContent=category==='interface'&&(selectedElements.size||filterIds.some(id=>$(id).value))?'· 조건 적용 중':'';
  $('csv').disabled=!filtered.length;
