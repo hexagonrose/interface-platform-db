@@ -253,7 +253,7 @@ function layoutSliding(){
  $('mode-pes').setAttribute('aria-pressed',String(active));$('mode-path').setAttribute('aria-pressed',String(!active));
  frame.hidden=!active;
  for(const id of ['sliding-controls','sliding-visual','slide-chart-wrap'])$(id).hidden=active;
- if(active&&!frame.hasAttribute('src'))frame.src='pes.html?embed=1';
+ if(active&&!frame.hasAttribute('src'))frame.src='pes.html?embed=1&v=3f2d65d8';
 }
 window.addEventListener('message',e=>{
  const f=$('pes-frame');
