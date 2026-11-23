@@ -14,7 +14,7 @@ MLIP-based database of metal surfaces, interfaces and alloying-element energetic
 
 | 계획 내용 | 현재 구현 |
 |---|---|
-| 원소 제약 없이 MLIP로 물성 데이터베이스 구축 | Omni-MPA 기준 표면·계면·벌크 용질 DB 105건(2026-11-18 고정본 68건) |
+| 원소 제약 없이 MLIP로 물성 데이터베이스 구축 | Omni-MPA 기준 표면·계면·벌크 용질 DB 106건(2026-11-18 고정본 68건) |
 | Cu-Ni-Si 합금의 이질상/기지 계면 | Cu/Ni, Cu/Ni₂Si, Cu/G-phase, Al/Zn 계면 42건, 초기 이동별 계면 지도, Cu/Ni 강체 미끄럼 경로, Cu×Ni 면 조합 격자 매칭 후보 |
 | Al-Zn 등 첨가 원소 선정 | Cu·Al·Zn 모재의 용질 형성에너지 57건(히트맵; Cu·Al 모재 12원소 자동 계산 포함), Cu/G-phase 계면 Al 편석 시범 |
 | 물질 선정·구조 생성 등 데이터 생산 자동화 | 치환 구조 생성 → MLIP 완화 → 원본 검증 → DB 수록 자동화(벌크 신규 3건), 계면 만들기 후보 → MLIP 완화 → DB 등록(12건) |
@@ -36,11 +36,11 @@ flowchart LR
 
 ## 수록 현황
 
-DB 등록 105건 (보고서 기준 고정본 `v2026.11.18`은 68건: 계면 30건, 벌크 33건):
+DB 등록 106건 (보고서 기준 고정본 `v2026.11.18`은 68건: 계면 30건, 벌크 33건):
 
 | 분야 | 건수 | 내용 |
 |---|---:|---|
-| 표면·Wulff | 6 | Cu 6, Ni 3, Ni₂Si 8, Al 6, Zn 6, Si 3 방향 (총 32개 결정면 표면에너지와 Wulff 형상) |
+| 표면·Wulff | 7 | Cu 6, Ni 3, Ni₂Si 8, Al 6, Zn 6, Si 3, α-Mn 2 방향 (총 34개 결정면 표면에너지와 Wulff 형상) |
 | (구조만) G-phase surface | — | Mn₆Ni₁₆Si₇ (100)/(110)/(111) 대칭 slab 생성 구조(미완화). surface energy는 화학퍼텐셜 기준 정의 후 추가 예정이며 자료 건수에 넣지 않음 |
 | 계면 | 42 | Cu/Ni 24, Cu/Ni₂Si 13, Cu/G-phase 1, Al/Zn 4 (접합일 또는 계면에너지). 이 중 12건은 계면 만들기 후보 표본 |
 | 벌크 첨가 원소 | 57 | Cu·Al·Zn 모재 각 10종(기존 계산) + 자동 계산: Cu 모재 Al·Zn·Mg 3건(11/13), Cu·Al 모재 각 12원소 24건(11/20) |
@@ -75,13 +75,14 @@ DB 등록 105건 (보고서 기준 고정본 `v2026.11.18`은 68건: 계면 30�
 
 - `index.html`: 사이트(데이터 포함 단일 파일)
 - `builder.html`: 계면 만들기(표면 슬랩·격자 매칭 후보 포함 단일 파일)
-- `catalog.json`: 전체 DB. `records`(에너지 자료 105건과 구조 전용 1건), `sliding`, `matching`, `segregation`, `model_policy`, `scope`
+- `catalog.json`: 전체 DB. `records`(에너지 자료 106건과 구조 전용 1건), `sliding`, `matching`, `segregation`, `model_policy`, `scope`
 
 ## 갱신 이력
 
 - 2026-11-20: Cu/G-phase·Cu/Ni₂Si solute segregation screening 84계산 추가
 - 2026-11-20: 헤더 Solute 탭, solute 자동 계산 한 표, 구조 보기 원자 영역 맞춤, surface supercell 표시, G-phase surface 구조(구조만) 추가
 - 2026-11-20: 결과 그래프에 Omni·Nano 값을 함께 표시(별도 모델 비교 페이지는 삭제). 전문 용어 영어 표기. 태그 `v2026.11.20.3`
+- 2026-11-23: α-Mn의 {100}·{110} 두 면족으로 제한 Wulff 형상을 생성했다. (111) 슬랩의 비등가 양면 평균은 상세 데이터와 Slab에서 별도로 제공한다.
 - 2026-11-23: 다이아몬드 Si의 (100), (110), (111) 대칭 절단 표면을 완화해 수록. Wulff 형상은 이 세 면족으로 구성하며 면내 초격자 재구성은 탐색 범위 밖이다. Si·Ni·Cu·Al·Zn의 상세 데이터에서 문헌 DFT-PBE와 출처를 제공한다.
 - 2026-11-20: 자동 계산으로 Cu·Al 모재에 Al·Zn·Mg·Ni·Si·Mn·Co·Cr·Fe·Ti·Zr·Sc(모재 원소 제외) 용질 형성에너지 24건 추가(DB 104건). 11/13 Cu 모재 Al·Zn·Mg 값 재현(차 <0.0001 eV). 태그 `v2026.11.20`
 - 2026-11-18: 계면 만들기 후보 12개(Cu/Ni·Cu/Ni₂Si·Al/Zn 각 4)를 MLIP로 완화해 접합일 등록(DB 80건)
