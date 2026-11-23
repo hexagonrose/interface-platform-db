@@ -236,7 +236,7 @@ function renderOverview(){
  const b=entry,nano=nanoInt(b.id),strain=b.conditions.film_strain_percent;
  if(hasPes()){
   const facet=b.conditions.builder;
-  $('overview-panel').innerHTML=`<iframe id="overview-pes" title="${esc(b.face_pair||pairLabel(b))} 미끄럼 에너지 지도와 원자 구조" src="pes.html?embed=1&amp;summary=1&amp;record=${encodeURIComponent(b.id)}&amp;v=facet1"></iframe>${facet?facetMatrix():''}<div class="pes-overview-info"><button data-go="data">기준 구조 ${facet?'접합일':'계면에너지'} · ${num(b.value,3)} J/m²</button>${Array.isArray(strain)?`<span>막 면내 주변형률 · ${strain.map(x=>num(x,2)+'%').join(' / ')}</span>`:''}${hasSliding()?'<button data-go="sliding">1차원 경로 · 재생'+(facet?' (별도 기준 구조)':'')+' →</button>':''}${hasScreen()?'<button data-go="screen">Segregation →</button>':''}${hasMatching()?'<button data-go="matching">Facet pair 후보 →</button>':''}</div>`;
+  $('overview-panel').innerHTML=`<iframe id="overview-pes" title="${esc(b.face_pair||pairLabel(b))} 미끄럼 에너지 지도와 원자 구조" src="pes.html?embed=1&amp;summary=1&amp;record=${encodeURIComponent(b.id)}&amp;v=fcb3b2af"></iframe>${facet?facetMatrix():''}<div class="pes-overview-info"><button data-go="data">기준 구조 ${facet?'접합일':'계면에너지'} · ${num(b.value,3)} J/m²</button>${Array.isArray(strain)?`<span>막 면내 주변형률 · ${strain.map(x=>num(x,2)+'%').join(' / ')}</span>`:''}${hasSliding()?'<button data-go="sliding">1차원 경로 · 재생'+(facet?' (별도 기준 구조)':'')+' →</button>':''}${hasScreen()?'<button data-go="screen">Segregation →</button>':''}${hasMatching()?'<button data-go="matching">Facet pair 후보 →</button>':''}</div>`;
 
   return
  }
