@@ -60,10 +60,12 @@ footer{align-items:center;gap:12px;flex-wrap:wrap}footer button{font-size:11px;c
 #interface-drawers>#all-calculations{padding:4px 18px 10px;border:0}#all-calculations>summary{font-size:12px;color:var(--muted)}
 .frame-toolbar:has(.view-tabs[hidden]):has(#structure[hidden]){display:none}
 #crystalium{margin:12px 0 18px;padding:12px 16px;border:1px solid var(--line);border-radius:12px;color:var(--ink)}#crystalium summary{cursor:pointer;font-weight:600}#crystalium label{margin:12px 0}#crystalium p,#crystalium small{color:var(--muted)}.crystal-grid{display:grid;grid-template-columns:minmax(140px,1fr) minmax(0,2fr);gap:16px;align-items:start}#crystal-shape{width:100%;max-height:300px;touch-action:none;cursor:grab}#crystal-shape[hidden]{display:none}#crystalium .scroll{overflow:auto}#crystalium td,#crystalium th{white-space:nowrap}@media(max-width:650px){.crystal-grid{grid-template-columns:minmax(0,1fr)}#crystal-shape{height:180px}}
+#domain-panel.reference-view :is(.panel,#exports,#provenance){display:none}
+.crystal-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:center}.crystal-grid h2{font-size:18px}.crystal-grid .energy-track{position:relative;height:8px;border-radius:4px}.crystal-grid .energy-row{grid-template-columns:66px minmax(0,1fr) 64px}.crystal-grid .energy-track i{position:absolute;top:50%;width:9px;height:9px;border-radius:50%;background:var(--ink);transform:translate(-50%,-50%)}#crystalium label{display:inline-block}#crystal-data>details{margin-top:12px}#crystal-shape{height:320px;max-height:none}@media(max-width:800px){.crystal-grid{grid-template-columns:minmax(0,1fr)}#crystal-shape{height:220px}}
 </style></head><body><header><div class="header-inner"><div class="brand"><span class="logo">ip</span>Interface DB</div><nav class="domain-tabs" role="tablist" aria-label="데이터 분야"><button role="tab" id="tab-surface" aria-controls="domain-panel" data-kind="surface">Surface</button><button role="tab" id="tab-interface" aria-controls="domain-panel" data-kind="interface">Interface</button><button role="tab" id="tab-solute" aria-controls="domain-panel" data-kind="solute">Solute</button></nav><button id="theme-toggle" aria-label="다크 모드" aria-pressed="false">다크 모드</button></div></header><main><div id="domain-panel" role="tabpanel" aria-labelledby="tab-surface"><div class="intro"><h1 id="domain-title">Interface</h1><p id="domain-description"></p></div><div id="solute-controls" hidden></div><div id="surface-elements" hidden></div><section class="discovery"><details id="elements" class="element-panel"><summary>원소 선택<span id="element-selection" role="status">전체 원소</span></summary><div class="element-body"><div class="periodic-scroll"><div id="periodic" class="periodic" role="group" aria-label="원소 선택 주기율표"></div></div><div class="element-caption"><button id="clear-elements">선택 해제</button><span class="muted">여러 원소 선택: 모두 포함하는 자료 · 테두리: 데이터 있음 · 검정: 선택됨</span></div></div></details><div class="toolbar" id="primary-filters"><div><label for="host">host</label><select id="host"><option value="">전체 host</option></select></div><div><label for="property">물성</label><select id="property"><option value="">전체 물성</option><option value="solute_formation_energy">solute formation energy</option><option value="work_of_adhesion">work of adhesion</option><option value="interface_energy">interface energy</option><option value="surface_energy">surface energy · Wulff</option></select></div><button id="reset">초기화</button></div>
 <details id="filters"><summary>상세 필터 <span id="filter-count"></span></summary><div class="toolbar"><div><label for="solute">solute</label><select id="solute"><option value="">전체 원소</option></select></div><div><label for="quality">검증 범위</label><select id="quality"><option value="">전체 범위</option><option value="source_checked">원본 에너지 대조</option><option value="exploratory">탐색 계산</option><option value="convergence_checked">두께·진공 검사</option><option value="legacy">기존 결과</option></select></div></div></details>
 </section><div id="interface-selection"><div id="pair-choices" role="group" aria-label="interface 물질 쌍" hidden></div><a class="nav-link" href="builder.html">새 계면 만들기</a><div id="interface-set-control" hidden><label for="interface-set">계산 세트</label><select id="interface-set"></select><span id="interface-set-label" class="muted" hidden></span></div></div><p id="segregation-discovery" class="muted" hidden>solute 계산 · <button id="open-segregation">Segregation</button></p><p id="interface-summary" class="muted" hidden></p><p id="surface-prompt" role="status" hidden></p><div class="result-picker"><div id="record-choices" role="group" aria-label="물질 및 계산 선택"></div><span id="count" class="muted" role="status"></span></div>
-<details id="crystalium" hidden><summary>Crystalium DFT</summary><label>결정상 <select id="crystal-phase"></select></label><div id="crystal-data"></div><small>표면에너지 · <a href="https://doi.org/10.1038/sdata.2016.80">Tran et al. (2016)</a> · <a href="https://doi.org/10.5061/dryad.f2n6f">Dryad</a>　일함수 · <a href="https://doi.org/10.1016/j.susc.2019.05.002">Tran et al. (2019)</a>　결정립계 · <a href="https://arxiv.org/abs/1907.08905">Zheng et al.</a></small></details>
+<section id="crystalium" hidden><label>결정상 <select id="crystal-phase"></select></label> <label id="crystal-mode-label">데이터 <select id="crystal-mode"><option value="models">MLIP 비교</option><option value="reference">DFT · Tran (전체 결정면)</option></select></label><div id="crystal-data"></div></section>
 <section class="panel"><div class="bar"><div><h2 id="title">자료 선택</h2><p id="interface-position" class="muted" hidden></p></div><div class="result-head"><div class="value" id="value"></div><div class="muted" id="validation"></div></div></div>
 <div id="surface-summary" class="surface-summary" hidden></div><div class="frame-toolbar"><nav class="view-tabs" role="tablist" aria-label="결과 보기"><button id="view-overview" role="tab" data-view="overview" aria-controls="summary-panel" hidden>Interface</button><button id="view-structure" role="tab" data-view="structure" aria-controls="structure-panel">구조</button><button id="view-slab" role="tab" data-view="slab" aria-controls="slab-panel" hidden>Slab</button><button id="view-data" role="tab" data-view="data" aria-controls="data-panel">비교 데이터</button><button id="view-matching" role="tab" data-view="matching" aria-controls="matching-panel" hidden>facet pair</button><button id="view-segregation" role="tab" data-view="segregation" aria-controls="segregation-panel" hidden>Al segregation</button><button id="view-screen" role="tab" data-view="screen" aria-controls="screen-panel" hidden>Segregation</button></nav><div class="actions"><button id="structure" disabled>구조 다운로드</button></div></div>
 <div id="structure-panel" role="tabpanel" aria-labelledby="view-structure"><section id="surface-ranking" hidden></section><div id="visual-preview"><h2 id="wulff-title" hidden>자유 표면에너지 기반 Wulff 형상</h2><div id="wulff-controls" hidden><button id="compare-wulff" aria-expanded="false" aria-controls="wulff-models">모델 비교</button><span id="wulff-models" role="group" aria-label="Wulff 모델 비교" hidden><select id="wulff-families" aria-label="비교 면족 수"><option value="6">6면족</option><option value="3">3면족</option></select><button data-wulff="omni">SevenNet-Omni (MPA)</button><button data-wulff="nano">SevenNet-Nano</button><button data-wulff="mace">MACE-MatPES-PBE</button><button data-wulff="tran">DFT · Tran</button><button data-wulff="song">DFT · Song</button></span><p id="wulff-source" hidden></p></div><div id="slab-controls" hidden><label for="facet-picker">계산한 facet</label><select id="facet-picker"></select><span class="supercell" role="group" aria-label="supercell 반복 (화면 표시만)"><span>supercell</span><select id="rep-a" aria-label="a 방향 반복"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select><span>×</span><select id="rep-b" aria-label="b 방향 반복"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select><small>화면 표시만 · 다운로드는 계산 셀</small></span><p id="slab-description"></p><div id="slab-interfaces" hidden></div></div><div class="view-tools"><div id="legend" class="legend"></div><div class="actions"><button data-angle="x" title="+X에서 원점 방향 · 직교 좌표축">X</button><button data-angle="y" title="+Y에서 원점 방향 · 직교 좌표축">Y</button><button data-angle="z" title="+Z에서 원점 방향 · 직교 좌표축">Z</button></div></div><div class="stage"><canvas id="canvas" aria-label="선택한 surface·interface 원자 구조 또는 Wulff 형상"></canvas><div id="seg-pins" hidden></div><button type="button" id="solute-atom" hidden><span></span></button><div class="empty" id="empty">자료를 선택해 주세요.</div></div><div class="hint">드래그 회전 · 스크롤 확대 · X/Y/Z: 직교 좌표축</div></div>
@@ -198,23 +200,41 @@ function renderProvenance(){
  $('provenance-body').innerHTML=items.filter(Boolean).map(t=>`<p>${esc(t)}</p>`).join('');
 }
 let wulffModel=null;
-function renderCrystalium(symbol, pending){
+function renderCrystalium(symbol){
  const phases=category==='surface'&&CRYSTALIUM[symbol];
  const panel=$('crystalium');
- panel.hidden=!phases;
- if(!phases)return;
- panel.open=pending;
- panel.querySelector('summary').textContent=symbol+' · Crystalium DFT';
- const picker=$('crystal-phase');
+ const domain=$('domain-panel');
+ domain.classList.remove('reference-view');
+ panel.hidden=!phases||!!entry&&elementsOf(entry).size!==1;
+ if(panel.hidden)return;
+ const picker=$('crystal-phase'),mode=$('crystal-mode');
+ const modelPhase=entry?.material_id||({
+  'cu-surface-wulff':'mp-30','ni-surface-wulff':'mp-23','al-surface-wulff':'mp-134',
+  'zn-surface-wulff':'mp-79','mn-surface-wulff':'mp-35','si-surface-wulff':'mp-149',
+  'ag-surface-wulff':'mp-124','pd-surface-wulff':'mp-2','au-surface-wulff':'mp-81'
+ })[entry?.id];
  picker.replaceChildren(...phases.map(p=>new Option(p.group+' · '+p.material_id,p.material_id)));
+ if(modelPhase)picker.value=modelPhase;
+ else if(entry)picker.add(new Option(entry.title,'local',true,true));
+ function switchPhase(){
+  const own=!!entry&&(picker.value===modelPhase||picker.value==='local');
+  $('crystal-mode-label').hidden=!own||picker.value==='local';
+  mode.value=own?'models':'reference';show()
+ }
  function show(){
-  const phase=phases[picker.selectedIndex],base='https://crystalium.materialyze.ai/data/'+symbol;
+  const reference=mode.value==='reference';
+  domain.classList.toggle('reference-view',reference);
+  $('crystal-data').hidden=!reference;
+  if(!reference)return;
+  const phase=phases.find(p=>p.material_id===picker.value),base='https://crystalium.materialyze.ai/data/'+symbol;
   const cif=(suffix)=>'<a href="'+base+'/'+phase.polymorph+'/'+suffix+'/cif">CIF</a>';
   const table=(headers,rows)=>'<div class="scroll"><table><thead><tr>'+headers.map(h=>'<th>'+h+'</th>').join('')+'</tr></thead><tbody>'+rows.map(row=>'<tr>'+row.map(x=>'<td>'+x+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
   const facets=[...phase.facets].sort((a,b)=>a.surface_energy-b.surface_energy);
   const values=facets.map(s=>[esc(s.miller_index)+(s.is_reconstructed?' · 재구성':''),num(s.surface_energy),num(s.work_function,3),num(Number.isFinite(s.area_fraction)?100*s.area_fraction:null,2),cif(s.task)]);
   const boundaries=phase.boundaries.map(g=>[esc(g.sigma),esc(g.type),esc(g.rotation_axis),esc(g.gb_plane),num(g.rotation_angle,2),num(g.gb_energy),num(g.w_sep),cif(g.task_id+'/'+g.sigma)]);
-  $('crystal-data').innerHTML='<div class="crystal-grid"><div><svg id="crystal-shape" viewBox="-120 -120 240 240" aria-label="Crystalium Wulff 형상"></svg><p id="crystal-shape-note"></p></div><div><strong>Surface energy · DFT</strong>'+table(['결정면','γ (J/m²)','일함수 (eV)','면적 (%)','구조'],values)+'</div></div><p>면적 가중 표면에너지 '+num(phase.weighted_surface_energy)+' J/m² · 가중 일함수 '+num(phase.weighted_work_function,3)+' eV · Shape factor '+num(phase.shape_factor,3)+' · 이방성 '+num(phase.surface_anisotropy,3)+' · E above hull '+num(phase.e_above_hull,3)+' eV/atom</p>'+(boundaries.length?'<details><summary>Grain boundaries · '+boundaries.length+'</summary>'+table(['Σ','종류','회전축','입계면','각도 (°)','γ GB (J/m²)','분리 일 (J/m²)','구조'],boundaries)+'</details>':'')+'<p><a href="'+base+'">원소별 원자료 (JSON)</a> · <a href="https://crystalium.materialyze.ai/">Crystalium</a></p>';
+  const energies=facets.map(s=>s.surface_energy),minimum=Math.min(0,...energies),span=Math.max(0,...energies)-minimum;
+  const ranking=facets.map(s=>`<div class="energy-row"><span>${esc(s.miller_index)}</span><span class="energy-track"><i style="left:${span?100*(s.surface_energy-minimum)/span:0}%"></i></span><strong>${num(s.surface_energy,3)}</strong></div>`).join('');
+  $('crystal-data').innerHTML='<div class="crystal-grid"><div><h2>Wulff 형상</h2><svg id="crystal-shape" viewBox="-120 -120 240 240" aria-label="Crystalium Wulff 형상"></svg><p id="crystal-shape-note"></p></div><div><h2>Surface energy 순위</h2><p><a href="https://doi.org/10.1038/sdata.2016.80">● DFT · Tran (2016)</a> · J/m²</p><div class="energy-chart">'+ranking+'</div></div></div><details><summary>결정면별 수치와 출처</summary>'+table(['결정면','γ (J/m²)','일함수 (eV)','면적 (%)','구조'],values)+'<p>면적 가중 표면에너지 '+num(phase.weighted_surface_energy)+' J/m² · 가중 일함수 '+num(phase.weighted_work_function,3)+' eV · Shape factor '+num(phase.shape_factor,3)+' · 이방성 '+num(phase.surface_anisotropy,3)+' · E above hull '+num(phase.e_above_hull,3)+' eV/atom</p>'+(boundaries.length?'<details><summary>Grain boundaries · '+boundaries.length+'</summary>'+table(['Σ','종류','회전축','입계면','각도 (°)','γ GB (J/m²)','분리 일 (J/m²)','구조'],boundaries)+'</details>':'')+'<p><a href="'+base+'">원소별 원자료 (JSON)</a> · <a href="https://crystalium.materialyze.ai/">Crystalium</a></p><small>표면에너지 · <a href="https://doi.org/10.1038/sdata.2016.80">Tran et al. (2016)</a> · <a href="https://doi.org/10.5061/dryad.f2n6f">Dryad</a>　일함수 · <a href="https://doi.org/10.1016/j.susc.2019.05.002">Tran et al. (2019)</a>　결정립계 · <a href="https://arxiv.org/abs/1907.08905">Zheng et al.</a></small></details>';
   const svg=$('crystal-shape');
   if(!phase.faces){svg.setAttribute('hidden','');$('crystal-shape-note').textContent='이 결정상에 대응하는 공식 Wulff 좌표를 확인할 수 없습니다.';return}
   $('crystal-shape-note').textContent='Wulff · 드래그 또는 방향키로 회전';
@@ -238,7 +258,7 @@ function renderCrystalium(symbol, pending){
   svg.onkeydown=e=>{if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key)){e.preventDefault();yaw+=(e.key==='ArrowRight'?.12:e.key==='ArrowLeft'?-.12:0);pitch+=(e.key==='ArrowUp'?.12:e.key==='ArrowDown'?-.12:0);drawShape()}};
   drawShape()
  }
- picker.onchange=show;show()
+ picker.onchange=switchPhase;mode.onchange=show;switchPhase()
 }
 
 function select(id){wulffModel=null;slideFraction=.5;slidePathId=null;entry=filtered.find(r=>r.id===id)||null;$('wulff-families').value=entry?.wulff_comparison_six?'6':'3';
@@ -246,7 +266,7 @@ function select(id){wulffModel=null;slideFraction=.5;slidePathId=null;entry=filt
  const pending=category==='surface'&&!entry;
  $('domain-panel').classList.toggle('surface-pending',pending);
  const symbol=[...selectedElements][0];
- renderCrystalium(symbol,pending);
+ renderCrystalium(symbol);
  $('surface-prompt').hidden=!pending||!!CRYSTALIUM[symbol];
  if(pending){
   const symbol=[...selectedElements][0];
