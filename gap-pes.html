@@ -7,6 +7,7 @@ html.embedded[data-theme=dark],html.embedded[data-theme=dark] body{background:#1
 html.summary .grid{align-items:start}
 html.summary section{min-width:0}
 .energy+.meta{margin:0 0 10px;color:inherit}.energy+.meta summary{font-size:12px}
+.gap-controls{max-width:25rem;margin:0 0 16px}.gap-controls label{justify-content:space-between}.gap-controls input{display:block;width:100%;height:32px;margin:0;touch-action:pan-y}.gap-options{display:flex;justify-content:space-between;gap:4px}.gap-options button{min-height:40px}
 </style><script>try{document.documentElement.dataset.theme=localStorage.getItem('interface-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{};if(window.parent!==window && new URLSearchParams(location.search).has("embed"))document.documentElement.classList.add("embedded");if(document.documentElement.classList.contains("embedded")&&new URLSearchParams(location.search).has("summary"))document.documentElement.classList.add("summary");if(window.parent!==window && new URLSearchParams(location.search).has('embed')){
  try{
   const host=window.parent.document.documentElement;
@@ -34,9 +35,29 @@ if(layers){
  document.querySelector('#pes').setAttribute('aria-label','간격별 Cu/Ni 계면에너지');
  document.querySelector('.meta p').textContent='SevenNet-Omni(MPA) · 96원자 · 간격별 11 × 11 강체 단일점. Cu와 셀을 고정하고 Ni를 이동했습니다. 간격은 양쪽 최외곽 원자층 사이의 법선 거리입니다.';
  document.querySelector('.meta p:last-child').textContent='모든 지형은 같은 높이·색상 척도와 같은 면내 원점을 사용합니다. γ는 면내 변형을 맞춘 벌크와 노출 표면을 기준으로 계산하며 Δγ는 선택한 간격의 격자 최저점 기준입니다.';
- document.querySelector('.grid').insertAdjacentHTML('beforebegin','<label>계면 간격 <input id="gap" type="range" min="0" value="1" step="1"><output id="spacing"></output></label>');
- document.querySelector('#gap').max=layers.length-1;
- document.querySelector('#gap').parentElement.style.marginBottom='16px';
+ document.querySelector('.grid').insertAdjacentHTML('beforebegin','<div class="gap-controls"><label for="gap">계면 간격 <output id="spacing"></output></label><input id="gap" type="range" min="0" value="1" step="1"><div class="gap-options" role="group" aria-label="계산된 계면 간격"></div></div>');
+ const slider=document.querySelector('#gap');
+ slider.max=layers.length-1;
+ const options=document.querySelector('.gap-options');
+ layers.forEach((item,index)=>{
+  const button=document.createElement('button');
+  button.type='button';
+  button.textContent=item.gap.toFixed(3)+' Å';
+  button.onclick=()=>{slider.value=index;selectGap()};
+  options.append(button);
+ });
+ let start;
+ slider.addEventListener('pointerdown',e=>{start={x:e.clientX,y:e.clientY,index:+slider.value}});
+ slider.addEventListener('pointercancel',()=>{start=null});
+ slider.addEventListener('pointerup',e=>{
+  if(!start)return;
+  const dx=e.clientX-start.x;
+  if(+slider.value===start.index && Math.abs(dx)>=12 && Math.abs(dx)>Math.abs(e.clientY-start.y)){
+   slider.value=start.index+Math.sign(dx);
+   selectGap();
+  }
+  start=null;
+ });
  document.querySelector('.energy').insertAdjacentHTML('beforeend','<dt>이 간격의 최대−최소</dt><dd><output id="span-energy"></output> J/m²</dd>');
  document.querySelector('#reference').textContent='면내 이동 0%로';
  document.querySelector('main>p').textContent='간격을 바꾸면 같은 면내 위치에서 에너지 지형이 바뀝니다. 지도를 드래그해 회전하거나 계산점을 눌러 원자 배열을 확인하세요.';
@@ -89,6 +110,7 @@ function selectGap(){
  layer=layers[+el('gap').value];grid=layer.gamma;
  [minCol,minRow]=layer.minimum;
  el('spacing').textContent=layer.gap.toFixed(3)+' Å';
+ document.querySelectorAll('.gap-options button').forEach((b,i)=>b.setAttribute('aria-pressed',i===+el('gap').value));
  el('gap').setAttribute('aria-valuetext',el('spacing').textContent);
  el('span-energy').textContent=(Math.max(...grid.flat())-grid[minRow][minCol]).toFixed(3);
  draw();
