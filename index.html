@@ -457,7 +457,7 @@ function renderOverview(){
  $('structure-panel').append($('visual-preview'));  // keep the shared viewer out of the innerHTML reset
  const b=entry,nano=nanoInt(b.id),strain=b.conditions.film_strain_percent;
  if(hasPes()){
-  $('overview-panel').innerHTML=`<iframe id="overview-pes" title="${esc(b.face_pair||pairLabel(b))} 미끄럼 에너지 지도와 원자 구조" src="${b.id==='builder-cu100-ni100-c1'?'gap-pes.html':'pes.html'}?embed=1&amp;summary=1&amp;record=${encodeURIComponent(b.id)}&amp;v=gap2"></iframe>${facetChart()}${b.id==='builder-al111-zn001-c4'?'<iframe id="lattice-match" title="Al(111) / Zn(001) 격자 정합" src="lattice-match.html?embed=1&amp;v=2"></iframe>':''}`;
+  $('overview-panel').innerHTML=`<iframe id="overview-pes" title="${esc(b.face_pair||pairLabel(b))} 미끄럼 에너지 지도와 원자 구조" src="${b.id==='builder-cu100-ni100-c1'?'gap-pes.html':'pes.html'}?embed=1&amp;summary=1&amp;record=${encodeURIComponent(b.id)}&amp;v=gap2"></iframe>${facetChart()}${b.id==='builder-al111-zn001-c4'?'<iframe id="lattice-match" title="Al(111) / Zn(001) 격자 정합" src="lattice-match.html?embed=1&amp;v=3"></iframe>':''}`;
 
   return
  }
@@ -576,7 +576,7 @@ $('back-overview').onclick=()=>{setView('overview');($('view-overview').closest(
 window.addEventListener('message',e=>{
  const match=$('lattice-match');
  if(match && e.source===match.contentWindow){
-  if(e.data?.type==='match-height' && Number.isFinite(e.data.height))match.style.height=Math.min(2000,Math.max(250,e.data.height))+'px';
+  if(e.data?.type==='match-height' && Number.isFinite(e.data.height))match.style.height=Math.min(3600,Math.max(250,e.data.height))+'px';
   if(e.data?.type==='show-match-pes')$('overview-pes').scrollIntoView({block:'start'});
   return
  }
