@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated": "2026-11-23",
+  "updated": "2026-11-24",
   "records": [
     {
       "id": "registry-cuni_0_0",
@@ -31880,6 +31880,56 @@
           "210": 1.61,
           "211": 1.49,
           "221": 1.47
+        }
+      },
+      "mace_comparison": {
+        "model": "MACE-MatPES-PBE",
+        "dtype": "float64",
+        "checkpoint_sha256": "e618ad582b84239905b9c3b77ce6e9ce111b0ecd1533223a1a6aac7a696b8aa0",
+        "lattice_a_A": 3.6268807219336194,
+        "bulk_energy_per_atom_eV": -3.7454154494976777,
+        "fmax_target_eV_A": 0.005,
+        "finished_at": "2026-11-24T09:57:40+0900",
+        "versions": {
+          "mace-torch": "0.3.16",
+          "torch": "2.11.0+cu130",
+          "ase": "3.29.0",
+          "numpy": "2.5.3"
+        },
+        "facets": {
+          "111": {
+            "gamma_J_m2": 1.2437226014900395,
+            "atoms": 64,
+            "layers": 16,
+            "vacuum_each_side_A": 15,
+            "area_A2": 22.7838531877662,
+            "energy_eV": -236.16930173503403,
+            "fmax_eV_A": 0.004903025326161503,
+            "thickness_delta_J_m2": 3.731344988544549e-08,
+            "vacuum_delta_J_m2": 9.769962616701378e-15
+          },
+          "100": {
+            "gamma_J_m2": 1.4451681136302699,
+            "atoms": 64,
+            "layers": 16,
+            "vacuum_each_side_A": 15,
+            "area_A2": 26.308527542267463,
+            "energy_eV": -234.96051466917635,
+            "fmax_eV_A": 0.004595746022726057,
+            "thickness_delta_J_m2": 2.279922329151418e-06,
+            "vacuum_delta_J_m2": 4.3076653355456074e-14
+          },
+          "110": {
+            "gamma_J_m2": 1.524004936243241,
+            "atoms": 64,
+            "layers": 16,
+            "vacuum_each_side_A": 15,
+            "area_A2": 37.20587645634076,
+            "energy_eV": -232.628475384665,
+            "fmax_eV_A": 0.004550577689934275,
+            "thickness_delta_J_m2": 7.937051514184112e-05,
+            "vacuum_delta_J_m2": 1.2212453270876722e-14
+          }
         }
       }
     },
