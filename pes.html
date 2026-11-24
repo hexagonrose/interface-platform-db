@@ -24,7 +24,23 @@ const datasets={"cugphase-mpa":{"gamma":[[8.291576,7.045563,4.652067,3.328053,4.
 const id=new URLSearchParams(location.search).get('record')||'cugphase-mpa';
 const data=datasets[id];
 if(!data){document.querySelector('main').textContent='등록된 미끄럼 지도가 없습니다.';throw new Error('Unknown PES record')}
-if(data.face_pair){
+const layers=data.layers;
+if(layers){
+ document.title='Cu(100)/Ni(100) · 계면 간격별 PES';
+ document.querySelector('header').hidden=true;
+ document.querySelector('h1').textContent=document.title;
+ document.querySelector('.grid section h2').textContent='계면에너지 γ · J/m²';
+ document.querySelector('#atoms').setAttribute('aria-label','선택한 간격과 위치의 Cu/Ni 구조');
+ document.querySelector('#pes').setAttribute('aria-label','간격별 Cu/Ni 계면에너지');
+ document.querySelector('.meta p').textContent='SevenNet-Omni(MPA) · 96원자 · 간격별 11 × 11 강체 단일점. Cu와 셀을 고정하고 Ni를 이동했습니다. 간격은 양쪽 최외곽 원자층 사이의 법선 거리입니다.';
+ document.querySelector('.meta p:last-child').textContent='모든 지형은 같은 높이·색상 척도와 같은 면내 원점을 사용합니다. γ는 면내 변형을 맞춘 벌크와 노출 표면을 기준으로 계산하며 Δγ는 선택한 간격의 격자 최저점 기준입니다.';
+ document.querySelector('.grid').insertAdjacentHTML('beforebegin','<label>계면 간격 <input id="gap" type="range" min="0" value="1" step="1"><output id="spacing"></output></label>');
+ document.querySelector('#gap').max=layers.length-1;
+ document.querySelector('#gap').parentElement.style.marginBottom='16px';
+ document.querySelector('.energy').insertAdjacentHTML('beforeend','<dt>이 간격의 최대−최소</dt><dd><output id="span-energy"></output> J/m²</dd>');
+ document.querySelector('#reference').textContent='면내 이동 0%로';
+ document.querySelector('main>p').textContent='간격을 바꾸면 같은 면내 위치에서 에너지 지형이 바뀝니다. 지도를 드래그해 회전하거나 계산점을 눌러 원자 배열을 확인하세요.';
+}else if(data.face_pair){
  document.title=data.face_pair+' · 강체 미끄럼 PES';
  document.querySelector('.grid section h2').textContent=data.face_pair+' · 상대에너지 Δγ';
  document.querySelector('h1').textContent=document.title;
@@ -33,8 +49,21 @@ if(data.face_pair){
  document.querySelector('.meta p').textContent='SevenNet-Omni(MPA) · 21 × 21 단일점. 완화된 접합 구조에서 '+data.substrate+'와 셀을 고정하고 상대편 슬랩을 면내 두 공통셀 벡터 방향으로 이동했습니다.';
  document.querySelector('.meta p:last-child').textContent='계면에너지 γ는 같은 면내 격자에서 구한 두 자유 표면에너지('+data.surface_refs.map(x=>x.toFixed(3)).join(', ')+' J/m²)의 합에서 해당 위치의 접합일을 빼서 산출했습니다. 벌크 기준은 면내 격자를 고정하고 면 밖 응력을 완화한 상태입니다. Δγ = (E − 격자 최저 에너지) / 접합 면적. 가운데 점은 계산 격자에서의 최저점입니다. 이동 중 슬랩 간 수직 거리와 셀 높이를 고정한 SevenNet 예측값이며 DFT 검증 전입니다.';
 }
-const el=id=>document.getElementById(id),grid=data.gamma,n=grid.length-1;
-const min=Math.min(...grid.flat()),max=Math.max(...grid.flat());
+if(id==='builder-cu100-ni100-c1' && (!layers || location.pathname.endsWith('/gap-pes.html'))){
+ const link=document.createElement('a');
+ link.href=(layers?'pes.html':'gap-pes.html')+location.search;
+ const url=new URL(link.href);
+ url.searchParams.set('record',id);
+ link.href=url.href;
+ link.textContent=layers?'기준 간격 정밀 지도 (21×21)':'간격별 지도 (11×11)';
+ document.querySelector('.grid section:first-child').append(link);
+}
+const el=id=>document.getElementById(id);
+let layer=layers?.[1],grid=layer?.gamma??data.gamma;
+const n=grid.length-1;
+for(const axis of ['u','v']){el(axis).max=n;el(axis).value=n/2}
+const range=layers?layers.flatMap(x=>x.gamma.flat()):grid.flat();
+const min=Math.min(...range),max=Math.max(...range);
 const palette=[[31,48,88],[40,102,143],[43,157,147],[175,206,118],[250,222,101]];
 const rgb=c=>'rgb('+c.join(',')+')';
 function color(z){const t=Math.max(0,Math.min(1,(z-min)/(max-min)))*(palette.length-1),k=Math.min(Math.floor(t),palette.length-2);return rgb(palette[k].map((v,i)=>Math.round(v+(palette[k+1][i]-v)*(t-k))))}
@@ -55,7 +84,15 @@ function paintSphere(target,p,scale,color,dopant=false){const radius=Math.max(2.
 function paintAtoms(cellPoints,points,g,project,scale){const corners=cellPoints.map(project);ctx.strokeStyle=getComputedStyle(document.documentElement).getPropertyValue('--cell');for(let i=0;i<8;i++)for(const bit of [1,2,4])if(!(i&bit)){ctx.beginPath();ctx.moveTo(...corners[i].slice(0,2));ctx.lineTo(...corners[i|bit].slice(0,2));ctx.stroke()}points.map((p,i)=>({p:project(p),s:g.symbols[i]})).sort((a,b)=>a.p[2]-b.p[2]).forEach(({p,s})=>{paintSphere(ctx,p,scale,atomColors[s]||'#888888',isDopant(s))})}
 
 el('elements').innerHTML=[...new Set(data.symbols)].map(s=>'<span><i class="dot" style="background:'+atomColors[s]+'"></i>'+s+'</span>').join('');
-const minRow=n/2,minCol=n/2;
+let minRow=n/2,minCol=n/2;
+function selectGap(){
+ layer=layers[+el('gap').value];grid=layer.gamma;
+ [minCol,minRow]=layer.minimum;
+ el('spacing').textContent=layer.gap.toFixed(3)+' Å';
+ el('gap').setAttribute('aria-valuetext',el('spacing').textContent);
+ el('span-energy').textContent=(Math.max(...grid.flat())-grid[minRow][minCol]).toFixed(3);
+ draw();
+}
 let azimuth=Math.PI/4,elevation=.55;
 let relief=true,points=[],paintOrder=[];
 function context(id){const canvas=el(id),w=canvas.clientWidth,h=canvas.clientHeight,r=devicePixelRatio||1;canvas.width=Math.round(w*r);canvas.height=Math.round(h*r);const c=canvas.getContext('2d');c.scale(r,r);return {c,w,h}}
@@ -101,7 +138,11 @@ function surface(i,j){
 }
 function structure(i,j){
  const {w,h}=context('atoms'),cell=data.cell;
- const positions=data.fractional.map((f,k)=>cell[0].map((_,d)=>cell.reduce((sum,v,t)=>sum+v[d]*f[t],0)+(data.symbols[k]===data.substrate?0:(data.vectors[0][d]*(data.minimum_registry[0]+i-minCol)+data.vectors[1][d]*(data.minimum_registry[1]+j-minRow))/n)));
+ const u=layers?i:data.minimum_registry[0]+i-minCol;
+ const v=layers?j:data.minimum_registry[1]+j-minRow;
+ const shift=data.vectors[0].map((value,d)=>(value*u+data.vectors[1][d]*v)/n+(d===2?(layer?.dz??0):0));
+ const positions=data.fractional.map((f,k)=>cell[0].map((_,d)=>
+   cell.reduce((sum,vector,t)=>sum+vector[d]*f[t],0)+(data.symbols[k]===data.substrate?0:shift[d])));
  const g={cell,positions,symbols:data.symbols},coords=wrap(g,false),rot=coords.map(rotatePoint);
  const corners=Array.from({length:8},(_,mask)=>cell[0].map((_,k)=>cell.reduce((sum,v,t)=>sum+((mask>>t)&1)*v[k],0)));
  const lo=[0,1].map(k=>Math.min(...rot.map(p=>p[k]))),hi=[0,1].map(k=>Math.max(...rot.map(p=>p[k])));
@@ -109,10 +150,10 @@ function structure(i,j){
  function project(p){const [x,y,d]=rotatePoint(p);return [w/2+(x-(lo[0]+hi[0])/2)*scale,h/2-(y-(lo[1]+hi[1])/2)*scale,d]}
  paintAtoms(corners,coords,g,project,scale);drawAxes(rotatePoint,w,h);
 }
-function draw(){const i=+el('u').value,j=+el('v').value;el('ua').textContent=(i*5)+'%';el('vb').textContent=(j*5)+'%';el('value').textContent=((data.gamma_min??0)+grid[j][i]).toFixed(3);el('delta').textContent=(grid[j][i]-min).toFixed(3);surface(i,j);structure(i,j)}
+function draw(){const i=+el('u').value,j=+el('v').value;el('ua').textContent=(100*i/n)+'%';el('vb').textContent=(100*j/n)+'%';el('value').textContent=((data.gamma_min??0)+grid[j][i]).toFixed(3);el('delta').textContent=(grid[j][i]-(layer?grid[minRow][minCol]:min)).toFixed(3);surface(i,j);structure(i,j)}
 el('reference').onclick=()=>{
- el('u').value=(minCol-data.minimum_registry[0]+n)%n;
- el('v').value=(minRow-data.minimum_registry[1]+n)%n;
+ el('u').value=layers?0:(minCol-data.minimum_registry[0]+n)%n;
+ el('v').value=layers?0:(minRow-data.minimum_registry[1]+n)%n;
  draw()
 };
 if(document.documentElement.classList.contains('summary')){
@@ -164,5 +205,6 @@ if(document.documentElement.classList.contains('embedded')){
  const main=document.querySelector('main');
  new ResizeObserver(()=>parent.postMessage({type:'pes-height',height:Math.ceil(main.getBoundingClientRect().height)},'*')).observe(main);
 }
+if(layers){el('gap').oninput=selectGap;selectGap()}
 new ResizeObserver(draw).observe(el('pes'));draw();
 </script></html>
