@@ -27195,6 +27195,53 @@
           "100": 2.21,
           "110": 2.29
         }
+      },
+      "mace_comparison": {
+        "model": "MACE-MatPES-PBE",
+        "dtype": "float64",
+        "checkpoint_sha256": "e618ad582b84239905b9c3b77ce6e9ce111b0ecd1533223a1a6aac7a696b8aa0",
+        "bulk_energy_per_atom_eV": -5.4747177251314145,
+        "facets": {
+          "100": {
+            "facet": "100",
+            "gamma_J_m2": 2.200442817428397,
+            "energy_eV": -85.8989289329009,
+            "area_A2": 6.176439187079814,
+            "atoms": 16,
+            "fmax_eV_A": 0.0049736793930081555,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.25,
+            "thickness_delta_J_m2": 1.911465568094073e-05,
+            "vacuum_delta_J_m2": 0.0
+          },
+          "110": {
+            "facet": "110",
+            "gamma_J_m2": 2.264390099329927,
+            "energy_eV": -128.92420876343212,
+            "area_A2": 8.734804065540926,
+            "atoms": 24,
+            "fmax_eV_A": 0.003782959213210396,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.25,
+            "thickness_delta_J_m2": 3.7479231123072054e-05,
+            "vacuum_delta_J_m2": 2.6201263381153694e-14
+          },
+          "111": {
+            "facet": "111",
+            "gamma_J_m2": 1.907877926131738,
+            "energy_eV": -75.37213744814622,
+            "area_A2": 5.348953240940824,
+            "atoms": 14,
+            "fmax_eV_A": 0.004919527599482584,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.5,
+            "thickness_delta_J_m2": 9.760162188454657e-06,
+            "vacuum_delta_J_m2": 0.0
+          }
+        }
       }
     },
     {
@@ -53396,6 +53443,92 @@
           "211": 0.96,
           "221": 0.96
         }
+      },
+      "mace_comparison": {
+        "model": "MACE-MatPES-PBE",
+        "dtype": "float64",
+        "checkpoint_sha256": "e618ad582b84239905b9c3b77ce6e9ce111b0ecd1533223a1a6aac7a696b8aa0",
+        "bulk_energy_per_atom_eV": -3.731732185734371,
+        "facets": {
+          "100": {
+            "facet": "100",
+            "gamma_J_m2": 0.9981399121647329,
+            "energy_eV": -51.223113365513875,
+            "area_A2": 8.195455355068269,
+            "atoms": 14,
+            "fmax_eV_A": 0.004594336135973903,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.25,
+            "thickness_delta_J_m2": 8.728441725502911e-06,
+            "vacuum_delta_J_m2": 0.0
+          },
+          "110": {
+            "facet": "110",
+            "gamma_J_m2": 0.9708080139803531,
+            "energy_eV": -73.2300813046368,
+            "area_A2": 11.590124112960755,
+            "atoms": 20,
+            "fmax_eV_A": 0.004356367336978311,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.24999999999999978,
+            "thickness_delta_J_m2": 6.923743050335496e-06,
+            "vacuum_delta_J_m2": 0.0
+          },
+          "111": {
+            "facet": "111",
+            "gamma_J_m2": 0.8065082098225899,
+            "energy_eV": -44.066237065450785,
+            "area_A2": 7.097472533070338,
+            "atoms": 12,
+            "fmax_eV_A": 0.004608712434836985,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.5000000000000002,
+            "thickness_delta_J_m2": 0.0001260679593882985,
+            "vacuum_delta_J_m2": 7.993605777301127e-15
+          },
+          "210": {
+            "facet": "210",
+            "gamma_J_m2": 1.032025670926509,
+            "energy_eV": -117.05458103793745,
+            "area_A2": 18.325595280497318,
+            "atoms": 32,
+            "fmax_eV_A": 0.0047518359236597115,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.12499999999999978,
+            "thickness_delta_J_m2": 1.1321649424633762e-06,
+            "vacuum_delta_J_m2": 0.0
+          },
+          "211": {
+            "facet": "211",
+            "gamma_J_m2": 0.9410293401930175,
+            "energy_eV": -131.98420839539716,
+            "area_A2": 20.074683829677195,
+            "atoms": 36,
+            "fmax_eV_A": 0.004507692103805878,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.12500000000000017,
+            "thickness_delta_J_m2": 1.4537095973543579e-05,
+            "vacuum_delta_J_m2": 1.1435297153639112e-14
+          },
+          "221": {
+            "facet": "221",
+            "gamma_J_m2": 0.9095303522727026,
+            "energy_eV": -161.4047578881452,
+            "area_A2": 24.586366065204803,
+            "atoms": 44,
+            "fmax_eV_A": 0.0044568167888962215,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.12500000000000017,
+            "thickness_delta_J_m2": 6.355412908609637e-06,
+            "vacuum_delta_J_m2": 1.8540724511240114e-14
+          }
+        }
       }
     },
     {
@@ -55271,6 +55404,92 @@
           "001": 0.32,
           "100": 0.97
         }
+      },
+      "mace_comparison": {
+        "model": "MACE-MatPES-PBE",
+        "dtype": "float64",
+        "checkpoint_sha256": "e618ad582b84239905b9c3b77ce6e9ce111b0ecd1533223a1a6aac7a696b8aa0",
+        "bulk_energy_per_atom_eV": -1.1214354799672632,
+        "facets": {
+          "001": {
+            "facet": "001",
+            "gamma_J_m2": 0.6190750238149979,
+            "energy_eV": -15.197727827797824,
+            "area_A2": 6.500695949906541,
+            "atoms": 14,
+            "fmax_eV_A": 0.0020716771599083887,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.24999999999999997,
+            "thickness_delta_J_m2": 2.777577274737375e-06,
+            "vacuum_delta_J_m2": 4.3298697960381105e-15
+          },
+          "100": {
+            "facet": "100",
+            "gamma_J_m2": 0.6591208074004536,
+            "energy_eV": -25.90670307924716,
+            "area_A2": 12.248065797173181,
+            "atoms": 24,
+            "fmax_eV_A": 0.004650646917152168,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.6666666666666666,
+            "thickness_delta_J_m2": 0.00022091992999673238,
+            "vacuum_delta_J_m2": 2.3314683517128287e-15
+          },
+          "110": {
+            "facet": "110",
+            "gamma_J_m2": 0.8171083752851913,
+            "energy_eV": -44.93643891183877,
+            "area_A2": 21.21427225515055,
+            "atoms": 42,
+            "fmax_eV_A": 0.003806655255465006,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.5,
+            "thickness_delta_J_m2": 1.0179430386170196e-05,
+            "vacuum_delta_J_m2": 2.7755575615628914e-15
+          },
+          "101": {
+            "facet": "101",
+            "gamma_J_m2": 0.745395016225868,
+            "energy_eV": -30.109965173168042,
+            "area_A2": 13.866295958366633,
+            "atoms": 28,
+            "fmax_eV_A": 0.004829390334139264,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.41666666666666663,
+            "thickness_delta_J_m2": 1.9802531608936746e-05,
+            "vacuum_delta_J_m2": 2.1094237467877974e-15
+          },
+          "102": {
+            "facet": "102",
+            "gamma_J_m2": 0.7699039041602134,
+            "energy_eV": -38.655008977142906,
+            "area_A2": 17.86200736491867,
+            "atoms": 36,
+            "fmax_eV_A": 0.0048759155833926135,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.08333333333333336,
+            "thickness_delta_J_m2": 2.8606089224281206e-05,
+            "vacuum_delta_J_m2": 3.219646771412954e-15
+          },
+          "111": {
+            "facet": "111",
+            "gamma_J_m2": 0.8202732684028512,
+            "energy_eV": -47.07123074775855,
+            "area_A2": 22.187933548412786,
+            "atoms": 44,
+            "fmax_eV_A": 0.004454637885431065,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.2500000000000001,
+            "thickness_delta_J_m2": 4.190781651303155e-05,
+            "vacuum_delta_J_m2": 2.55351295663786e-15
+          }
+        }
       }
     },
     {
@@ -56566,6 +56785,81 @@
           "111": 1.3,
           "110": 1.76,
           "100": 1.28
+        }
+      },
+      "mace_comparison": {
+        "model": "MACE-MatPES-PBE",
+        "dtype": "float64",
+        "checkpoint_sha256": "e618ad582b84239905b9c3b77ce6e9ce111b0ecd1533223a1a6aac7a696b8aa0",
+        "bulk_energy_per_atom_eV": -5.387161847801478,
+        "facets": {
+          "100": {
+            "facet": "100",
+            "gamma_J_m2": 1.7841545403895243,
+            "energy_eV": -125.98615904191644,
+            "area_A2": 14.84276087834947,
+            "atoms": 24,
+            "fmax_eV_A": 0.004965417122899569,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.12500000000000003,
+            "thickness_delta_J_m2": 8.790253734036746e-05,
+            "vacuum_delta_J_m2": 7.771561172376096e-15
+          },
+          "110": {
+            "facet": "110",
+            "gamma_J_m2": 1.2715120688426822,
+            "energy_eV": -169.0574492984221,
+            "area_A2": 20.990833737222612,
+            "atoms": 32,
+            "fmax_eV_A": 0.004399897130161531,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.24999999999999978,
+            "thickness_delta_J_m2": 1.2503344098080404e-05,
+            "vacuum_delta_J_m2": 2.1538326677728037e-14
+          },
+          "111": {
+            "facet": "111",
+            "gamma_J_m2": 1.1172032826214444,
+            "energy_eV": -95.17625656461702,
+            "area_A2": 12.854207982948465,
+            "atoms": 18,
+            "fmax_eV_A": 0.004844217842630974,
+            "thickness_target_A": 28,
+            "vacuum_each_side_A": 15,
+            "termination_shift": 0.3750000000000002,
+            "thickness_delta_J_m2": 5.786484218006649e-06,
+            "vacuum_delta_J_m2": 0.0
+          }
+        }
+      },
+      "nano_single_point": {
+        "checkpoint_sha256": "75d9a06c843e1c2c6aaa6435407cf9ace0b3dba85c3271a3a0c7da5170d1cf17",
+        "bulk_energy_per_atom_eV": -5.304824075246836,
+        "bulk_input_sha256": "4cf4d154ed851a8639d1a3e07973379cbd7547aa54fad7bc1e36984df54c0e08",
+        "facets": {
+          "111": {
+            "gamma_J_m2": 0.9351253411506151,
+            "energy_eV": -93.97436631342592,
+            "area_A2": 12.956762297934944,
+            "atoms": 18,
+            "input_sha256": "9663fc9731272df93288f455b4f2886523f8eaa4ccf136d15594debc331a63bb"
+          },
+          "100": {
+            "gamma_J_m2": 1.5854032915041605,
+            "energy_eV": -124.35486773529877,
+            "area_A2": 14.961180401077467,
+            "atoms": 24,
+            "input_sha256": "605dd84494dd71a82cec6c96fc302bd7d4dd7674f45cd0b1c1909a6a0ff5cb2c"
+          },
+          "110": {
+            "gamma_J_m2": 1.119845760847975,
+            "energy_eV": -166.79663943136663,
+            "area_A2": 21.158304232314293,
+            "atoms": 32,
+            "input_sha256": "512d4faffa4d104b47efdf59b66bf8b5bf287c84e7b9b7841fcc350becea8f6c"
+          }
         }
       }
     },
@@ -276996,6 +277290,11 @@
         "101": 0.7118514407122755,
         "102": 0.6248187166514759,
         "111": 0.855537693057736
+      },
+      "si-surface-wulff": {
+        "111": 0.9351253411506151,
+        "100": 1.5854032915041605,
+        "110": 1.119845760847975
       }
     },
     "interfaces": {
