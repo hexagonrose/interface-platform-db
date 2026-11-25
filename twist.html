@@ -8,7 +8,9 @@ html.summary .grid{align-items:start}
 html.summary section{min-width:0}
 .energy+.meta{margin:0 0 10px;color:inherit}.energy+.meta summary{font-size:12px}
 .gap-controls{max-width:25rem;margin:0 0 16px}.gap-controls label{justify-content:space-between}.gap-controls input{display:block;width:100%;height:32px;margin:0;touch-action:pan-y}.gap-options{display:flex;justify-content:space-between;gap:4px}.gap-options button{min-height:40px}
-.preview #pes,.preview .scale,.preview .legend{visibility:hidden}.preview .meta,.preview #download-reference,.preview #atoms~small{display:none}
+.preview #pes,.preview .scale,.preview .legend{visibility:hidden}.preview .meta,.preview #download-reference,.preview #atoms~small{visibility:hidden}
+#twist-value{flex:0 0 5ch;min-width:0;text-align:right}
+main>p{display:grid}main>p span{grid-area:1/1}.candidate-size{visibility:hidden}
 .twist-map{position:relative}.twist-map span{display:none}.preview .twist-map span{display:grid;position:absolute;inset:0;place-items:center;color:inherit}
 </style><script>try{document.documentElement.dataset.theme=localStorage.getItem('interface-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{};if(window.parent!==window && new URLSearchParams(location.search).has("embed"))document.documentElement.classList.add("embedded");if(document.documentElement.classList.contains("embedded")&&new URLSearchParams(location.search).has("summary"))document.documentElement.classList.add("summary");if(window.parent!==window && new URLSearchParams(location.search).has('embed')){
  try{
@@ -87,6 +89,24 @@ if(id==='builder-cu100-ni100-c1' && (!layers || location.pathname.endsWith('/gap
  link.textContent=layers?'기준 간격 정밀 지도 (21×21)':'간격별 지도 (11×11)';
  document.querySelector('.grid section:first-child').append(link);
 }
+function metricNote(label,metric){
+ return label+' · 셀 면적 '+metric.area_A2.toFixed(2)+' Å² · Ni₂Si 주변형률 '+[metric.strain1_pct,metric.strain2_pct].map(v=>(v>0?'+':'')+v.toFixed(2)+'%').join(' / ')+' · 완화 후 간격 '+metric.gap_A.toFixed(3)+' Å';
+}
+function showNote(text){
+ const note=document.querySelector('main>p');
+ if(!note.querySelector('span')){
+  note.textContent='';
+  note.append(document.createElement('span'));
+  for(const [key,d] of Object.entries(datasets)){
+   const spacer=document.createElement('span');
+   spacer.className='candidate-size';
+   spacer.setAttribute('aria-hidden','true');
+   spacer.textContent=metricNote((key==='reference'?'0°':'+45°')+' · '+d.metrics.atoms+'원자',d.metrics);
+   note.append(spacer);
+  }
+ }
+ note.firstElementChild.textContent=text;
+}
 function updateCandidate(){
  document.title=data.face_pair+' · 강체 미끄럼 PES';
  document.querySelector('.grid section h2').textContent=data.face_pair+' · 상대에너지 Δγ';
@@ -107,12 +127,12 @@ function updateCandidate(){
  if(!hasMap()){
   document.title='Cu(100)/Ni₂Si(001) · '+label;
   document.querySelector('h1').textContent=document.title;
-  document.querySelector('.grid section h2').textContent='Cu(100)/Ni₂Si(001) · '+formatted;
+  document.querySelector('.grid section h2').textContent='Cu(100)/Ni₂Si(001) · '+formatted+' · 상대에너지 Δγ';
   document.querySelector('#atoms').setAttribute('aria-label',label);
-  document.querySelector('main>p').textContent=label+' · 0° 기준 구조에서 Ni₂Si를 강체 회전';
+  showNote(label+' · 0° 기준 구조에서 Ni₂Si를 강체 회전');
   return;
  }
- document.querySelector('main>p').textContent=label+' · 셀 면적 '+metric.area_A2.toFixed(2)+' Å² · Ni₂Si 주변형률 '+[metric.strain1_pct,metric.strain2_pct].map(v=>(v>0?'+':'')+v.toFixed(2)+'%').join(' / ')+' · 완화 후 간격 '+metric.gap_A.toFixed(3)+' Å';
+ showNote(metricNote(label,metric));
  document.querySelector('.meta p:last-child').textContent+=' 두 후보에서 높이와 색 범위는 동일하며, 50%, 50%는 각 지도의 표본 최저점입니다.';
 }
 const el=id=>document.getElementById(id);
@@ -196,6 +216,11 @@ function surface(i,j){
  const lx=mx>w*.65?mx-49:mx+12,ly=Math.max(15,my-12);
  c.fillStyle='#922c24';c.fillRect(lx-4,ly-13,41,18);c.fillStyle='white';c.textAlign='left';c.fillText('최저',lx,ly);
 }
+const radius=Math.max(...Object.values(datasets).map(d=>
+ Math.max(...[1,-1].map(sign=>Math.hypot(d.cell[0][0]+sign*d.cell[1][0],d.cell[0][1]+sign*d.cell[1][1])/2))));
+const heights=Object.values(datasets).flatMap(d=>d.fractional.map(f=>(f[2]-.5)*d.cell[2][2]));
+const framePoints=[Math.min(...heights),Math.max(...heights)].flatMap(z=>
+ [-radius,radius].flatMap(x=>[-radius,radius].map(y=>[x,y,z])));
 function structure(i,j){
  const {w,h}=context('atoms'),cell=data.cell;
  const u=layers?i:data.minimum_registry[0]+i-minCol;
@@ -213,11 +238,14 @@ function structure(i,j){
    p[0]=cx+co*x-si*y;p[1]=cy+si*x+co*y;
   });
  }
- const rot=coords.map(rotatePoint);
+ // Register both supercells at their cell centres in a single camera frame.
+ const origin=cell[0].map((_,k)=>cell.reduce((sum,v)=>sum+v[k]/2,0));
+ const projectCentered=p=>rotatePoint(p.map((v,k)=>v-origin[k]));
+ const rot=framePoints.map(rotatePoint);
  const corners=Array.from({length:8},(_,mask)=>cell[0].map((_,k)=>cell.reduce((sum,v,t)=>sum+((mask>>t)&1)*v[k],0)));
  const lo=[0,1].map(k=>Math.min(...rot.map(p=>p[k]))),hi=[0,1].map(k=>Math.max(...rot.map(p=>p[k])));
  const scale=.84*Math.min(w/(hi[0]-lo[0]),h/(hi[1]-lo[1]))*zoom;
- function project(p){const [x,y,d]=rotatePoint(p);return [w/2+(x-(lo[0]+hi[0])/2)*scale,h/2-(y-(lo[1]+hi[1])/2)*scale,d]}
+ function project(p){const [x,y,d]=projectCentered(p);return [w/2+(x-(lo[0]+hi[0])/2)*scale,h/2-(y-(lo[1]+hi[1])/2)*scale,d]}
  paintAtoms(corners,coords,g,project,scale);drawAxes(rotatePoint,w,h);
 }
 function draw(){const i=+el('u').value,j=+el('v').value;el('ua').textContent=(100*i/n)+'%';el('vb').textContent=(100*j/n)+'%';el('value').textContent=((data.gamma_min??0)+grid[j][i]).toFixed(energyDigits);el('delta').textContent=(grid[j][i]-(layer?grid[minRow][minCol]:min)).toFixed(energyDigits);if(!hasMap()){el('value').textContent='—';el('delta').textContent='—'}surface(i,j);structure(i,j)}
