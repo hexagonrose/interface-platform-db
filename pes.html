@@ -97,7 +97,8 @@ function createOrientation(){
   for(const [input,value] of [[twist,fmt(+twist.value)],[gap,(+gap.value).toFixed(2)+' Å'],[tilt,fmt(+tilt.value)]]){
    input.nextElementSibling.textContent=value;input.setAttribute('aria-valuetext',value);
   }
-  message.textContent=pending?'이 조건의 PES 미계산':'';
+  const atStored=data.geometry_only&&Number.isFinite(data.reference_gamma)&&i===minCol&&j===minRow&&+gap.value===0&&+tilt.value===0&&+twist.value===0;
+  message.textContent=atStored?'완화 구조 γ = '+data.reference_gamma.toFixed(4)+' J/m² · 2D PES 미계산':pending?'이 조건의 PES 미계산':'';
   for(const item of [el('pes'),el('scale'),el('low'),el('high'),document.querySelector('.meta'),el('download-reference')])
    item.style.visibility=pending?'hidden':'';
   for(const name of ['minimum','relief','map','reference'])el(name).disabled=pending;
