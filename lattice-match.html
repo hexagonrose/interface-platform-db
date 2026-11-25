@@ -50,7 +50,7 @@ function select(i){
  el('detail').textContent=d.atoms+'원자 · '+d.area.toFixed(1)+' Å² · Zn 면내 회전 '+d.rotation.toFixed(1)+'° · '+(measured?'PES 계산 완료 · 간격 2.20 Å':'격자 후보 · PES 미계산');
  const frame=el('candidate-pes');
  frame.hidden=!measured;
- if(measured) frame.src='pes.html?embed=1&summary=1&record=match-alzn-c'+(i+1);
+ if(measured) frame.src='pes.html?embed=1&summary=1&v=gap-below-twist-26c9367&record=match-alzn-c'+(i+1);
  else frame.removeAttribute('src');
  el('initial').href='builder.html#Al-Zn/111/001/'+(i+1);
  el('pes').hidden=i!==3;
