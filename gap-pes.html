@@ -21,6 +21,101 @@ html.summary section{min-width:0}
 <section><h2>선택한 위치의 에너지</h2><dl class="energy"><dt>계면에너지 γ</dt><dd><output id="value"></output><span id="gamma-unit"> J/m²</span></dd><dt>상대에너지 Δγ <small>(최저점 대비)</small></dt><dd><output id="delta"></output> J/m²</dd></dl><details class="meta"><summary>계산 기준</summary><p>SevenNet-Omni(MPA) · 112원자 · 21 × 21 단일점. Cu와 셀을 고정하고 G-phase를 두 면내 격자벡터 a, b 방향으로 강체 이동했습니다. 각 축은 한 주기이며 0%와 100%는 주기 경계입니다. 표식과 수치는 계산점에 대응하고 면의 색과 높이는 그 사이를 연결합니다.</p><p>γ = (E계면 − ECu,ref − EG-phase,ref) / (2A). 주기 셀의 두 계면에 대한 평균이며 가운데 (50%, 50%)가 최저에너지 구조이며 Δγ는 이 구조를 기준으로 표시합니다. 격자 최고점에서는 Cu와 G-phase 사이의 최근접 원자 거리가 약 0.87 Å까지 줄어듭니다. 이는 원자 완화를 허용하지 않은 고에너지 배치이며, 표시값은 DFT 검증 전의 모델 예측값입니다.</p></details><button type="button" id="minimum">최저에너지 구조로 이동</button><button id="reference" type="button">기준 구조 보기</button><canvas id="atoms" aria-label="주기 셀 안의 Cu와 이동된 G-phase 원자"></canvas><div class="bar"><small>드래그로 회전 · 휠로 확대</small><div aria-label="구조 시점"><button data-axis="x">X</button> <button data-axis="y">Y</button> <button data-axis="z">Z</button></div></div><div class="dots" id="elements"></div><button id="download-reference" type="button" hidden>기준 구조 다운로드</button><small>셀 경계를 넘어간 원자는 반대쪽에 표시됩니다.</small></section></div>
 </main>
 <script>
+// Local rigid preview in the substrate's (a, normal × a, normal) frame.
+function createOrientation(){
+ const controls=el('v').closest('label');
+ controls.insertAdjacentHTML('afterend',`<label>Twist <input id="twist-angle" type="range" min="-90" max="90" step="5" value="0"><output></output></label>
+ <label>추가 간격 <input id="extra-gap" type="range" min="0" max="8" step=".25" value="0"><output></output></label>
+ <label>Tilt <input id="tilt-angle" type="range" min="-90" max="90" step="5" value="0"><output></output></label><small id="tilt-limit"></small>`);
+ const message=document.createElement('span'),box=document.createElement('div');
+ el('pes').before(box);box.append(el('pes'),message);box.style.position='relative';
+ message.style.cssText='position:absolute;inset:0;align-content:center;text-align:center;pointer-events:none';
+ const twist=el('twist-angle'),tilt=el('tilt-angle'),gap=el('extra-gap');
+ const fmt=x=>(x>0?'+':'')+x+'°';
+ for(const input of [twist,gap,tilt]){
+  input.nextElementSibling.style.cssText='flex:0 0 6ch;text-align:right';
+  input.oninput=()=>draw();
+ }
+ const cell=data.cell,[a,b]=cell,det=a[0]*b[1]-a[1]*b[0];
+ const ax=a[0]/Math.hypot(...a),ay=a[1]/Math.hypot(...a);
+ const center=cell[0].map((_,k)=>cell.reduce((s,v)=>s+v[k]/2,0));
+ const substrate=data.symbols.map(s=>s===data.substrate);
+ const base=data.fractional.map(f=>f.reduce((z,v,k)=>z+v*cell[k][2],0));
+ const pivot=Math.min(...base.filter((_,k)=>!substrate[k]));
+ const radius=Math.max(...[1,-1].map(s=>Math.hypot(a[0]+s*b[0],a[1]+s*b[1])/2));
+ const reach=Math.hypot(radius,Math.max(...base)-pivot);
+ const bounds=[Math.min(...base,pivot-reach),pivot+reach+8].flatMap(z=>
+  [-reach,reach].flatMap(x=>[-reach,reach].map(y=>[x,y,z-center[2]])));
+ const corners=Array.from({length:8},(_,m)=>a.map((_,k)=>cell.reduce((s,v,j)=>s+((m>>j)&1)*v[k],0)));
+ const preview=()=>!!data.geometry_only||+twist.value!==0||+tilt.value!==0||+gap.value!==0;
+ let key='',flat=[],blocked=false;
+ function positions(deg){
+  const t=deg*Math.PI/180,ct=Math.cos(t),st=Math.sin(t);
+  const w=+twist.value*Math.PI/180,cw=Math.cos(w),sw=Math.sin(w);
+  return flat.map((p,k)=>{
+   if(substrate[k])return p;
+   const x=p[0]-center[0],y=p[1]-center[1],z=p[2]-pivot;
+   const tx=cw*x-sw*y,ty=sw*x+cw*y;
+   const u=ax*tx+ay*ty,v=-ay*tx+ax*ty,v2=ct*v-st*z;
+   return [center[0]+ax*u-ay*v2,center[1]+ay*u+ax*v2,pivot+st*v+ct*z+(layer?.dz??0)+Number(gap.value)];
+  });
+ }
+ function limits(i,j){
+  const next=[i,j,twist.value,gap.value,layer?.dz].join('/');
+  if(next===key)return;
+  key=next;
+  const u=layers?i:data.minimum_registry[0]+i-minCol,v=layers?j:data.minimum_registry[1]+j-minRow;
+  const raw=data.fractional.map((f,k)=>a.map((_,axis)=>cell.reduce((s,row,m)=>s+row[axis]*f[m],0)+
+    (substrate[k]?0:(a[axis]*u+b[axis]*v)/n)));
+  flat=wrap({positions:raw,cell},false);
+  const sub=flat.filter((_,k)=>substrate[k]),top=Math.max(...sub.map(p=>p[2]));
+  function clash(deg){
+   return positions(deg).some(([x,y,z],k)=>{
+    // Pair-distance guards for geometry only (Å); never a stability test.
+    const cut=data.substrate==='Al'?2.0:data.symbols[k]==='Si'?1.8:1.9;
+    if(substrate[k]||z>=top+cut)return false;
+    return sub.some(([sx,sy,sz])=>{
+     const dz=z-sz;if(Math.abs(dz)>=cut)return false;
+     const dx=x-sx,dy=y-sy,fa=(dx*b[1]-dy*b[0])/det,fb=(a[0]*dy-a[1]*dx)/det;
+     // Test every in-plane image that can lie inside the cutoff disk.
+     const da=cut*Math.hypot(...b)/Math.abs(det),db=cut*Math.hypot(...a)/Math.abs(det);
+     for(let h=Math.ceil(fa-da);h<=fa+da;h++)for(let l=Math.ceil(fb-db);l<=fb+db;l++)
+      if((dx-h*a[0]-l*b[0])**2+(dy-h*a[1]-l*b[1])**2+dz*dz<cut*cut)return true;
+     return false;
+    });
+   });
+  }
+  blocked=clash(0);
+  function bound(step){let t=0;while(!blocked&&Math.abs(t+step)<=90&&!clash(t+step))t+=step;return t}
+  const low=bound(-5),high=bound(5),previous=+tilt.value;
+  tilt.min=low;tilt.max=high;tilt.value=Math.max(low,Math.min(previous,high));tilt.disabled=low===high;
+  el('tilt-limit').textContent=blocked?'0°에서 원자 근접 · 추가 간격을 늘리세요':'허용 Tilt '+low+'° ~ '+high+'°';
+ }
+ function update(i,j){
+  limits(i,j);
+  const pending=preview();
+  for(const [input,value] of [[twist,fmt(+twist.value)],[gap,(+gap.value).toFixed(2)+' Å'],[tilt,fmt(+tilt.value)]]){
+   input.nextElementSibling.textContent=value;input.setAttribute('aria-valuetext',value);
+  }
+  message.textContent=pending?'이 조건의 PES 미계산':'';
+  for(const item of [el('pes'),el('scale'),el('low'),el('high'),document.querySelector('.meta'),el('download-reference')])
+   item.style.visibility=pending?'hidden':'';
+  for(const name of ['minimum','relief','map','reference'])el(name).disabled=pending;
+  if(el('span-energy')&&pending)el('span-energy').textContent='—';
+  else if(layer)el('span-energy').textContent=(Math.max(...grid.flat())-Math.min(...grid.flat())).toFixed(3);
+ }
+ function structure(){
+  const {w,h}=context('atoms');
+  if(blocked&&(+twist.value||+tilt.value||+gap.value))return;
+  const extent=bounds.map(rotatePoint);
+  const lo=[0,1].map(k=>Math.min(...extent.map(p=>p[k]))),hi=[0,1].map(k=>Math.max(...extent.map(p=>p[k])));
+  const s=.84*Math.min(w/(hi[0]-lo[0]),h/(hi[1]-lo[1]))*zoom;
+  function project(p){const [x,y,z]=rotatePoint(p.map((v,k)=>v-center[k]));return [w/2+(x-(lo[0]+hi[0])/2)*s,h/2-(y-(lo[1]+hi[1])/2)*s,z]}
+  paintAtoms(corners,positions(+tilt.value),data,project,s);drawAxes(rotatePoint,w,h);
+ }
+ return {preview,update,structure};
+}
+
 const datasets={"builder-cu100-ni100-c1": {"layers": [{"gap": 1.4563355699999974, "dz": -0.3, "gamma": [[0.6895815131627505, 2.4956068060435705, 5.712458930452431, 5.712458930452431, 2.4956068060435705, 0.6895815131627505, 2.4956068060435705, 5.712458930452431, 5.7124402978045605, 2.4956068060435705, 0.6895815131627505], [2.4956068060435705, 5.6208049355729255, 11.527372943460355, 11.527372943460355, 5.6208049355729255, 2.4956068060435705, 5.6208049355729255, 11.527372943460355, 11.527372943460355, 5.6208049355729255, 2.4956068060435705], [5.712458930452431, 11.527372943460355, 23.388469394856248, 23.388432129560506, 11.527372943460355, 5.712458930452431, 11.527372943460355, 23.388469394856248, 23.388450762208375, 11.527372943460355, 5.712458930452431], [5.712458930452431, 11.527372943460355, 23.388469394856248, 23.388450762208375, 11.527372943460355, 5.7124402978045605, 11.527372943460355, 23.388469394856248, 23.388450762208375, 11.527372943460355, 5.712458930452431], [2.4956068060435705, 5.6208049355729255, 11.527372943460355, 11.527372943460355, 5.6208049355729255, 2.4956068060435705, 5.6208049355729255, 11.527372943460355, 11.527372943460355, 5.620823568220798, 2.4956068060435705], [0.6895815131627505, 2.4956068060435705, 5.712458930452431, 5.712458930452431, 2.4956068060435705, 0.6896001458106213, 2.4956068060435705, 5.712458930452431, 5.712458930452431, 2.4956068060435705, 0.6895815131627505], [2.4956068060435705, 5.6208049355729255, 11.527372943460355, 11.527372943460355, 5.6208049355729255, 2.4956068060435705, 5.620823568220798, 11.527372943460355, 11.527372943460355, 5.620786302925053, 2.4956068060435705], [5.712458930452431, 11.527372943460355, 23.388469394856248, 23.388469394856248, 11.527372943460355, 5.7124402978045605, 11.527372943460355, 23.388450762208375, 23.388450762208375, 11.527372943460355, 5.712458930452431], [5.712458930452431, 11.527372943460355, 23.388450762208375, 23.388469394856248, 11.527372943460355, 5.7124402978045605, 11.527372943460355, 23.388469394856248, 23.388469394856248, 11.527372943460355, 5.712458930452431], [2.4956068060435705, 5.620823568220798, 11.527372943460355, 11.527372943460355, 5.6208049355729255, 2.4956068060435705, 5.620823568220798, 11.527372943460355, 11.527372943460355, 5.620823568220798, 2.4956068060435705], [0.6895815131627505, 2.4956068060435705, 5.712458930452431, 5.712458930452431, 2.4956068060435705, 0.6895815131627505, 2.4956068060435705, 5.712458930452431, 5.7124402978045605, 2.4956068060435705, 0.6895815131627505]], "minimum": [0, 0]}, {"gap": 1.7563355699999974, "dz": 0.0, "gamma": [[0.07019503262106763, 0.7233066058100168, 1.8661586956513223, 1.8661586956513223, 0.7233066058100168, 0.07019503262106763, 0.7233066058100168, 1.8661400630034506, 1.8661586956513223, 0.7233066058100168, 0.07019503262106763], [0.7233066058100168, 1.7296559173453123, 3.533389394537948, 3.533389394537948, 1.7296559173453123, 0.7233066058100168, 1.7296559173453123, 3.533389394537948, 3.5333707618900765, 1.7296559173453123, 0.7233066058100168], [1.8661586956513223, 3.533389394537948, 6.6330235311877175, 6.6330235311877175, 3.533389394537948, 1.8661586956513223, 3.5333707618900765, 6.633004898539845, 6.6330235311877175, 3.533389394537948, 1.8661586956513223], [1.8661586956513223, 3.533389394537948, 6.633004898539845, 6.633004898539845, 3.533389394537948, 1.8661586956513223, 3.533389394537948, 6.633004898539845, 6.6330235311877175, 3.533389394537948, 1.8661586956513223], [0.7233066058100168, 1.7296559173453123, 3.533389394537948, 3.5333707618900765, 1.7296559173453123, 0.7233066058100168, 1.7296559173453123, 3.533389394537948, 3.533389394537948, 1.7296559173453123, 0.7233066058100168], [0.07019503262106763, 0.7233066058100168, 1.8661586956513223, 1.8661586956513223, 0.7233066058100168, 0.07019503262106763, 0.7233066058100168, 1.8661586956513223, 1.8661586956513223, 0.7233066058100168, 0.07019503262106763], [0.7233066058100168, 1.7296559173453123, 3.533389394537948, 3.533389394537948, 1.7296559173453123, 0.7233066058100168, 1.7296559173453123, 3.533389394537948, 3.533389394537948, 1.7296559173453123, 0.7233066058100168], [1.8661586956513223, 3.533389394537948, 6.6330235311877175, 6.6330235311877175, 3.5333707618900765, 1.8661586956513223, 3.533389394537948, 6.6330235311877175, 6.6330235311877175, 3.533389394537948, 1.8661586956513223], [1.8661586956513223, 3.533389394537948, 6.6330235311877175, 6.633004898539845, 3.533389394537948, 1.8661586956513223, 3.5333707618900765, 6.633004898539845, 6.6330235311877175, 3.533389394537948, 1.8661586956513223], [0.7233066058100168, 1.7296559173453123, 3.533389394537948, 3.533389394537948, 1.7296559173453123, 0.7233066058100168, 1.7296559173453123, 3.5333707618900765, 3.533389394537948, 1.7296559173453123, 0.7233066058100168], [0.07019503262106763, 0.7233066058100168, 1.8661586956513223, 1.8661586956513223, 0.7233066058100168, 0.07019503262106763, 0.7233066058100168, 1.8661400630034506, 1.8661586956513223, 0.7233066058100168, 0.07019503262106763]], "minimum": [0, 0]}, {"gap": 2.0563355699999972, "dz": 0.3, "gamma": [[0.4341838087892218, 0.6451612806372897, 1.009802199480943, 1.009802199480943, 0.6451612806372897, 0.4341838087892218, 0.6451612806372897, 1.009802199480943, 1.009802199480943, 0.6451612806372897, 0.4341838087892218], [0.6451612806372897, 0.9472710332244634, 1.4696186836518002, 1.4696186836518002, 0.9472710332244634, 0.6451612806372897, 0.9472710332244634, 1.4696186836518002, 1.4696186836518002, 0.9472710332244634, 0.6451612806372897], [1.009802199480943, 1.4696186836518002, 2.2831200897179182, 2.283138722365789, 1.4696186836518002, 1.009802199480943, 1.4696186836518002, 2.283157355013661, 2.2831200897179182, 1.4696186836518002, 1.009802199480943], [1.009802199480943, 1.4696186836518002, 2.2831200897179182, 2.283138722365789, 1.4696186836518002, 1.009802199480943, 1.4696186836518002, 2.283157355013661, 2.2831200897179182, 1.4696186836518002, 1.009802199480943], [0.6451612806372897, 0.9472524005765917, 1.4696186836518002, 1.4696186836518002, 0.9472710332244634, 0.6451612806372897, 0.9472710332244634, 1.4696186836518002, 1.4696186836518002, 0.9472710332244634, 0.6451612806372897], [0.4341838087892218, 0.6451612806372897, 1.009802199480943, 1.009802199480943, 0.6451612806372897, 0.4341838087892218, 0.6451612806372897, 1.009802199480943, 1.0098208321288147, 0.6451612806372897, 0.4341838087892218], [0.6451612806372897, 0.9472710332244634, 1.4696186836518002, 1.4696186836518002, 0.9472710332244634, 0.6451612806372897, 0.9472710332244634, 1.4696186836518002, 1.4696186836518002, 0.9472710332244634, 0.6451612806372897], [1.009802199480943, 1.4696186836518002, 2.2831200897179182, 2.283138722365789, 1.4696186836518002, 1.009802199480943, 1.4696186836518002, 2.2831200897179182, 2.283157355013661, 1.4696186836518002, 1.009802199480943], [1.009802199480943, 1.4696186836518002, 2.283138722365789, 2.283138722365789, 1.4696186836518002, 1.009802199480943, 1.4696186836518002, 2.283138722365789, 2.283138722365789, 1.4696186836518002, 1.009802199480943], [0.6451612806372897, 0.9472710332244634, 1.4696186836518002, 1.4696186836518002, 0.9472710332244634, 0.6451612806372897, 0.9472710332244634, 1.4696186836518002, 1.4696186836518002, 0.9472710332244634, 0.6451612806372897], [0.4341838087892218, 0.6451612806372897, 1.009802199480943, 1.009802199480943, 0.6451612806372897, 0.4341838087892218, 0.6451612806372897, 1.009802199480943, 1.009802199480943, 0.6451612806372897, 0.4341838087892218]], "minimum": [0, 0]}], "cell": [[5.1226294404, 0.0, 0.0], [0.0, 5.1226294404, 0.0], [0.0, 0.0, 71.58977714]], "vectors": [[5.1226294404, 0.0, 0.0], [0.0, 5.1226294404, 0.0]], "symbols": ["Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Cu", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni", "Ni"], "substrate": "Cu", "fractional": [[0.24999997655500922, 0.24999999998047875, 0.21244893737072473], [0.749999990180824, 0.2500000019326012, 0.21244893681198573], [0.25000000778896864, 0.749999986276579, 0.2124489382088332], [0.7499999999414363, 0.7499999979893138, 0.21244893625324676], [0.0, 0.9999999941436326, 0.23713503908248096], [0.4999999999609575, 0.9999999824308978, 0.23713503824437246], [7.808489851820437e-09, 0.5000000077694474, 0.23713503908248096], [0.49999999605671264, 0.500000005817325, 0.2371350395015352], [0.2500000038847237, 0.2500000038847237, 0.2626788353206487], [0.7500000038456812, 0.24999999607623385, 0.2626788343428555], [0.249999988267744, 0.749999986276579, 0.26267883448254026], [0.749999986276579, 0.7499999940850689, 0.26267883350474697], [1.1712734777730654e-08, 7.808489851820437e-09, 0.288100485627521], [0.5000000116736923, 0.9999999921915101, 0.288100486744999], [9.760612314775544e-09, 0.4999999941045902, 0.28810048702436847], [0.4999999999609575, 0.50000000191308, 0.28810048646562947], [0.2500000195017034, 0.249999988267744, 0.31339791344962975], [0.7499999843244566, 0.24999999607623385, 0.313397913868684], [0.24999999412411136, 0.7499999882287015, 0.31339791526553146], [0.7500000018935588, 0.7500000077499261, 0.31339791442742293], [1.3664857240685765e-08, 9.760612314775544e-09, 0.33869789470893724], [0.5000000175300596, 0.9999999843830203, 0.33869789526767624], [7.808489851820437e-09, 0.5000000077694474, 0.3386978961057847], [0.49999998629610026, 0.5000000038652024, 0.33869789526767624], [0.2500000214538258, 0.249999988267744, 0.3640269225735433], [0.7499999979893138, 0.2500000038847237, 0.36402692201480435], [0.24999999607623385, 0.7499999979893138, 0.3640269215957501], [0.7500000077499261, 0.7500000077499261, 0.3640269222941738], [1.9521224629551092e-09, 0.9999999941436326, 0.3893151170941053], [0.500000005817325, 1.9521224629551092e-09, 0.38931511639568156], [0.9999999843830203, 0.5000000038652024, 0.3893151173734748], [0.5000000038652024, 0.49999998629610026, 0.389315117792529], [0.2500000019326012, 0.2500000097410911, 0.4146177726179188], [0.7499999999414363, 0.24999996874651936, 0.4146177728972883], [0.24999998045925412, 0.749999986276579, 0.41461777247823406], [0.7500000018935588, 0.7500000038456812, 0.4146177731766578], [0.9999999921915101, 1.9521224629551092e-09, 0.43992971047262575], [0.5000000253385496, 1.9521224629551092e-09, 0.439929712009158], [0.9999999902393877, 0.5000000214343047, 0.43992971047262575], [0.500000005817325, 0.50000000191308, 0.4399297113107342], [0.24999999998047875, 0.2500000019326012, 0.46521388891698967], [0.7499999921329464, 0.24999999021986646, 0.4652138887773049], [0.25000001169321356, 0.7499999921329464, 0.4652138887773049], [0.7499999921329464, 0.750000044840253, 0.4652138876598269], [2.14733470925062e-08, 0.0, 0.49052607080095184], [0.4999999804397329, 1.5616979703640874e-08, 0.49052606954378913], [3.9042449259102185e-09, 0.49999997848761046, 0.4905260699628433], [0.499999976535488, 0.5000000487640192, 0.4905260717787451], [0.249999988267744, 0.24999999607623385, 0.5158269646207199], [0.7500000097020486, 0.24999999998047875, 0.5158269632238724], [0.24999999802835632, 0.7499999960371914, 0.5158269619667096], [0.7499999979893138, 0.7499999804202117, 0.5158269619667096], [0.9999999785266529, 1.1712734777730654e-08, 0.541162917077353], [0.50000000191308, 0.0, 0.541162916518614], [0.999999974622408, 0.50000000191308, 0.5411629156805056], [0.5000000038652024, 0.5000000097215699, 0.5411629160995598], [0.249999988267744, 0.25000001169321356, 0.5664414968173206], [0.7500000136062935, 0.2500000019326012, 0.5664414972363749], [0.24999998045925412, 0.750000015558416, 0.5664415003094393], [0.7500000233669059, 0.7500000057978037, 0.5664414975157444], [0.9999999863351428, 0.9999999921915101, 0.5917064086840375], [0.5000000233864271, 3.9042449259102185e-09, 0.5917064117571019], [0.9999999960957551, 0.49999998629610026, 0.5917064098015155], [0.49999999605671264, 0.5000000350991619, 0.5917064106396239], [0.25000006244839756, 0.2500000038847237, 0.6162397457073576], [1.1712734777730654e-08, 3.9042449259102185e-09, 0.6396776180828883], [0.2499998984701107, 0.2500000429271729, 0.6633783475415357], [0.9999999511969384, 0.9999999375320812, 0.6870707237125505], [0.2500000917302345, 0.2499999297040701, 0.7107287923315919], [6.051579635160838e-08, 3.513820433319196e-08, 0.7344294126964508], [0.24999991213496794, 0.25000003902292806, 0.7583392493851813], [0.9999999492448159, 0.9999999960957551, 0.7811938101250528], [0.2500000565920302, 0.749999990180824, 0.6162397444501949], [3.904244925910218e-08, 0.500000005817325, 0.6396776221337459], [0.24999994532104977, 0.7499999413777625, 0.6633783538273492], [0.9999999804787754, 0.5000000468118966, 0.6870707135155638], [0.25000006244839756, 0.7500000389838856, 0.7107287831123985], [7.613277605524925e-08, 0.49999995701426336, 0.7344294221950137], [0.2499999023743556, 0.7499999296650277, 0.7583392542741474], [0.9999999765745304, 0.5000000526682641, 0.7811938071916731], [0.7499999823723341, 0.24999997850713168, 0.6162397469645203], [0.49999998434397785, 1.1712734777730654e-08, 0.6396776122161287], [0.7500000370317631, 0.25000003316656066, 0.6633783496368069], [0.5000000526682641, 0.9999999804787754, 0.6870707312555269], [0.7499999316171501, 0.2499999297040701, 0.7107287860457782], [0.4999999667748757, 5.0755184036832837e-08, 0.7344294029185184], [0.7500000838827022, 0.2500000780653773, 0.7583392537154084], [0.5000000350991619, 0.9999999629096732, 0.7811938165505512], [0.7499999569947421, 0.7500000116541711, 0.6162397409580762], [0.49999995896638577, 0.49999998434397785, 0.6396776173844645], [0.7500000663136001, 0.7499999843244566, 0.6633783570400985], [0.5000000233864271, 0.5000000331470393, 0.6870707232934963], [0.7499999296650277, 0.7500000526487428, 0.710728778921856], [0.49999995896638577, 0.4999999492057735, 0.7344294096233864], [0.7500000721699674, 0.7499999491862522, 0.758339257207527], [0.5000000429076517, 0.49999997848761046, 0.7811938123600087]]}};
 const id=new URLSearchParams(location.search).get('record')||'builder-cu100-ni100-c1';
 const data=datasets[id];
@@ -61,6 +156,24 @@ if(layers){
  document.querySelector('.energy').insertAdjacentHTML('beforeend','<dt>이 간격의 최대−최소</dt><dd><output id="span-energy"></output> J/m²</dd>');
  document.querySelector('#reference').textContent='면내 이동 0%로';
  document.querySelector('main>p').textContent='간격을 바꾸면 같은 면내 위치에서 에너지 지형이 바뀝니다. 지도를 드래그해 회전하거나 계산점을 눌러 원자 배열을 확인하세요.';
+}else if(data.fixed_gap){
+ document.title=data.face_pair+' · 고정 간격 PES';
+ document.querySelector('h1').textContent=document.title;
+ document.querySelector('.grid section h2').textContent=document.title;
+ document.querySelector('#atoms').setAttribute('aria-label',data.face_pair+' 원자 배열');
+ document.querySelector('.energy dt').textContent='이 셀의 최저점 대비 Δγ';
+ document.querySelector('.energy dt:nth-of-type(2)').hidden=true;
+ document.querySelector('.energy dd:nth-of-type(2)').hidden=true;
+ document.querySelector('.meta p').textContent='SevenNet-Omni(MPA) · 각 셀 11 × 11 계산점. 독립 완화한 표면 슬랩을 정합하고 간격을 2.20 Å로 고정한 뒤 Zn을 면내에서 강체 이동했습니다.';
+ document.querySelector('.meta p:last-child').textContent='Δγ = (E − 이 셀의 격자 최저 에너지) / 접합 면적. 두 셀의 색·높이 척도가 같습니다. 각 셀의 100%는 해당 초격자 한 주기입니다. 주기 경계 재계산 차이(최대 '+data.edge_error.toExponential(1)+' J/m²)에 가까운 미세한 굴곡은 정량 해석에 주의하세요.';
+}else if(data.geometry_only){
+ document.title=data.face_pair+' · 구조 미리보기';
+ document.querySelector('main>p').textContent='기준 구조에서 상부 슬랩을 이동하거나 회전해 볼 수 있습니다.';
+ document.querySelector('.grid section h2').textContent=data.face_pair;
+ document.querySelector('#atoms').setAttribute('aria-label',data.face_pair+' 원자 배열');
+ document.querySelector('h1').textContent=document.title;
+ document.querySelector('.grid section h2').textContent=data.face_pair;
+ document.querySelector('main>p').textContent='저장된 구조를 기준으로 두 결정을 이동하거나 회전합니다.';
 }else if(data.face_pair){
  document.title=data.face_pair+' · 강체 미끄럼 PES';
  document.querySelector('.grid section h2').textContent=data.face_pair+' · 상대에너지 Δγ';
@@ -81,15 +194,16 @@ if(id==='builder-cu100-ni100-c1' && (!layers || location.pathname.endsWith('/gap
 }
 const el=id=>document.getElementById(id);
 let layer=layers?.[1],grid=layer?.gamma??data.gamma;
-const n=grid.length-1;
+const n=grid?grid.length-1:20;
+const energyDigits=data.fixed_gap?6:3;
 for(const axis of ['u','v']){el(axis).max=n;el(axis).value=n/2}
-const range=layers?layers.flatMap(x=>x.gamma.flat()):grid.flat();
-const min=Math.min(...range),max=Math.max(...range);
+const range=layers?layers.flatMap(x=>x.gamma.flat()):(grid?.flat()??[]);
+const min=range.length?Math.min(...range):0,max=data.scale_max??(range.length?Math.max(...range):1);
 const palette=[[31,48,88],[40,102,143],[43,157,147],[175,206,118],[250,222,101]];
 const rgb=c=>'rgb('+c.join(',')+')';
 function color(z){const t=Math.max(0,Math.min(1,(z-min)/(max-min)))*(palette.length-1),k=Math.min(Math.floor(t),palette.length-2);return rgb(palette[k].map((v,i)=>Math.round(v+(palette[k+1][i]-v)*(t-k))))}
 el('scale').style.background='linear-gradient(90deg,'+palette.map(rgb).join(',')+')';
-el('low').textContent=min.toFixed(3)+' J/m²';el('high').textContent=max.toFixed(3)+' J/m²';
+el('low').textContent=min.toFixed(energyDigits)+' J/m²';el('high').textContent=max.toFixed(energyDigits)+' J/m²';
 const ctx=el('atoms').getContext('2d');
 let angle=[-Math.PI/2,0],zoom=1;
 const isDopant=()=>false;
@@ -119,6 +233,7 @@ let azimuth=Math.PI/4,elevation=.55;
 let relief=true,points=[],paintOrder=[];
 function context(id){const canvas=el(id),w=canvas.clientWidth,h=canvas.clientHeight,r=devicePixelRatio||1;canvas.width=Math.round(w*r);canvas.height=Math.round(h*r);const c=canvas.getContext('2d');c.scale(r,r);return {c,w,h}}
 function surface(i,j){
+ if(orientation?.preview())return;
  const {c,w,h}=context('pes');
  const co=Math.cos(azimuth),si=Math.sin(azimuth);
  function project(x,y,z){
@@ -159,6 +274,7 @@ function surface(i,j){
  c.fillStyle='#922c24';c.fillRect(lx-4,ly-13,41,18);c.fillStyle='white';c.textAlign='left';c.fillText('최저',lx,ly);
 }
 function structure(i,j){
+ if(orientation){orientation.structure(i,j);return}
  const {w,h}=context('atoms'),cell=data.cell;
  const u=layers?i:data.minimum_registry[0]+i-minCol;
  const v=layers?j:data.minimum_registry[1]+j-minRow;
@@ -172,17 +288,19 @@ function structure(i,j){
  function project(p){const [x,y,d]=rotatePoint(p);return [w/2+(x-(lo[0]+hi[0])/2)*scale,h/2-(y-(lo[1]+hi[1])/2)*scale,d]}
  paintAtoms(corners,coords,g,project,scale);drawAxes(rotatePoint,w,h);
 }
-function draw(){const i=+el('u').value,j=+el('v').value;el('ua').textContent=(100*i/n)+'%';el('vb').textContent=(100*j/n)+'%';el('value').textContent=((data.gamma_min??0)+grid[j][i]).toFixed(3);el('delta').textContent=(grid[j][i]-(layer?grid[minRow][minCol]:min)).toFixed(3);surface(i,j);structure(i,j)}
+const orientation=typeof createOrientation==='function'?createOrientation():null;
+function draw(){const i=+el('u').value,j=+el('v').value;el('ua').textContent=(100*i/n)+'%';el('vb').textContent=(100*j/n)+'%';if(orientation){orientation.update(i,j);if(orientation.preview()){el('value').textContent='—';el('delta').textContent='—';structure(i,j);return}}el('value').textContent=((data.gamma_min??0)+grid[j][i]).toFixed(energyDigits);el('delta').textContent=(grid[j][i]-(layer?grid[minRow][minCol]:min)).toFixed(energyDigits);surface(i,j);structure(i,j)}
 el('reference').onclick=()=>{
  el('u').value=layers?0:(minCol-data.minimum_registry[0]+n)%n;
  el('v').value=layers?0:(minRow-data.minimum_registry[1]+n)%n;
  draw()
 };
-if(document.documentElement.classList.contains('summary')){
+if(!data.fixed_gap && document.documentElement.classList.contains('summary')){
  el('download-reference').hidden=false;
  el('download-reference').onclick=()=>parent.postMessage({type:'pes-reference-download',record:id},'*')
 }
 function pick(e){
+ if(orientation?.preview())return;
  const box=el('pes').getBoundingClientRect(),x=e.clientX-box.left,y=e.clientY-box.top;
  const [mx,my]=points[minRow][minCol];
  if(Math.hypot(mx-x,my-y)<=8){el('minimum').click();return}

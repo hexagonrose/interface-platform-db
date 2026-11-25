@@ -456,8 +456,9 @@ function facetChart(){
 function renderOverview(){
  $('structure-panel').append($('visual-preview'));  // keep the shared viewer out of the innerHTML reset
  const b=entry,nano=nanoInt(b.id),strain=b.conditions.film_strain_percent;
+ const viewer=`<iframe id="overview-pes" title="${esc(b.face_pair||pairLabel(b))} 미끄럼 에너지 지도와 원자 구조" src="${b.id==='builder-cu100-ni2si001-c1'?'twist.html':b.id==='builder-cu100-ni100-c1'?'gap-pes.html':'pes.html'}?embed=1&amp;summary=1&amp;record=${encodeURIComponent(b.id)}&amp;v=orientation1"></iframe>`;
  if(hasPes()){
-  $('overview-panel').innerHTML=`<iframe id="overview-pes" title="${esc(b.face_pair||pairLabel(b))} 미끄럼 에너지 지도와 원자 구조" src="${b.id==='builder-cu100-ni2si001-c1'?'twist.html':b.id==='builder-cu100-ni100-c1'?'gap-pes.html':'pes.html'}?embed=1&amp;summary=1&amp;record=${encodeURIComponent(b.id)}&amp;v=gap2"></iframe>${facetChart()}${b.id==='builder-al111-zn001-c4'?'<iframe id="lattice-match" title="Al(111) / Zn(001) 격자 정합" src="lattice-match.html?embed=1&amp;v=3"></iframe>':''}`;
+  $('overview-panel').innerHTML=viewer+`${facetChart()}${b.id==='builder-al111-zn001-c4'?'<iframe id="lattice-match" title="Al(111) / Zn(001) 격자 정합" src="lattice-match.html?embed=1&amp;v=3"></iframe>':''}`;
 
   return
  }
@@ -465,7 +466,7 @@ function renderOverview(){
   hasSliding()&&['sliding','1차원 경로 · 재생'],
 
  ].filter(Boolean);
- $('overview-panel').innerHTML=`<div id="overview-visual"><button data-reference-download>기준 구조 다운로드</button></div><div class="ov-side"><h2>${esc(b.face_pair||pairLabel(b))}</h2><button class="ov-hero" data-go="data"><span class="ov-label">${b.property==='work_of_adhesion'?'work of adhesion':'interface energy'}</span><strong>${num(b.value,2)}</strong><span class="ov-unit">J/m²${nano!=null?` · <span class="nano">Nano ${num(nano,2)}</span>`:''}</span></button>
+ $('overview-panel').innerHTML=`${viewer}<div class="ov-side"><button data-reference-download>기준 구조 다운로드</button><h2>${esc(b.face_pair||pairLabel(b))}</h2><button class="ov-hero" data-go="data"><span class="ov-label">${b.property==='work_of_adhesion'?'work of adhesion':'interface energy'}</span><strong>${num(b.value,2)}</strong><span class="ov-unit">J/m²${nano!=null?` · <span class="nano">Nano ${num(nano,2)}</span>`:''}</span></button>
 ${Array.isArray(strain)?`<div><span class="ov-label">${esc(b.materials[1].replace('Ni2Si','Ni₂Si'))} 면내 주변형률</span><strong>${strain.map(x=>(x>0?'+':'')+num(x,2)+'%').join(' / ')}</strong></div>`:''}
 ${facetChart()}
 ${links.length?`<div class="ov-actions">${links.map(([view,label])=>`<button data-go="${view}">${label} →</button>`).join('')}</div>`:''}</div>`;
@@ -690,7 +691,7 @@ function setView(name){
  if(name==='segregation'){renderSegregation();$('segregation-visual').append($('visual-preview'))}
  if(name==='screen'){renderScreen();$('screen-visual').append($('visual-preview'))}
  $('csv').textContent=name==='segregation'?'segregation 12자리 CSV':'현재 결과 CSV';
- if(name==='overview'){renderOverview();if(!hasPes())$('overview-visual').append($('visual-preview'))}
+ if(name==='overview')renderOverview();
  if(name==='matching'){renderMatching();$('matching-visual').append($('visual-preview'))}
  if(name==='sliding'){$('sliding-visual').append($('visual-preview'))}
  if(name==='structure'||name==='slab')$(name+'-panel').prepend($('visual-preview'));
