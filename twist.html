@@ -9,7 +9,7 @@ html.summary section{min-width:0}
 .energy+.meta{margin:0 0 10px;color:inherit}.energy+.meta summary{font-size:12px}
 .gap-controls{max-width:25rem;margin:0 0 16px}.gap-controls label{justify-content:space-between}.gap-controls input{display:block;width:100%;height:32px;margin:0;touch-action:pan-y}.gap-options{display:flex;justify-content:space-between;gap:4px}.gap-options button{min-height:40px}
 .preview #pes,.preview .scale,.preview .legend{visibility:hidden}.preview .meta,.preview #download-reference,.preview #atoms~small{visibility:hidden}
-#twist-value{flex:0 0 5ch;min-width:0;text-align:right}
+#twist-value,#tilt-value{flex:0 0 5ch;min-width:0;text-align:right}
 main>p{display:grid}main>p span{grid-area:1/1}.candidate-size{visibility:hidden}
 .twist-map{position:relative}.twist-map span{display:none}.preview .twist-map span{display:grid;position:absolute;inset:0;place-items:center;color:inherit}
 </style><script>try{document.documentElement.dataset.theme=localStorage.getItem('interface-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch{};if(window.parent!==window && new URLSearchParams(location.search).has("embed"))document.documentElement.classList.add("embedded");if(document.documentElement.classList.contains("embedded")&&new URLSearchParams(location.search).has("summary"))document.documentElement.classList.add("summary");if(window.parent!==window && new URLSearchParams(location.search).has('embed')){
@@ -21,7 +21,7 @@ main>p{display:grid}main>p span{grid-area:1/1}.candidate-size{visibility:hidden}
  }catch{}
 }
 </script><header><a href="./index.html">← Interface DB</a></header><main><h1>Cu/G-phase 계면 미끄럼</h1><p>3D 표면은 드래그로 회전하고, 점을 누르면 해당 위치의 원자 배열을 볼 수 있습니다.</p>
-<div class="grid"><section><div class="bar"><h2>강체 이동 에너지 표면</h2><div><button id="relief" aria-pressed="true">3D 표면</button> <button id="map" aria-pressed="false">2D 지도</button></div></div><div class="twist-map"><canvas id="pes" aria-label="두 면내 방향의 계면에너지 표면"></canvas><span>이 각도의 PES 미계산</span></div><div class="scale" id="scale"></div><div class="legend"><span id="low"></span><span id="high"></span></div><label>a축 <input id="u" type="range" min="0" max="20" value="10"><output id="ua"></output></label><label>b축 <input id="v" type="range" min="0" max="20" value="10"><output id="vb"></output></label><label>Twist <input id="twist-angle" type="range" min="-90" max="90" step="5" list="calculated-angles" aria-label="Twist 각도"><output id="twist-value"></output></label><datalist id="calculated-angles"><option value="0"></option><option value="45"></option></datalist></section>
+<div class="grid"><section><div class="bar"><h2>강체 이동 에너지 표면</h2><div><button id="relief" aria-pressed="true">3D 표면</button> <button id="map" aria-pressed="false">2D 지도</button></div></div><div class="twist-map"><canvas id="pes" aria-label="두 면내 방향의 계면에너지 표면"></canvas><span>이 각도의 PES 미계산</span></div><div class="scale" id="scale"></div><div class="legend"><span id="low"></span><span id="high"></span></div><label>a축 <input id="u" type="range" min="0" max="20" value="10"><output id="ua"></output></label><label>b축 <input id="v" type="range" min="0" max="20" value="10"><output id="vb"></output></label><label>Twist <input id="twist-angle" type="range" min="-90" max="90" step="5" list="calculated-angles" aria-label="Twist 각도"><output id="twist-value"></output></label><datalist id="calculated-angles"><option value="0"></option><option value="45"></option></datalist><label>Tilt <input id="tilt-angle" type="range" min="-90" max="90" step="5" value="0" aria-label="Cu a축 Tilt 각도"><output id="tilt-value">0°</output></label></section>
 <section><h2>선택한 위치의 에너지</h2><dl class="energy"><dt>계면에너지 γ</dt><dd><output id="value"></output><span id="gamma-unit"> J/m²</span></dd><dt>상대에너지 Δγ <small>(최저점 대비)</small></dt><dd><output id="delta"></output> J/m²</dd></dl><details class="meta"><summary>계산 기준</summary><p>SevenNet-Omni(MPA) · 112원자 · 21 × 21 단일점. Cu와 셀을 고정하고 G-phase를 두 면내 격자벡터 a, b 방향으로 강체 이동했습니다. 각 축은 한 주기이며 0%와 100%는 주기 경계입니다. 표식과 수치는 계산점에 대응하고 면의 색과 높이는 그 사이를 연결합니다.</p><p>γ = (E계면 − ECu,ref − EG-phase,ref) / (2A). 주기 셀의 두 계면에 대한 평균이며 가운데 (50%, 50%)가 최저에너지 구조이며 Δγ는 이 구조를 기준으로 표시합니다. 격자 최고점에서는 Cu와 G-phase 사이의 최근접 원자 거리가 약 0.87 Å까지 줄어듭니다. 이는 원자 완화를 허용하지 않은 고에너지 배치이며, 표시값은 DFT 검증 전의 모델 예측값입니다.</p></details><button type="button" id="minimum">최저에너지 구조로 이동</button><button id="reference" type="button">기준 구조 보기</button><canvas id="atoms" aria-label="주기 셀 안의 Cu와 이동된 G-phase 원자"></canvas><div class="bar"><small>드래그로 회전 · 휠로 확대</small><div aria-label="구조 시점"><button data-axis="x">X</button> <button data-axis="y">Y</button> <button data-axis="z">Z</button></div></div><div class="dots" id="elements"></div><button id="download-reference" type="button" hidden>기준 구조 다운로드</button><small>셀 경계를 넘어간 원자는 반대쪽에 표시됩니다.</small></section></div>
 </main>
 <script>
@@ -30,7 +30,8 @@ let id=new URLSearchParams(location.search).get('record')==='twist'?'twist':'ref
 let data=datasets[id];
 if(!data){document.querySelector('main').textContent='등록된 미끄럼 지도가 없습니다.';throw new Error('Unknown PES record')}
 let degrees=id==='twist'?45:0;
-const hasMap=()=>degrees===0||degrees===45;
+let tilt=0;
+const hasMap=()=>tilt===0&&(degrees===0||degrees===45);
 const layers=data.layers;
 if(layers){
  document.title='Cu(100)/Ni(100) · 계면 간격별 PES';
@@ -117,6 +118,9 @@ function updateCandidate(){
  document.querySelector('.meta p:last-child').textContent='계면에너지 γ는 같은 면내 격자에서 구한 두 자유 표면에너지('+data.surface_refs.map(x=>x.toFixed(3)).join(', ')+' J/m²)의 합에서 해당 위치의 접합일을 빼서 산출했습니다. 벌크 기준은 면내 격자를 고정하고 면 밖 응력을 완화한 상태입니다. Δγ = (E − 격자 최저 에너지) / 접합 면적. 가운데 점은 계산 격자에서의 최저점입니다. 이동 중 슬랩 간 수직 거리와 셀 높이를 고정한 SevenNet 예측값이며 DFT 검증 전입니다.';
  const metric=data.metrics;
  const formatted=(degrees>0?'+':'')+degrees+'°';
+ const tiltText=(tilt>0?'+':'')+tilt+'°';
+ document.querySelector('#tilt-value').textContent=tiltText;
+ document.querySelector('#tilt-angle').setAttribute('aria-valuetext',tiltText);
  const label=formatted+' · '+(hasMap()?metric.atoms+'원자':'회전 미리보기');
  document.documentElement.classList.toggle('preview',!hasMap());
  for(const name of ['minimum','reference','relief','map'])document.getElementById(name).disabled=!hasMap();
@@ -129,7 +133,7 @@ function updateCandidate(){
   document.querySelector('h1').textContent=document.title;
   document.querySelector('.grid section h2').textContent='Cu(100)/Ni₂Si(001) · '+formatted+' · 상대에너지 Δγ';
   document.querySelector('#atoms').setAttribute('aria-label',label);
-  showNote(label+' · 0° 기준 구조에서 Ni₂Si를 강체 회전');
+  showNote('Twist '+formatted+' · Tilt '+tiltText+' · Ni₂Si 강체 회전 미리보기 (Tilt축: Cu a)');
   return;
  }
  showNote(metricNote(label,metric));
@@ -216,11 +220,16 @@ function surface(i,j){
  const lx=mx>w*.65?mx-49:mx+12,ly=Math.max(15,my-12);
  c.fillStyle='#922c24';c.fillRect(lx-4,ly-13,41,18);c.fillStyle='white';c.textAlign='left';c.fillText('최저',lx,ly);
 }
-const radius=Math.max(...Object.values(datasets).map(d=>
- Math.max(...[1,-1].map(sign=>Math.hypot(d.cell[0][0]+sign*d.cell[1][0],d.cell[0][1]+sign*d.cell[1][1])/2))));
-const heights=Object.values(datasets).flatMap(d=>d.fractional.map(f=>(f[2]-.5)*d.cell[2][2]));
-const framePoints=[Math.min(...heights),Math.max(...heights)].flatMap(z=>
- [-radius,radius].flatMap(x=>[-radius,radius].map(y=>[x,y,z])));
+function filmBase(d){
+ return Math.min(...d.fractional.filter((_,k)=>d.symbols[k]!==d.substrate).map(f=>f[2]*d.cell[2][2]));
+}
+const framePoints=Object.values(datasets).flatMap(d=>{
+ const radius=Math.max(...[1,-1].map(sign=>Math.hypot(d.cell[0][0]+sign*d.cell[1][0],d.cell[0][1]+sign*d.cell[1][1])/2));
+ const base=filmBase(d),cz=base-d.cell[2][2]/2;
+ const extent=Math.hypot(radius,Math.max(...d.fractional.map(f=>f[2]*d.cell[2][2]))-base);
+ const bottom=Math.min(cz-extent,...d.fractional.map(f=>(f[2]-.5)*d.cell[2][2]));
+ return [bottom,cz+extent].flatMap(z=>[-radius,radius].flatMap(x=>[-extent,extent].map(y=>[x,y,z])));
+});
 function structure(i,j){
  const {w,h}=context('atoms'),cell=data.cell;
  const u=layers?i:data.minimum_registry[0]+i-minCol;
@@ -230,12 +239,15 @@ function structure(i,j){
    cell.reduce((sum,vector,t)=>sum+vector[d]*f[t],0)+(data.symbols[k]===data.substrate?0:shift[d])));
  const g={cell,positions,symbols:data.symbols},coords=wrap(g,false);
  if(!hasMap()){
-  const radians=degrees*Math.PI/180, co=Math.cos(radians), si=Math.sin(radians);
+  const radians=(id==='twist'?0:degrees)*Math.PI/180, co=Math.cos(radians), si=Math.sin(radians);
   const cx=(cell[0][0]+cell[1][0])/2,cy=(cell[0][1]+cell[1][1])/2;
+  const roll=tilt*Math.PI/180, ct=Math.cos(roll), st=Math.sin(roll);
+  const cz=filmBase(data);
   coords.forEach((p,k)=>{
    if(data.symbols[k]===data.substrate)return;
    const x=p[0]-cx,y=p[1]-cy;
-   p[0]=cx+co*x-si*y;p[1]=cy+si*x+co*y;
+   const twistedY=si*x+co*y,z=p[2]-cz;
+   p[0]=cx+co*x-si*y;p[1]=cy+ct*twistedY-st*z;p[2]=cz+st*twistedY+ct*z;
   });
  }
  // Register both supercells at their cell centres in a single camera frame.
@@ -310,7 +322,8 @@ if(document.documentElement.classList.contains('embedded')){
  new ResizeObserver(()=>parent.postMessage({type:'pes-height',height:Math.ceil(main.getBoundingClientRect().height)},'*')).observe(main);
 }
 if(layers){el('gap').oninput=selectGap;selectGap()}
-el('twist-angle').oninput=()=>{
+el('twist-angle').oninput=el('tilt-angle').oninput=()=>{
+ tilt=Number(el('tilt-angle').value);
  degrees=Number(el('twist-angle').value);
  id=degrees===45?'twist':'reference';
  data=datasets[id];
