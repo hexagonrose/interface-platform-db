@@ -21,7 +21,7 @@ main>p{display:grid}main>p span{grid-area:1/1}.candidate-size{visibility:hidden}
  }catch{}
 }
 </script><header><a href="./index.html">← Interface DB</a></header><main><h1>Cu/G-phase 계면 미끄럼</h1><p>3D 표면은 드래그로 회전하고, 점을 누르면 해당 위치의 원자 배열을 볼 수 있습니다.</p>
-<div class="grid"><section><div class="bar"><h2>강체 이동 에너지 표면</h2><div><button id="relief" aria-pressed="true">3D 표면</button> <button id="map" aria-pressed="false">2D 지도</button></div></div><div class="twist-map"><canvas id="pes" aria-label="두 면내 방향의 계면에너지 표면"></canvas><span>이 조건의 PES 미계산</span></div><div class="scale" id="scale"></div><div class="legend"><span id="low"></span><span id="high"></span></div><label>a축 <input id="u" type="range" min="0" max="20" value="10"><output id="ua"></output></label><label>b축 <input id="v" type="range" min="0" max="20" value="10"><output id="vb"></output></label><label>Twist <input id="twist-angle" type="range" min="-90" max="90" step="5" list="calculated-angles" aria-label="Twist 각도"><output id="twist-value"></output></label><datalist id="calculated-angles"><option value="0"></option><option value="45"></option></datalist><label>추가 간격 <input id="extra-gap" type="range" min="0" max="8" step=".25" value="0"><output id="gap-value">0.00 Å</output></label><label>Tilt <input id="tilt-angle" type="range" min="-90" max="90" step="5" value="0" aria-label="Cu a축 Tilt 각도"><output id="tilt-value">0°</output></label><small id="tilt-limit" title="5° 간격의 기하 판정 · Cu–Ni 1.9 Å, Cu–Si 1.8 Å 미만 제외 · Cu 면내 주기경계 적용"></small></section>
+<div class="grid"><section><div class="bar"><h2>강체 이동 에너지 표면</h2><div><button id="relief" aria-pressed="true">3D 표면</button> <button id="map" aria-pressed="false">2D 지도</button></div></div><div class="twist-map"><canvas id="pes" aria-label="두 면내 방향의 계면에너지 표면"></canvas><span>이 조건의 PES 미계산</span></div><div class="scale" id="scale"></div><div class="legend"><span id="low"></span><span id="high"></span></div><label>a축 <input id="u" type="range" min="0" max="20" value="10"><output id="ua"></output></label><label>b축 <input id="v" type="range" min="0" max="20" value="10"><output id="vb"></output></label><label>Twist <input id="twist-angle" type="range" min="-90" max="90" step="5" list="calculated-angles" aria-label="Twist 각도"><output id="twist-value"></output></label><datalist id="calculated-angles"><option value="0"></option><option value="45"></option></datalist><label>계면 간격 <input id="interface-gap" type="range" min="0" max="8" step=".25" value="0"><output id="gap-value">0.00 Å</output></label><label>Tilt <input id="tilt-angle" type="range" min="-90" max="90" step="5" value="0" aria-label="Cu a축 Tilt 각도"><output id="tilt-value">0°</output></label><small id="tilt-limit" title="5° 간격의 기하 판정 · Cu–Ni 1.9 Å, Cu–Si 1.8 Å 미만 제외 · Cu 면내 주기경계 적용"></small></section>
 <section><h2>선택한 위치의 에너지</h2><dl class="energy"><dt>계면에너지 γ</dt><dd><output id="value"></output><span id="gamma-unit"> J/m²</span></dd><dt>상대에너지 Δγ <small>(최저점 대비)</small></dt><dd><output id="delta"></output> J/m²</dd></dl><details class="meta"><summary>계산 기준</summary><p>SevenNet-Omni(MPA) · 112원자 · 21 × 21 단일점. Cu와 셀을 고정하고 G-phase를 두 면내 격자벡터 a, b 방향으로 강체 이동했습니다. 각 축은 한 주기이며 0%와 100%는 주기 경계입니다. 표식과 수치는 계산점에 대응하고 면의 색과 높이는 그 사이를 연결합니다.</p><p>γ = (E계면 − ECu,ref − EG-phase,ref) / (2A). 주기 셀의 두 계면에 대한 평균이며 가운데 (50%, 50%)가 최저에너지 구조이며 Δγ는 이 구조를 기준으로 표시합니다. 격자 최고점에서는 Cu와 G-phase 사이의 최근접 원자 거리가 약 0.87 Å까지 줄어듭니다. 이는 원자 완화를 허용하지 않은 고에너지 배치이며, 표시값은 DFT 검증 전의 모델 예측값입니다.</p></details><button type="button" id="minimum">최저에너지 구조로 이동</button><button id="reference" type="button">기준 구조 보기</button><canvas id="atoms" aria-label="주기 셀 안의 Cu와 이동된 G-phase 원자"></canvas><div class="bar"><small>드래그로 회전 · 휠로 확대</small><div aria-label="구조 시점"><button data-axis="x">X</button> <button data-axis="y">Y</button> <button data-axis="z">Z</button></div></div><div class="dots" id="elements"></div><button id="download-reference" type="button" hidden>기준 구조 다운로드</button><small>셀 경계를 넘어간 원자는 반대쪽에 표시됩니다.</small></section></div>
 </main>
 <script>
@@ -43,29 +43,6 @@ if(layers){
  document.querySelector('#pes').setAttribute('aria-label','간격별 Cu/Ni 계면에너지');
  document.querySelector('.meta p').textContent='SevenNet-Omni(MPA) · 96원자 · 간격별 11 × 11 강체 단일점. Cu와 셀을 고정하고 Ni를 이동했습니다. 간격은 양쪽 최외곽 원자층 사이의 법선 거리입니다.';
  document.querySelector('.meta p:last-child').textContent='모든 지형은 같은 높이·색상 척도와 같은 면내 원점을 사용합니다. γ는 면내 변형을 맞춘 벌크와 노출 표면을 기준으로 계산하며 Δγ는 선택한 간격의 격자 최저점 기준입니다.';
- document.querySelector('.grid').insertAdjacentHTML('beforebegin','<div class="gap-controls"><label for="gap">계면 간격 <output id="spacing"></output></label><input id="gap" type="range" min="0" value="1" step="1"><div class="gap-options" role="group" aria-label="계산된 계면 간격"></div></div>');
- const slider=document.querySelector('#gap');
- slider.max=layers.length-1;
- const options=document.querySelector('.gap-options');
- layers.forEach((item,index)=>{
-  const button=document.createElement('button');
-  button.type='button';
-  button.textContent=item.gap.toFixed(3)+' Å';
-  button.onclick=()=>{slider.value=index;selectGap()};
-  options.append(button);
- });
- let start;
- slider.addEventListener('pointerdown',e=>{start={x:e.clientX,y:e.clientY,index:+slider.value}});
- slider.addEventListener('pointercancel',()=>{start=null});
- slider.addEventListener('pointerup',e=>{
-  if(!start)return;
-  const dx=e.clientX-start.x;
-  if(+slider.value===start.index && Math.abs(dx)>=12 && Math.abs(dx)>Math.abs(e.clientY-start.y)){
-   slider.value=start.index+Math.sign(dx);
-   selectGap();
-  }
-  start=null;
- });
  document.querySelector('.energy').insertAdjacentHTML('beforeend','<dt>이 간격의 최대−최소</dt><dd><output id="span-energy"></output> J/m²</dd>');
  document.querySelector('#reference').textContent='면내 이동 0%로';
  document.querySelector('main>p').textContent='간격을 바꾸면 같은 면내 위치에서 에너지 지형이 바뀝니다. 지도를 드래그해 회전하거나 계산점을 눌러 원자 배열을 확인하세요.';
@@ -126,6 +103,7 @@ function updateCandidate(){
  document.querySelector('.meta p').textContent='SevenNet-Omni(MPA) · 21 × 21 단일점. 완화된 접합 구조에서 '+data.substrate+'와 셀을 고정하고 상대편 슬랩을 면내 두 공통셀 벡터 방향으로 이동했습니다.';
  document.querySelector('.meta p:last-child').textContent='계면에너지 γ는 같은 면내 격자에서 구한 두 자유 표면에너지('+data.surface_refs.map(x=>x.toFixed(3)).join(', ')+' J/m²)의 합에서 해당 위치의 접합일을 빼서 산출했습니다. 벌크 기준은 면내 격자를 고정하고 면 밖 응력을 완화한 상태입니다. Δγ = (E − 격자 최저 에너지) / 접합 면적. 가운데 점은 계산 격자에서의 최저점입니다. 이동 중 슬랩 간 수직 거리와 셀 높이를 고정한 SevenNet 예측값이며 DFT 검증 전입니다.';
  const metric=data.metrics;
+ configureGap(document.querySelector('#interface-gap'),metric.gap_A,metric.gap_A+8,metric.gap_A+extraGap);
  const formatted=(degrees>0?'+':'')+degrees+'°';
  const tiltText=(tilt>0?'+':'')+tilt+'°';
  document.querySelector('#tilt-value').textContent=tiltText;
@@ -176,14 +154,12 @@ function paintAtoms(cellPoints,points,g,project,scale){const corners=cellPoints.
 
 el('elements').innerHTML=[...new Set(data.symbols)].map(s=>'<span><i class="dot" style="background:'+atomColors[s]+'"></i>'+s+'</span>').join('');
 let minRow=n/2,minCol=n/2;
-function selectGap(){
- layer=layers[+el('gap').value];grid=layer.gamma;
- [minCol,minRow]=layer.minimum;
- el('spacing').textContent=layer.gap.toFixed(3)+' Å';
- document.querySelectorAll('.gap-options button').forEach((b,i)=>b.setAttribute('aria-pressed',i===+el('gap').value));
- el('gap').setAttribute('aria-valuetext',el('spacing').textContent);
- el('span-energy').textContent=(Math.max(...grid.flat())-grid[minRow][minCol]).toFixed(3);
- draw();
+function configureGap(input,minimum,maximum,current){
+ input.min=minimum.toFixed(3);input.max=maximum.toFixed(3);input.step='0.050';
+ input.value=current.toFixed(3);
+ const label=Number(input.value).toFixed(3)+' Å';
+ input.nextElementSibling.textContent=label;input.setAttribute('aria-valuetext',label);
+ input.closest('label').title='Tilt 0°에서 두 최외곽 원자층 사이의 법선 거리';
 }
 let azimuth=Math.PI/4,elevation=.55;
 let relief=true,points=[],paintOrder=[];
@@ -309,11 +285,11 @@ function updateTiltLimits(i,j){
  const low=bound(-5),high=bound(5),slider=el('tilt-angle');
  tilt=Math.max(low,Math.min(high,tilt));
  slider.min=low;slider.max=high;slider.value=tilt;slider.disabled=low===high;
- el('tilt-limit').textContent=blockedOrigin?'0°에서 원자 근접 · 추가 간격을 늘리세요':'허용 Tilt '+low+'° ~ '+high+'°';
+ el('tilt-limit').textContent=blockedOrigin?'0°에서 원자 근접 · 계면 간격을 늘리세요':'허용 Tilt '+low+'° ~ '+high+'°';
  updateCandidate();
 }
 
-function draw(){const i=+el('u').value,j=+el('v').value;updateTiltLimits(i,j);el('ua').textContent=(100*i/n)+'%';el('vb').textContent=(100*j/n)+'%';if(orientation){orientation.update(i,j);if(orientation.preview()){const stored=data.geometry_only&&Number.isFinite(data.reference_gamma)&&i===minCol&&j===minRow&&['twist-angle','tilt-angle','extra-gap'].every(name=>Number(el(name).value)===0);
+function draw(){const i=+el('u').value,j=+el('v').value;updateTiltLimits(i,j);el('ua').textContent=(100*i/n)+'%';el('vb').textContent=(100*j/n)+'%';if(orientation){orientation.update(i,j);if(orientation.preview()){const stored=data.geometry_only&&Number.isFinite(data.reference_gamma)&&i===minCol&&j===minRow&&orientation.atReference();
  el('value').textContent=stored?data.reference_gamma.toFixed(energyDigits):'—';el('delta').textContent='—';structure(i,j);return}}el('value').textContent=((data.gamma_min??0)+grid[j][i]).toFixed(energyDigits);el('delta').textContent=(grid[j][i]-(layer?grid[minRow][minCol]:min)).toFixed(energyDigits);if(!hasMap()){el('value').textContent='—';el('delta').textContent='—'}surface(i,j);structure(i,j)}
 el('reference').onclick=()=>{
  el('u').value=layers?0:(minCol-data.minimum_registry[0]+n)%n;
@@ -376,17 +352,17 @@ if(document.documentElement.classList.contains('embedded')){
  const main=document.querySelector('main');
  new ResizeObserver(()=>parent.postMessage({type:'pes-height',height:Math.ceil(main.getBoundingClientRect().height)},'*')).observe(main);
 }
-if(layers){el('gap').oninput=selectGap;selectGap()}
+
 const jump=new URLSearchParams(location.search);
 if(layers && jump.has('layer')){
  const index=Number(jump.get('layer'));
- if(Number.isInteger(index)&&layers[index]){el('gap').value=index;selectGap()}
+ if(Number.isInteger(index)&&layers[index]){el('interface-gap').value=layers[index].gap.toFixed(3);draw()}
 }
+if(layers)draw();
 if(jump.get('at')==='minimum')el('minimum').click();
 if(jump.get('at')==='reference'&&!data.geometry_only)el('reference').click();
-el('twist-angle').oninput=el('tilt-angle').oninput=el('extra-gap').oninput=()=>{
- extraGap=Number(el('extra-gap').value);
- el('gap-value').textContent=extraGap.toFixed(2)+' Å';
+el('twist-angle').oninput=el('tilt-angle').oninput=el('interface-gap').oninput=()=>{
+ extraGap=Number((Number(el('interface-gap').value)-Number(data.metrics.gap_A.toFixed(3))).toFixed(3));
  tilt=Number(el('tilt-angle').value);
  degrees=Number(el('twist-angle').value);
  id=degrees===45?'twist':'reference';
