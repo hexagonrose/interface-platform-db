@@ -289,7 +289,8 @@ function structure(i,j){
  paintAtoms(corners,coords,g,project,scale);drawAxes(rotatePoint,w,h);
 }
 const orientation=typeof createOrientation==='function'?createOrientation():null;
-function draw(){const i=+el('u').value,j=+el('v').value;el('ua').textContent=(100*i/n)+'%';el('vb').textContent=(100*j/n)+'%';if(orientation){orientation.update(i,j);if(orientation.preview()){el('value').textContent='—';el('delta').textContent='—';structure(i,j);return}}el('value').textContent=((data.gamma_min??0)+grid[j][i]).toFixed(energyDigits);el('delta').textContent=(grid[j][i]-(layer?grid[minRow][minCol]:min)).toFixed(energyDigits);surface(i,j);structure(i,j)}
+function draw(){const i=+el('u').value,j=+el('v').value;el('ua').textContent=(100*i/n)+'%';el('vb').textContent=(100*j/n)+'%';if(orientation){orientation.update(i,j);if(orientation.preview()){const stored=data.geometry_only&&Number.isFinite(data.reference_gamma)&&i===minCol&&j===minRow&&['twist-angle','tilt-angle','extra-gap'].every(name=>Number(el(name).value)===0);
+ el('value').textContent=stored?data.reference_gamma.toFixed(energyDigits):'—';el('delta').textContent='—';structure(i,j);return}}el('value').textContent=((data.gamma_min??0)+grid[j][i]).toFixed(energyDigits);el('delta').textContent=(grid[j][i]-(layer?grid[minRow][minCol]:min)).toFixed(energyDigits);surface(i,j);structure(i,j)}
 el('reference').onclick=()=>{
  el('u').value=layers?0:(minCol-data.minimum_registry[0]+n)%n;
  el('v').value=layers?0:(minRow-data.minimum_registry[1]+n)%n;
@@ -346,5 +347,12 @@ if(document.documentElement.classList.contains('embedded')){
  new ResizeObserver(()=>parent.postMessage({type:'pes-height',height:Math.ceil(main.getBoundingClientRect().height)},'*')).observe(main);
 }
 if(layers){el('gap').oninput=selectGap;selectGap()}
+const jump=new URLSearchParams(location.search);
+if(layers && jump.has('layer')){
+ const index=Number(jump.get('layer'));
+ if(Number.isInteger(index)&&layers[index]){el('gap').value=index;selectGap()}
+}
+if(jump.get('at')==='minimum')el('minimum').click();
+if(jump.get('at')==='reference'&&!data.geometry_only)el('reference').click();
 new ResizeObserver(draw).observe(el('pes'));draw();
 </script></html>
