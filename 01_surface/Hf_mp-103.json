@@ -675,7 +675,7 @@
     },
     "provenance": {
       "dataset": "Hf-HCP-surface",
-      "source_sha256": "07c2c6ad9a5e989a78f2bff91560be3b61d03e0ee1911b70cb1f0c1d422fd010",
+      "source_sha256": "f3213ae96949010a211aebe94db13c857f52539f95b1f358d2dc55bff66966ee",
       "model": "SevenNet-Omni",
       "modal": "mpa",
       "checkpoint_sha256": "ca81bd3aac9fc2696c93dd386615f5a0fe41b92ab9ed7f69fa9526baaa9bab64"

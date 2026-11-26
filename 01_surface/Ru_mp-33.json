@@ -507,7 +507,7 @@
     },
     "provenance": {
       "dataset": "Ru-HCP-surface",
-      "source_sha256": "1abfa7936c1ae0d2f59ac76841230d82cef5d9f5ccff8cfcd126de49e013a10a",
+      "source_sha256": "36d3abd5f0eda65e61982feee4bc30c4bcd28eb12b12a71dc1eda96247ed90e2",
       "model": "SevenNet-Omni",
       "modal": "mpa",
       "checkpoint_sha256": "ca81bd3aac9fc2696c93dd386615f5a0fe41b92ab9ed7f69fa9526baaa9bab64"

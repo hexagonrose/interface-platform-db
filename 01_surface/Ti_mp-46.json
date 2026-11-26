@@ -675,7 +675,7 @@
     },
     "provenance": {
       "dataset": "Ti-HCP-surface",
-      "source_sha256": "0a236a2bd87b1c7bf6683142c72767d64e8415c03ef197239114be11dc9cbdb7",
+      "source_sha256": "31ed0c602ba5e77f91de6ef5da038d6abcb24d341274f1307be213461aa01966",
       "model": "SevenNet-Omni",
       "modal": "mpa",
       "checkpoint_sha256": "ca81bd3aac9fc2696c93dd386615f5a0fe41b92ab9ed7f69fa9526baaa9bab64"
