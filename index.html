@@ -482,7 +482,7 @@ function facetChart(){
  const max=facetGammaMin[rows[rows.length-1].id];
  return `<section class="facet-chart" aria-label="결정면별 최저 계면에너지"><h2>결정면별 최저 계면에너지 <small>γ</small></h2>${rows.map(r=>`<button data-facet-record="${esc(r.id)}" aria-pressed="${r.id===entry.id}"><span>${esc(r.face_pair)}</span><i aria-hidden="true"><b style="width:${100*facetGammaMin[r.id]/max}%"></b></i><strong>${num(facetGammaMin[r.id],3)} <small>J/m²</small></strong></button>`).join('')}</section>`
 }
-const pairMinima={"Cu/Ni2Si": {"record": "registry-cuni2si001_1_0", "gamma": 0.34292464710517595, "at": "reference", "mapped": {"record": "builder-cu111-ni2si011-c1", "gamma": 0.6997612071210999, "at": "minimum", "viewer": "pes.html"}}, "Cu/G-phase": {"record": "cugphase-mpa", "gamma": 0.936524253251382, "at": "reference"}, "Cu/Ni": {"record": "builder-cu100-ni100-c1", "gamma": 0.07019503250525982, "at": "minimum", "viewer": "pes.html"}, "Al/Zn": {"record": "builder-al111-zn001-c4", "gamma": 0.2539857926764376, "at": "minimum", "viewer": "pes.html"}};
+const pairMinima={"Cu/Ni2Si": {"record": "registry-cuni2si001_1_0", "gamma": 0.34292464710517595, "at": "reference", "mapped": {"record": "registry-cuni2si001_1_0", "gamma": 0.3429298681221761, "at": "minimum", "viewer": "pes.html"}}, "Cu/G-phase": {"record": "cugphase-mpa", "gamma": 0.936524253251382, "at": "reference"}, "Cu/Ni": {"record": "builder-cu100-ni100-c1", "gamma": 0.07019503250525982, "at": "minimum", "viewer": "pes.html"}, "Al/Zn": {"record": "builder-al111-zn001-c4", "gamma": 0.2539857926764376, "at": "minimum", "viewer": "pes.html"}};
 function renderOverview(){
  const winner=pairMinima[entry.materials.join('/')];
  const mapButton=winner?.mapped?` <button data-pes-min title="이 물질쌍의 계산된 2D PES 전체에서 가장 낮은 계면에너지 위치로 이동">2D PES 최저점으로 이동</button>`:'';
@@ -629,7 +629,7 @@ $('match-drawer').ontoggle=()=>{
 };
 $('matching-grid').onclick=e=>{const b=e.target.closest('[data-match]');if(b){matchingId=b.dataset.match;setView('matching')}};
 let slidePathId=null;
-function hasPes(){return entry?.kind==='interface' && (entry.id==='cugphase-mpa'||!!entry.conditions.builder)}
+function hasPes(){return entry?.kind==='interface' && (['cugphase-mpa','registry-cuni2si001_1_0','registry-cuni2si010_1_0'].includes(entry.id)||!!entry.conditions.builder)}
 $('back-overview').onclick=()=>{setView('overview');($('view-overview').closest('nav').hidden?$('pair-choices').querySelector('[aria-pressed=true]'):$('view-overview')).focus()};
 window.addEventListener('message',e=>{
  const match=$('lattice-match');
