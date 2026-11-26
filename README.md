@@ -8,6 +8,16 @@ MLIP-based database of metal surfaces, interfaces and alloying-element energetic
 - 2026-11-18 기준 고정본: [`v2026.11.18`](https://github.com/hexagonrose/interface-platform-db/tree/v2026.11.18) (`catalog.json` SHA-256 `d8603adfc76383a25a35084e733451b60c2b73f7cad4327840cc68f273e836a5`)
 - 계산 모델: SevenNet-Omni, MPA modal
 
+## Surface 계산 결과 업로드
+
+검증을 마친 홑원소 결정상마다 [01_surface](01_surface)에 `원소_mp-ID.json` 파일 하나를 올립니다. 예를 들어 Mg 갱신은 [Mg_mp-153.json](01_surface/Mg_mp-153.json)을 교체합니다. 새 결정상에는 고유한 `record.id`를 사용하고 `record.material_id`를 바깥의 `material_id`와 맞춥니다. 같은 원소의 다른 상은 별도 파일로 올립니다.
+
+파일의 `record`에는 면별 에너지(J/m²), 슬랩 원자구조, 계산 출처와 Wulff 형상을 담습니다. `nano`에는 검증을 통과한 면별 비교값, `failures`에는 보류 모델과 실패한 면의 사유를 담습니다. 계산 수렴과 모델 기준상 검토는 업로드 전에 수행합니다.
+
+`main`에 반영하면 GitHub Actions가 식별자·필수 값·슬랩 구조를 검사하고 모바일·데스크톱에서 각 결정상의 화면을 엽니다. 검사를 통과하면 Pages에 배포합니다. 실패 사유는 저장소의 Actions에서 확인할 수 있으며 직전 성공 배포가 계속 제공됩니다.
+
+최신 전체 데이터는 [공개 catalog.json](https://hexagonrose.github.io/interface-platform-db/catalog.json)에서 받습니다. 저장소 루트의 `catalog.json`은 기존 자료를 합치는 기준 스냅숏입니다. 홑원소 Surface는 `01_surface`의 결과가 우선합니다.
+
 ## 연구 계획 대응
 
 2025년(2단계 1차년도) 보고서의 차년도 계획 "합금 원소 및 이질상 구성 원소 분석용 자동화 플랫폼 구축"에 대응하는 결과물입니다.
