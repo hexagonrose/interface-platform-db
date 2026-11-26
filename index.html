@@ -457,7 +457,7 @@ const pairMinima={"Cu/Ni2Si": {"record": "registry-cuni2si001_1_0", "gamma": 0.3
 function renderOverview(){
  const winner=pairMinima[entry.materials.join('/')];
  const mapButton=winner?.mapped?` <button data-pes-min title="이 물질쌍의 계산된 2D PES 전체에서 가장 낮은 계면에너지 위치로 이동">2D PES 최저점으로 이동</button>`:'';
- const minimumButton=winner?`<div style="grid-column:1/-1"><button data-global-min title="이 물질쌍의 저장 구조와 계산점 중 절대 계면에너지 최저값">Global minimum · 계산 최저 γ ${num(winner.gamma,3)} J/m²</button>${mapButton}</div>`:'';
+ const minimumButton=winner?`<div style="grid-column:1/-1"><button data-global-min title="이 물질쌍의 저장 구조와 계산점 중 절대 계면에너지 최저값">계산 최저 구조로 이동</button>${mapButton}</div>`:'';
 
  $('structure-panel').append($('visual-preview'));  // keep the shared viewer out of the innerHTML reset
  const b=entry,nano=nanoInt(b.id),strain=b.conditions.film_strain_percent;
