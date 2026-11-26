@@ -456,7 +456,7 @@ function facetChart(){
 const pairMinima={"Cu/Ni2Si": {"record": "registry-cuni2si001_1_0", "gamma": 0.34292464710517595, "at": "reference", "mapped": {"record": "builder-cu111-ni2si011-c1", "gamma": 0.6997612071210999, "at": "minimum", "viewer": "pes.html"}}, "Cu/G-phase": {"record": "cugphase-mpa", "gamma": 0.936524253251382, "at": "reference"}, "Cu/Ni": {"record": "builder-cu100-ni100-c1", "gamma": 0.07019503250525982, "at": "minimum", "viewer": "pes.html"}, "Al/Zn": {"record": "builder-al111-zn001-c4", "gamma": 0.2539857926764376, "at": "minimum", "viewer": "pes.html"}};
 function renderOverview(){
  const winner=pairMinima[entry.materials.join('/')];
- const mapButton=winner?.mapped?` <button data-pes-min>2D PES 최저점 · γ ${num(winner.mapped.gamma,3)} J/m²</button>`:'';
+ const mapButton=winner?.mapped?` <button data-pes-min title="이 물질쌍의 계산된 2D PES 전체에서 가장 낮은 계면에너지 위치로 이동">2D PES 최저점으로 이동</button>`:'';
  const minimumButton=winner?`<div style="grid-column:1/-1"><button data-global-min title="이 물질쌍의 저장 구조와 계산점 중 절대 계면에너지 최저값">Global minimum · 계산 최저 γ ${num(winner.gamma,3)} J/m²</button>${mapButton}</div>`:'';
 
  $('structure-panel').append($('visual-preview'));  // keep the shared viewer out of the innerHTML reset
