@@ -276,7 +276,9 @@ function renderCrystalium(symbol){
   if(own?.shape&&!Object.keys(sets).length)sets[own.surfaces.length]={omni:own.shape};
   for(const [n,meshes] of Object.entries(sets))if(phase.common_tran?.[n])meshes.tran=phase.common_tran[n];
   const sizes=Object.keys(sets);
-  let scope=sizes.at(-1)||'all',model=own?'omni':'tran',yaw=.35,pitch=.45,magnification=1;
+  const largest=sizes.at(-1);
+  let scope=sets[largest]?.tran||!phase.faces?.length ? (largest||'all') : 'all';
+  let model='tran',yaw=.35,pitch=.45,magnification=1;
   const other=Object.values(own?.dft_sources||{legacy:own?.literature}).filter(r=>r&&!r.source.startsWith('Tran'));
   const rows=facets.map(s=>{
    let key=crystalFacetKey(s.miller_index);
@@ -336,13 +338,22 @@ function renderCrystalium(symbol){
    const common=sets[scope]||sets[sizes.at(-1)]||{};
    const meshes={...common};
    if(scope==='all'&&own)meshes.omni=own.shape;
-   const available=Object.keys(meshes);
-   if(scope==='all'&&!available.includes('tran'))available.push('tran');
-   if(!available.includes(model))model=available[0];
-   buttons.innerHTML=available.length>1?available.map(k=>`<button data-series-model="${k}" aria-pressed="${k===model}">${models[k]}</button>`).join(''):'';
-   for(const [k,f] of failures){
+   const available=new Set(Object.keys(meshes));
+   if(scope==='all'&&phase.faces?.length)available.add('tran');
+   if(!available.has(model))model=available.values().next().value||'tran';
+   const failed=new Map(failures);
+   const order=['tran','omni','nano','mace','song','kabalan'];
+   buttons.replaceChildren();
+   for(const k of order){
+    if(!available.has(k)&&!failed.has(k))continue;
+    if(available.size===1&&!failed.size)continue;
     const btn=document.createElement('button');
-    btn.disabled=true;btn.dataset.seriesModel=k;btn.title=f.summary;btn.textContent=models[k]+(f.failed_facets?' · 보류':' · 정의 불가');
+    btn.dataset.seriesModel=k;btn.textContent=models[k];
+    if(available.has(k))btn.setAttribute('aria-pressed',String(k===model));
+    else{
+     const f=failed.get(k);
+     btn.disabled=true;btn.title=f.summary;btn.textContent+=f.failed_facets?' · 보류':' · 정의 불가';
+    }
     buttons.append(btn);
    }
    const mesh=meshes[model],full=scope==='all'&&model==='tran';

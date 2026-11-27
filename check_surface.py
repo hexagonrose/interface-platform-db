@@ -33,6 +33,22 @@ with ThreadingHTTPServer(('127.0.0.1', 0), partial(Handler, directory=site)) as 
             page.goto(url + '#' + record['id'])
             expect(page.locator('#title')).to_have_text(record['title'])
             expect(page.locator('#surface-load-status')).to_be_hidden()
+            reference = page.locator('[data-series-model="tran"]')
+            if reference.count():
+                expect(page.locator('[data-series-model]').first).to_have_attribute('data-series-model', 'tran')
+                expect(reference).to_have_attribute('aria-pressed', 'true')
+            if record['id'] == 'cu-surface-wulff':
+                scope = page.locator('#shape-controls select')
+                scope.select_option('3')
+                shape = page.locator('#crystal-shape')
+                original = shape.inner_html()
+                shape.press('ArrowRight')
+                rotated = shape.inner_html()
+                assert rotated != original
+                page.locator('[data-series-model="omni"]').click()
+                reference.click()
+                expect(scope).to_have_value('3')
+                assert shape.inner_html() == rotated
             for model in record.get('wulff_comparison', {}):
                 button = page.locator(f'[data-series-model="{model}"]')
                 button.click()
