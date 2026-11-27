@@ -1,4 +1,5 @@
 """Assemble the public Pages artifact from validated elemental surface files."""
+from build_pes import assemble
 import hashlib
 import json
 import math
@@ -90,6 +91,12 @@ def build(out):
         except (TypeError, KeyError, ValueError) as err:
             raise ValueError(f'{path.name}: {err}') from err
     require(all('kind' in r for r in records.values()), 'missing phase file for a registered record')
+    pes_files, layers_by_id = assemble(ROOT, out, records)
+    db['interface_pes'] = {key:dict(file=file,model='SevenNet-Omni(MPA)',method='rigid',
+        twist_offset_deg=0,tilt_offset_deg=0,unit='J/m²',source_sha256=records[key]['provenance']['structure_sha256'],
+        checkpoint_sha256=records[key]['provenance']['checkpoint_sha256'],
+        layers=[dict(gap_A=l['gap'],dz_A=l['dz'],grid_size=len(l['gamma'])) for l in layers_by_id[key]])
+        for key,file in pes_files.items()}
     db['records'] = list(records.values())
     write_json(out / 'catalog.json', db)
     db['records'] = [stubs.get(r['id'], r) for r in db['records']]
@@ -104,7 +111,30 @@ def build(out):
                 require(changes == 1, 'missing catalog binding in index.html')
                 html = html.replace('</main><script>', '</main><script src="site-data.js"></script><script>')
             require('src="site-data.js"' in html and 'fetch(record.surface_file)' in html, 'missing phase loader')
+            for binding in ('pairMinima','facetGammaMin'):
+                pattern = rf'^const {binding}=(.*);$'
+                match = re.search(pattern,html,re.M)
+                values = json.loads(match[1])
+                for key, layers in layers_by_id.items():
+                    pair = '/'.join(records[key]['materials'])
+                    for i,layer in enumerate(layers):
+                        a,b = layer['minimum']
+                        gamma = layer['gamma'][b][a]
+                        if binding=='facetGammaMin':
+                            values[key]=min(values.get(key,gamma),gamma)
+                        else:
+                            winner=values[pair]
+                            target=dict(record=key,gamma=gamma,at='minimum',viewer='pes.html',layer=i)
+                            mapped=winner.get('mapped',winner)
+                            if gamma < winner['gamma']-1e-6:
+                                values[pair]={**target,'mapped':target}
+                            elif gamma < mapped['gamma']-1e-6:
+                                winner['mapped']=target
+                html = re.sub(pattern,lambda m:f'const {binding}='+json.dumps(values,separators=(',',':'))+';',html,flags=re.M)
             (out / path.name).write_text(html)
+        elif path.name=='pes.html':
+            html=path.read_text().replace('const uploadedPesFiles={};','const uploadedPesFiles='+json.dumps(pes_files)+';')
+            (out/path.name).write_text(html)
         else:
             shutil.copyfile(path, out / path.name)
     shutil.copyfile(ROOT / '.nojekyll', out / '.nojekyll')

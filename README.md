@@ -8,6 +8,15 @@ MLIP-based database of metal surfaces, interfaces and alloying-element energetic
 - 2026-11-18 기준 고정본: [`v2026.11.18`](https://github.com/hexagonrose/interface-platform-db/tree/v2026.11.18) (`catalog.json` SHA-256 `d8603adfc76383a25a35084e733451b60c2b73f7cad4327840cc68f273e836a5`)
 - 계산 모델: SevenNet-Omni, MPA modal
 
+## Interface PES 업로드
+
+기존 Builder 계면의 동일 정합 셀에서 계산한 **고정 간격 a/b 지도 한 장**을 [02_interface_pes](02_interface_pes)에 JSON 하나로 추가합니다. `53_interface_gap_grid/00_scan.py`의 검증된 출력을 그대로 올릴 수 있습니다. 기준 지도 예시는 [Cu(110)/Ni(110)](02_interface_pes/builder-cu110-ni110-c1_dz+0.00.json)입니다.
+
+- `id`는 기존 계면 구조 ID, `source_sha256`과 `checkpoint_sha256`은 계산 원구조와 모델의 해시입니다. 첫 형식은 SevenNet-Omni(MPA), 강체 이동, 정합된 원구조에 대한 추가 twist·tilt 0°입니다.
+- `gap_A`와 `dz_A`는 최외곽 층 사이의 절대 간격과 기준 구조 대비 변화량(Å)입니다. `axes`는 0과 1을 포함한 균일 분율 격자이며 두 배열 `energies_eV`, `gamma_J_m2`의 인덱스 순서는 [b][a]입니다. `area_A2`와 `origin_control_eV`도 함께 기록합니다.
+- Pages 빌드는 구조·모델·간격·원점·양축 주기 경계 및 총에너지에서 재산출한 절대 γ를 검사합니다. 통과한 간격은 홈페이지 슬라이더에 자동 등록됩니다. 원래 격자 크기를 유지하고 서로 다른 간격 사이 에너지는 보간하지 않습니다.
+- 전체 공개 catalog.json의 `interface_pes`에서 구조별 파일과 수록 간격을 조회할 수 있습니다. 새 방위나 모델을 추가하려면 그 계산에 해당하는 셀과 에너지 참조가 필요합니다.
+
 ## Surface 계산 결과 업로드
 
 검증을 마친 홑원소 결정상마다 [01_surface](01_surface)에 `원소_mp-ID.json` 파일 하나를 올립니다. 예를 들어 Mg 갱신은 [Mg_mp-153.json](01_surface/Mg_mp-153.json)을 교체합니다. 새 결정상에는 고유한 `record.id`를 사용하고 `record.material_id`를 바깥의 `material_id`와 맞춥니다. 같은 원소의 다른 상은 별도 파일로 올립니다.

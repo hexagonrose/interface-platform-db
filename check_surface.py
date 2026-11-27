@@ -71,6 +71,24 @@ with ThreadingHTTPServer(('127.0.0.1', 0), partial(Handler, directory=site)) as 
             expect(page.locator('#gb-map-value')).to_contain_text(f'{gamma:.3f} J/m²')
             page.locator('#gb-a').press('ArrowRight')
             expect(page.locator('#gb-map-value')).to_contain_text('Δγ')
+        for layers_file in sorted((site/'02_interface_pes').glob('*.json')):
+            key=layers_file.name.split('.')[0]
+            layers=json.loads(layers_file.read_text())
+            page.goto(url+'pes.html?record='+key)
+            for layer in layers:
+                gap=f"{layer['gap']:.3f} Å"
+                page.get_by_role('button',name=gap,exact=True).click()
+                n=len(layer['gamma'])-1
+                expect(page.locator('#u')).to_have_attribute('max',str(n))
+                page.locator('#reference').click()
+                expect(page.locator('#value')).to_have_text(f"{layer['gamma'][0][0]:.3f}")
+                page.locator('#u').press('ArrowRight')
+                expect(page.locator('#value')).to_have_text(f"{layer['gamma'][0][1]:.3f}")
+                page.locator('#minimum').click()
+                expect(page.locator('#delta')).to_have_text('0.000')
+            page.locator('#twist-angle').press('ArrowRight')
+            expect(page.locator('#value')).to_have_text('—')
+        page.goto(url+'#interface')
         page.locator('#tab-solute').click()
         expect(page.locator('#tab-solute')).to_have_attribute('aria-selected', 'true')
     assert not errors, errors

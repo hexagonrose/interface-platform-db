@@ -539,6 +539,7 @@ function facetChart(){
  const max=facetGammaMin[rows[rows.length-1].id];
  return `<section class="facet-chart" aria-label="결정면별 최저 계면에너지"><h2>결정면별 최저 계면에너지 <small>γ</small></h2>${rows.map(r=>facetRow(r,facetGammaMin[r.id],max)).join('')}</section>`
 }
+const uploadedPesRecords=DB.interface_pes||{};
 const pairMinima={"Cu/Ni2Si": {"record": "registry-cuni2si001_1_0", "gamma": 0.34292464710517595, "at": "reference", "mapped": {"record": "registry-cuni2si001_1_0", "gamma": 0.3429298681221761, "at": "minimum", "viewer": "pes.html"}}, "Cu/G-phase": {"record": "cugphase-mpa", "gamma": 0.936524253251382, "at": "reference"}, "Cu/Ni": {"record": "builder-cu100-ni100-c1", "gamma": 0.07019503250525982, "at": "minimum", "viewer": "pes.html"}, "Al/Zn": {"record": "builder-al111-zn001-c4", "gamma": 0.2539857926764376, "at": "minimum", "viewer": "pes.html"}};
 function renderOverview(){
  const winner=pairMinima[entry.materials.join('/')];
@@ -548,7 +549,7 @@ function renderOverview(){
 
  $('structure-panel').append($('visual-preview'));  // keep the shared viewer out of the innerHTML reset
  const b=entry,nano=nanoInt(b.id),strain=b.conditions.film_strain_percent;
- const viewer=`<iframe id="overview-pes" title="${esc(b.face_pair||pairLabel(b))} 미끄럼 에너지 지도와 원자 구조" src="${b.id==='builder-cu100-ni2si001-c1'?'twist.html':b.id==='builder-cu100-ni100-c1'?'gap-pes.html':'pes.html'}?embed=1&amp;summary=1&amp;record=${encodeURIComponent(b.id)}${curated?'&amp;at=reference':''}&amp;v=gap-below-twist-26c9367"></iframe>`;
+ const viewer=`<iframe id="overview-pes" title="${esc(b.face_pair||pairLabel(b))} 미끄럼 에너지 지도와 원자 구조" src="${b.id==='builder-cu100-ni2si001-c1'&&!uploadedPesRecords[b.id]?'twist.html':b.id==='builder-cu100-ni100-c1'&&!uploadedPesRecords[b.id]?'gap-pes.html':'pes.html'}?embed=1&amp;summary=1&amp;record=${encodeURIComponent(b.id)}${curated?'&amp;at=reference':''}&amp;v=gap-below-twist-26c9367"></iframe>`;
  if(hasPes()){
   $('overview-panel').innerHTML=minimumButton+viewer+`${facetChart()}${b.id==='builder-al111-zn001-c4'?'<iframe id="lattice-match" title="Al(111) / Zn(001) 격자 정합" src="lattice-match.html?embed=1&amp;v=gap-below-twist-26c9367"></iframe>':''}`;
 
